@@ -38,3 +38,10 @@ input[type="email"], input[type="password"], input[type="username"]{
     padding: 10px;
     font-size: 16px;
 }
+
+main a:active{
+    color: blue;
+}
+main a:visited{
+    color: lightblue;
+}

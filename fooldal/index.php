@@ -1,22 +1,5 @@
 <?php
     session_start();
-    
-    if (!isset($_SESSION["email"])) {
-    header("Location: ../regisztracio/regisztracio.php");
-    exit();
-    }
-
-    $email = $_SESSION["email"];
-
-    include("../database.php");
-
-    $stmt = $conn->prepare("SELECT * FROM users WHERE email = ?");
-    $stmt->bind_param("s", $email);
-    $stmt->execute();
-    $result = $stmt->get_result();
-    
-    $stmt->close();
-    $conn->close();
 ?>
 
 <!DOCTYPE html>

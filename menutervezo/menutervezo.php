@@ -1,3 +1,10 @@
+<?php 
+    session_start();
+    if (!isset($_SESSION["email"])) {
+        header("Location: ../bejelentkezes/bejelentkezes.php");
+        exit();
+    }
+?>
 <!DOCTYPE html>
 <html lang="hu">
 <head>
@@ -5,7 +12,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Menütervező</title>
     <link rel="stylesheet" href="menutervezo.css">
-    <link rel="stylesheet" href="/munchies/header/header.css">
+    <link rel="stylesheet" href="../header/header.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap" rel="stylesheet">
