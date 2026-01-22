@@ -6,15 +6,16 @@
     <title>Rozé kacsamell kétkáposztás kockával</title>
     <link rel="stylesheet" href="rozeKacsamell.css">
     <link rel="stylesheet" href="../../header/header.css">
+    <link rel="stylesheet" href="../../footer/footer.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap" rel="stylesheet">
 </head>
 <body>
-    <div class="teljes_oldal">
 
-        <?php include("../../header/header.html");?>
-    
+    <?php include("../../header/receptHeader.html");?>
+
+    <div class="teljes_oldal">
         <div class="container">
             <div class="left">
                 <h1>Rozé kacsamell kétkáposztás kockával</h1>
@@ -89,37 +90,8 @@
     </div>
     <div class="spacer"></div>
     
-            <footer>
-                <div id="footerFelso">
-                    <div id="logo">
-                        <img src="../../imgs/munchieslogo.png" id="logoImg">
-                    </div>
-                    <div id="verticalLine"></div>
-                    <div id="socialmedia">
-                        <div id="imgsRow">
-                            <img src="../../imgs/facebooklogo.png" alt="">
-                            <img src="../../imgs/instagramlogo.png" alt="">
-                            <img src="../../imgs/youtubelogo.png" alt="">
-                        </div>
-                    </div>
-                    <div id="jobboldal">
-                        <div id="kapcsolat">
-                            <p>Adatvédelem</p>
-                            <p>Kapcsolatfelvétel</p>
-                            <p>Felhasználói feltételek</p>
-                            <p>Kapcsolat</p>
-                        </div>
-                        <div id="hirlevel">
-                            <input class="email" type="text" placeholder="E-mail címed">
-                            <div class="spacer_gombok"></div>
-                            <button class="iratkozas" style="height: min-content; width: 70%;">Iratkozz fel hírlevelünkre!</button>
-                        </div>
-                    </div>
-                </div>
-                <div id="footerAlso">
-                    <p>2025 Munchies · Bajai SZC Türr István Technikum<br>Minden jog fenntartva</p>
-                </div>
-            </footer>
-        <script src="main.js"></script>
+    <?php include("../../footer/receptFooter.html"); ?>
+
+    <script src="main.js"></script>
 </body>
 </html>

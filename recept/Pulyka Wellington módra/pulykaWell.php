@@ -9,15 +9,13 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="pulykaWell.css">
     <link rel="stylesheet" href="../../header/header.css">
+    <link rel="stylesheet" href="../../footer/footer.css">
 </head>
 <body>
 
-    <?php include("../../header/header.html");?>
+    <?php include("../../header/receptHeader.html");?>
 
     <div class="teljes_oldal">
-
-        
-
         <div class="container">
             <div class="left">
                 <h1>Pulyka Wellington módra</h1>
@@ -92,36 +90,8 @@
     </div>
     <div class="spacer"></div>
     
-            <footer>
-                <div id="footerFelso">
-                    <div id="logo">
-                        <img src="../../imgs/munchieslogo.png" id="logoImg">
-                    </div>
-                    <div id="verticalLine"></div>
-                    <div id="socialmedia">
-                        <div id="imgsRow">
-                            <img src="../../imgs/facebooklogo.png" alt="">
-                            <img src="../../imgs/instagramlogo.png" alt="">
-                            <img src="../../imgs/youtubelogo.png" alt="">
-                        </div>
-                    </div>
-                    <div id="jobboldal">
-                        <div id="kapcsolat">
-                            <p>Adatvédelem</p>
-                            <p>Kapcsolatfelvétel</p>
-                            <p>Felhasználói feltételek</p>
-                            <p>Kapcsolat</p>
-                        </div>
-                        <div id="hirlevel">
-                            <input type="text" placeholder="E-mail címed">
-                            <button style="height: min-content; width: 70%;">Iratkozz fel hírlevelünkre!</button>
-                        </div>
-                    </div>
-                </div>
-                <div id="footerAlso">
-                    <p>2025 Munchies · Bajai SZC Türr István Technikum<br>Minden jog fenntartva</p>
-                </div>
-            </footer>
+    <?php include("../../footer/receptFooter.html"); ?>
+
         <script src="main.js"></script>
 </body>
 </html>

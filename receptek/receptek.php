@@ -65,39 +65,8 @@
 
     <!-- tartalom vege -->
 
-
-    <!--footer  -->
-
-<footer>
-    <div id="footerFelso">
-        <div id="logo"><img src="../imgs/munchieslogo.png" id="logoImg"></div>
-        <div id="socialmedia">
-            <div id="imgsRow">
-                <a href=""><img src="../imgs/facebooklogo.png" alt=""></a>
-                <a href=""><img src="../imgs/instagramlogo.png" alt=""></a>
-                <a href=""><img src="../imgs/youtubelogo.png" alt=""></a>
-            </div>
-        </div>
-        <div id="jobboldal">
-            <div id="kapcsolat">
-                <p>Adatvédelem</p>
-                <p>Kapcsolatfelvétel</p>
-                <p>Felhasználói feltételek</p>
-                <p>Kapcsolat</p>
-            </div>
-            <div id="hirlevel">
-                <input type="text" placeholder="E-mail címed">
-                <button style="height: min-content; width: 70%;">Iratkozz fel hírlevelünkre!</button>
-            </div>
-        </div>
-    </div>
-    <div id="footerAlso">
-        <p>2025 Munchies · Bajai SZC Türr István Technikum<br>Minden jog fenntartva</p>
-    </div>
-</footer>
-
-
-    <!-- footer vege -->
+    <?php include("../footer/footer.html");?>
+    
     <script src="main.js"></script>
 </body>
 </html>

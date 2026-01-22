@@ -50,6 +50,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Bejelentkezés</title>
     <link rel="stylesheet" href="../header/header.css">
+    <link rel="stylesheet" href="../footer/footer.css">
     <link rel="stylesheet" href="bejelentkezes.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -57,6 +58,7 @@
     <script src="bejelentkezes.js"></script>
 </head>
 <body>
+
     <?php include("../header/header.html"); ?>
 
     <main>
@@ -70,7 +72,9 @@
             <button type="submit" name="bejelentkezes">Bejelentkezés</button>
             <p style="color: black;">Nincs még fiókod? <a href="../regisztracio/regisztracio.php">Regisztrálj itt!</a></p>
         </form>
-        
     </main>
+
+    <?php include("../footer/footer.html"); ?>
+
 </body>
 </html>
