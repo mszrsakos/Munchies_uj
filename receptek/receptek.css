@@ -105,7 +105,8 @@ body{
 /* Tartalom vége */
 
 
-/* footer */
+/* footer (jo!!!!)*/ 
+
 footer{
   height: 300px;
   width: 100%;
@@ -132,20 +133,23 @@ footer{
   vertical-align: top;
 }
 #logoImg{
-  height: 100%;
+  height: 80%;
   width: 100%;
+  margin-top: 15%;
 }   
 #socialmedia{
   height: 100%;
   width: 40%;
-  align-items: center;
 }
 #imgsRow{
-  margin-top: 12%;
-  height: 40%;
+  height: 50%;
   display: flex;
-  justify-content: space-evenly;  
-
+  gap: 15%;
+}
+#imgsRow>a>img{
+  height: 100%;
+  margin-top: 50%;
+  
 }
 #jobboldal{
   right: 0;
@@ -155,8 +159,23 @@ footer{
   height: 70%;
   width: 100%;
 }
+#hirlevel{
+  height: fit-content;
+  width: 100%;
+  display: flex;
+}
+input{
+  width: 60%;
+  height: 40%;
+}
 
-
+#footerAlso{
+  display: flex;
+  background-color: #8C8C8C;
+  text-align: center;
+  justify-content: center;
+  vertical-align: middle;
+}
 .hirlevel {
   display: flex;
   max-width: 420px;
@@ -193,23 +212,7 @@ footer{
 
 .hirlevel button:hover {
   background: #8C8C8C;
-}
-
-
-input{
-  width: 60%;
-
-  border: none;
-}
-
-#footerAlso{
-  display: flex;
-  background-color: #8C8C8C;
-  text-align: center;
-  justify-content: center;
-  vertical-align: middle;
-}
-
+} 	
 /* footer vége */
 
 /* tartalom */
@@ -259,7 +262,7 @@ input{
   line-height: 1.5; /* Szöveg sorainak magassága */
   text-align: center; /* Szöveg középre igazítása */
 }
-.ajanlat_tartalom a{
+.ajanlat_tartalom>a{
   text-decoration: none;
   color: black;
 }
@@ -277,7 +280,7 @@ input{
   color: inherit; /* Szöveg színének öröklése */
 }
 
-.kepLink img {
+.kepLink>img {
   display: block; /* Kép blokkszintűvé tétele */
   width: 100%; /* Kép teljes szélességben */
   aspect-ratio: 1/1; /* Négyzetes arány */
