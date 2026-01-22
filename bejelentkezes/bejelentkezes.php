@@ -10,8 +10,8 @@
 
     if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["bejelentkezes"])) {
        
-        $email = filter_input(INPUT_POST, "email", FILTER_VALIDATE_EMAIL);
-        $password = $_POST["password"]; 
+        $email = $_POST["email"] ?? "";
+        $password = $_POST["password"] ?? ""; 
 
         if (!$email || empty($password)) {
             $_SESSION["error"] = "Érvénytelen email vagy jelszó!";
@@ -25,7 +25,7 @@
         $result = $stmt->get_result();
 
         if ($row = $result->fetch_assoc()) {
-            if (password_verify($password, $row["password"])) {
+            if ($password === $row["password"]) {
 
                 session_regenerate_id(true);
 
@@ -55,26 +55,30 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap" rel="stylesheet">
-    <script src="bejelentkezes.js"></script>
 </head>
 <body>
 
     <?php include("../header/header.html"); ?>
 
     <main>
-        <form id="loginForm" action="#" method="POST">
+        <form id="loginForm" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="POST">
             <label for="email">Email cím:</label> <br>
-            <input type="email" id="email" name="email" required> <br>
+            <input type="email" id="email" name="email" required> <p class="error" id="emailError"></p> <br>
         
             <label for="password">Jelszó:</label> <br>
-            <input type="password" id="password" name="password" required> <br>
-        
-            <button type="submit" name="bejelentkezes">Bejelentkezés</button>
+            <input type="password" id="password" name="password" required> <p class="error" id="passwordError"></p>
+            
+            <?php if (isset($_SESSION["error"])): ?>
+                <p class="error"><?= $_SESSION["error"]; ?></p>
+                <?php unset($_SESSION["error"]); ?>
+            <?php endif; ?>
+            <button type="submit" name="bejelentkezes" onclick="return loginCheck()">Bejelentkezés</button>
             <p style="color: black;">Nincs még fiókod? <a href="../regisztracio/regisztracio.php">Regisztrálj itt!</a></p>
         </form>
     </main>
 
     <?php include("../footer/footer.html"); ?>
 
+    <script src="bejelentkezes.js"></script>
 </body>
 </html>

@@ -45,3 +45,10 @@ main a:active{
 main a:visited{
     color: lightblue;
 }
+
+.error{
+    color: red;
+    font-size: 14px;
+    margin: 0;
+    padding: 0;
+}

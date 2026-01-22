@@ -4,6 +4,26 @@
         header("Location: ../bejelentkezes/bejelentkezes.php");
         exit();
     }
+
+    // if ($_SERVER["REQUEST_METHOD"] == "POST") {
+
+    //     if (isset($_POST["felhasznSubmit"])) {
+    //         $username = trim(($_POST['username']));
+    //         $new_email = trim(($_POST['email']));
+
+    //         if ($username !== $user['username'] || $new_email !== $user['email']) {
+    //             $sql = "UPDATE users SET username = ?, email = ? WHERE id = ?";
+    //             $stmt = $conn->prepare($sql);
+    //             $stmt->bind_param("ssi", $username, $new_email, $user_id);
+    //             $stmt->execute();
+    //             $stmt->close();
+    //             $_SESSION['email'] = $new_email;
+    //             header("Location: beallitasok.php"); 
+    //             exit();
+                
+    //         }
+    //     }
+    // }
 ?>
 <!DOCTYPE html>
 <html lang="hu">
@@ -48,9 +68,8 @@
          <!-- Tartalom kezdete -->
          <div class="tartalom">
             <div>
-                <button class="button1">Személyes adatok módosítása</button>
-                <button class="button2">Változtatások mentése</button>
-                <button class="button2"><a href="../kijelentkezes.php">Kijelentkezés</a></button>
+                <button class="button1"><a href="../beallitasok/beallitasok.php">Beállítások</a></button>
+                <button class="button1"><a href="../kijelentkezes.php">Kijelentkezés</a></button>
             </div>
 
             <div class="valtoztatasok">
