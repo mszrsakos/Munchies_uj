@@ -1,0 +1,6 @@
+CREATE TABLE meals (
+  id INT AUTO_INCREMENT PRIMARY KEY,
+  date DATE,
+  meal_type VARCHAR(20),
+  food VARCHAR(100)
+);

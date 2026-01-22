@@ -1,0 +1,272 @@
+  html{
+    background-color: #D2E4E3;
+    color: white;
+    font-family:"Inter";
+}
+body{
+    margin: 0;
+    display: grid;
+    grid-template-rows: auto 1fr auto;
+    font-family: "Inter";
+    font-style: italic;
+    background-image: url("../imgs/receptek_bg.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+nav{
+        height: 110px;
+        background-color: #6C9995;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 0 20px;
+ 
+}
+#main_logo{
+    height: 100px;
+    margin-left: 20px;
+    
+    
+}
+/* #kereses{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: "Inter";
+  border-radius: 25px;
+}
+#kereses input[type="button"]{
+  width: 15%;
+  background-position-x: -5px;
+  border-radius: 50px;
+  height: 2.55rem;
+  background-color: #6C9995;
+  color: white;
+
+}
+#kereses input[type="button"]:hover{
+  background-color: #97bbb9;
+  color: black;
+}
+#kereses input[type="text"]{
+  border-radius: 50px;
+  padding-left: 1.25rem;
+  height: 2.25rem;
+} */
+
+
+/* Tartalom kezdete */
+
+.ajanlat_tartalom{  
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 400px;
+
+}
+
+.container {
+  display: flex;
+  height: 100vh; /* teljes képernyő magasság */
+}
+
+.left {
+  width: 50%;
+  
+}
+.tartalom p{
+  text-align: center;
+}
+.right {
+  width: 30%;
+  background-color: #6C9995;
+  border-radius: 10px;
+  margin-top: 20px;
+  height: 60%;
+}
+.right h1{
+  padding-left: 30px;
+
+}
+.container{
+  font-family: "Inter";
+  width: 100%;
+  min-height: 100vh;
+  background-image: linear-gradient(#6C9995),(#6C9995),;
+  background-position: center;
+  background-size: cover;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.search-bar{
+  font-family: "Inter";
+  width: 100%;
+  max-width: 80%;
+  display: flex;
+  background: #6C9995;
+  align-items: center;
+  border-radius: 60px;
+  padding: 5px 20px;
+  backdrop-filter: blur(4px) saturate(180%);
+}
+.search-bar input{
+  background: transparent;
+  flex: 1;
+  border: 0;
+  outline: none;
+  padding: 24px 20px;
+  font-size: 20px;
+  color: white;
+  font-size: 40px;
+}
+::placeholder
+{
+  color:white;
+  opacity: 25%;
+}
+.search-bar button img{
+  width: 50px;
+
+}
+.search-bar button{
+  border: 0;
+  border-radius: 50%;
+  width: 60px;
+  height: 60px;
+  background: #6C9995;
+}
+nav p{
+    margin-left: 20px;
+    font-size: 20px;
+    margin-top: -20px;
+    
+}
+.jobb_oldal_nav{
+   gap: 30px;
+    display: flex;
+    
+}
+.nav_elem{
+ margin-top: 30px;
+ font-size: 30px;
+   
+}
+.icon{
+    height: 80px;
+}
+
+
+
+
+
+/* Tartalom vége */
+
+
+/* footer */
+footer{
+  height: 300px;
+  width: 100%;
+  position:static;
+  bottom: 0;
+  color: white;
+  margin-top: 250px;
+}
+
+#footerFelso{
+  display: flex;
+  background-color: #6C9995;
+  height: 80%;
+  width: 100%;
+}
+
+#footerAlso{
+  height: 20%;
+}
+
+#logo{
+  padding: 0px 20px;
+  height: 100%;
+  vertical-align: top;
+}
+#logoImg{
+  height: 100%;
+  width: 100%;
+}   
+#socialmedia{
+  height: 100%;
+  width: 40%;
+}
+#imgsRow{
+  height: 25%;
+  display: flex;
+}
+#jobboldal{
+  right: 0;
+  height: 100%;
+}
+#kapcsolat{
+  height: 70%;
+  width: 100%;
+}
+#hirlevel{
+  height: fit-content;
+  width: 100%;
+  display: flex;
+}
+input{
+  width: 60%;
+  height: 40%;
+}
+
+#footerAlso{
+  display: flex;
+  background-color: #8C8C8C;
+  text-align: center;
+  justify-content: center;
+  vertical-align: middle;
+}
+
+/* footer vége */
+
+/* tartalom */
+.tartalom .kep{
+  margin: 30px;
+  height: 500px;
+  width: 700px;
+}
+.ajanlat_tartalom{
+    width: 800px;
+    margin: auto;
+    text-align: center;
+    display: flex;
+    flex-direction: row;
+    grid-template-columns: repeat(3, 1fr); /* Három egyenlő oszlop */
+    gap: 20px;
+}
+
+.ajanlat{
+  color:  black;
+  font-size: 250%;
+  margin-bottom: 0;
+  font-weight: 600;
+  text-align: center;
+
+}
+.ajanlat_tartalom p{
+  color:  black;
+  padding-left: 4%;
+  font-size: 250%;
+  margin-bottom: 0;
+  font-weight: 600;
+  text-align: center;
+  width: 100%;
+}
+#jobb_oldal_leiras{
+  float: right;
+  margin: auto;
+  color: black;
+  width: 50%;
+  display: flex;
+
+}

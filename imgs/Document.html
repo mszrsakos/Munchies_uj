@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<!-- saved from url=(0053)http://127.0.0.1:5500/Munchies/receptek/receptek.html -->
+<html lang="hu"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    
+    
+    
+    
+<link rel="stylesheet" href="./Document_files/receptek.css"><link rel="preconnect" href="https://fonts.googleapis.com/"><link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin=""><link href="./Document_files/css2" rel="stylesheet"></head>
+<body>
+    <nav>
+        <div class="bal_oldal_nav">
+            <img id="main_logo" src="./Document_files/munchieslogo.png" alt="">
+            <p>Munchies</p>
+
+        </div>
+        
+        <div class="jobb_oldal_nav">
+            <div class="nav_elem">Receptek</div>
+            <div class="nav_elem"> Menütervező</div>
+            <img class="icon" src="./Document_files/profil.png" alt="">
+        </div>
+    </nav>
+
+    <div class="tartalom">
+        <!-- bal oldal -->
+        <div class="ajanlat">
+            <p>Mai ajánlataink:</p>  
+        </div>
+        <div class="ajanlat_tartalom">
+            
+            <!-- Tom Yum leves -->
+            <div class="">
+                <div>
+                    <p>Tom Yum Goong leves</p>
+                    <img class="kep" src="./Document_files/tomyum.jpeg" alt="">
+                    
+                </div>
+                <!-- Pulyka Wellington módra -->
+                <div>
+                    <p>Pulyka Wellington módra</p>
+                    <img class="kep" src="./Document_files/pulyka_wellington.jpeg" alt="">
+                    
+                </div>
+                <!-- Rozé kacsamell kétkáposztás kockával -->
+                <div>
+                    <p>Káposztás rozé kacsamell</p>
+                    <img class="kep" src="./Document_files/roze-kacsamell.jpeg" alt="">
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container">
+        <form action="http://127.0.0.1:5500/Munchies/receptek/receptek.html" method="get" class="search-bar">
+            <input type="text" placeholder="Keresés receptre...">
+            <button type="submit"><img src="./Document_files/keresesbtn-removebg-preview.png"></button>
+        </form>
+    </div>
+
+    <!-- <div id="kereses">
+        <input id="keresIn"type="text" style="font-size: 30px">
+        <input id="keresBtn" type="button" value="Keresés" style="font-size: 30px">
+    </div> -->
+    
+
+
+
+
+    <footer>
+        <div id="footerFelso">
+            <div id="logo"><img src="./Document_files/munchieslogo.png" id="logoImg"></div>
+            <div id="socialmedia">
+                <div id="imgsRow">
+                    <img src="./Document_files/facebooklogo.png" alt="">
+                    <img src="./Document_files/instagramlogo.png" alt="">
+                    <img src="./Document_files/youtubelogo.png" alt="">
+                </div>
+            </div>
+            <div id="jobboldal">
+                <div id="kapcsolat">
+                    <p>Adatvédelem</p>
+                    <p>Kapcsolatfelvétel</p>
+                    <p>Felhasználói feltételek</p>
+                    <p>Kapcsolat</p>
+                </div>
+                <div id="hirlevel">
+                    <input type="text" placeholder="E-mail címed">
+                    <button style="height: min-content; width: 70%;">Iratkozz fel hírlevelünkre!</button>
+                </div>
+            </div>
+        </div>
+        <div id="footerAlso">
+            <p>2025&nbsp;Munchies · Bajai SZC Türr István Technikum<br>Minden jog fenntartva</p>
+        </div>
+    </footer>
+    <script src="./Document_files/main.js.letöltés"></script>
+<!-- Code injected by live-server -->
+<script>
+	// <![CDATA[  <-- For SVG support
+	if ('WebSocket' in window) {
+		(function () {
+			function refreshCSS() {
+				var sheets = [].slice.call(document.getElementsByTagName("link"));
+				var head = document.getElementsByTagName("head")[0];
+				for (var i = 0; i < sheets.length; ++i) {
+					var elem = sheets[i];
+					var parent = elem.parentElement || head;
+					parent.removeChild(elem);
+					var rel = elem.rel;
+					if (elem.href && typeof rel != "string" || rel.length == 0 || rel.toLowerCase() == "stylesheet") {
+						var url = elem.href.replace(/(&|\?)_cacheOverride=\d+/, '');
+						elem.href = url + (url.indexOf('?') >= 0 ? '&' : '?') + '_cacheOverride=' + (new Date().valueOf());
+					}
+					parent.appendChild(elem);
+				}
+			}
+			var protocol = window.location.protocol === 'http:' ? 'ws://' : 'wss://';
+			var address = protocol + window.location.host + window.location.pathname + '/ws';
+			var socket = new WebSocket(address);
+			socket.onmessage = function (msg) {
+				if (msg.data == 'reload') window.location.reload();
+				else if (msg.data == 'refreshcss') refreshCSS();
+			};
+			if (sessionStorage && !sessionStorage.getItem('IsThisFirstTime_Log_From_LiveServer')) {
+				console.log('Live reload enabled.');
+				sessionStorage.setItem('IsThisFirstTime_Log_From_LiveServer', true);
+			}
+		})();
+	}
+	else {
+		console.error('Upgrade your browser. This Browser is NOT supported WebSocket for Live-Reloading.');
+	}
+	// ]]>
+</script>
+
+</body></html>
