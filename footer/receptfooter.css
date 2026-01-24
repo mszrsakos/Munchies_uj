@@ -39,8 +39,8 @@ footer{
 }
 #imgsRow>a>img{
   height: 100%;
-  margin-top: 50%;
-  margin-left: 50%;
+  margin-left: 100%;
+
   
 }
 #jobboldal{
@@ -62,7 +62,9 @@ input{
   width: 60%;
   height: 40%;
 }
-
+#kapcsolat>#jobboldal a>p{
+  text-decoration: none;
+}
 #footerAlso{
   display: flex;
   background-color: #8C8C8C;

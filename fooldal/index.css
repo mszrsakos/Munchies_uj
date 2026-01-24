@@ -26,7 +26,7 @@ body{
 
     opacity: 0;
     transform: translateX(-50px);
-    animation: navFadeIn 1s ease-out forwards;
+    animation: navFadeIn 2s ease-out forwards;
 }
 @keyframes navFadeIn {
     to {

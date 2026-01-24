@@ -323,8 +323,8 @@ footer{
   display: flex;
 }
 input{
-  
-  
+  width: 60%;
+  height: 40%;
 }
 .email{
   width: 90%;
