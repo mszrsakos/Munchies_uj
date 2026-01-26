@@ -14,11 +14,19 @@
 <body>
     
     <?php include("../header/header.html");?>
+        <div><h1>Személyes adatok módosítása</h1></div>
 
     <main>
-        <h1>Fiók beállítások</h1>
-        <form action="">
-            
+        <form id="registerForm">
+            <label for="username">Felhasználónév</label> <br>
+            <input type="username" id="username" name="username" required> <br>
+            <label for="email">Email cím:</label> <br>
+            <input type="email" id="email" name="email" required> <br>
+            <label for="password">Jelszó:</label> <br>
+            <input type="password" id="password" name="password" required> <br>
+        
+            <button type="submit">Regisztráció</button>
+
         </form>
     </main>
 

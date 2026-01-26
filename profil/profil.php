@@ -68,7 +68,7 @@
          <!-- Tartalom kezdete -->
          <div class="tartalom">
             <div>
-                <button class="button1"><a href="../beallitasok/beallitasok.php">Beállítások</a></button>
+                <button class="button1"><a href="../beallitasok/beallitasok.php">Személyes adatok módosítása</a></button>
                 <button class="button1"><a href="../kijelentkezes.php">Kijelentkezés</a></button>
             </div>
 

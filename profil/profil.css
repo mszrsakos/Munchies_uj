@@ -95,6 +95,7 @@ height: 2.25rem;
     color: white;
     cursor: pointer;
     transition: all 0.3s ease;
+    margin-left: 20%;
 }
 .button1:hover{
     background-color: #97bbb9;
