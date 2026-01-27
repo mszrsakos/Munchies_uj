@@ -18,8 +18,32 @@ h1{
     margin-top: 5%;
 }
 
+.tartalom{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.button1{
+    margin: 30px auto 0;
+    background-color: #6C9995;
+    border: none;
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 30px;
+    height: 60px;
+    width: 500px;
+    color: white;
+    cursor: pointer;
+    transition: all 0.3s ease;
 
-
+}
+.button1 a{
+    color: white;
+    margin: auto;
+}
+.button1:hover{
+    background-color: #97bbb9;
+    transform: scale(1.05);
+}
 body{
     margin: 0;
     display: grid;
@@ -70,9 +94,4 @@ label[type="email"], label[type="password"], label[type="username"]{
     font-size: 16px;
 }
 
-main a:active{
-    color: blue;
-}
-main a:visited{
-    color: lightblue;
-}
+

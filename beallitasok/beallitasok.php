@@ -1,3 +1,78 @@
+<?php
+// session_start();
+// var_dump($_SESSION);
+// die()
+
+/* ---------- BEJELENTKEZÉS ELLENŐRZÉSE ---------- */
+// if (!isset($_SESSION["user_id"])) {
+//     die("Nem vagy bejelentkezve!");
+// }
+
+//$userId = $_SESSION["user_id"];
+
+/* ---------- ADATBÁZIS KAPCSOLAT ---------- */
+// try {
+//     $pdo = new PDO(
+//         "mysql:host=localhost;dbname=munchies;charset=utf8",
+//         "felhasznalonev",
+//         "jelszo",
+//         [
+//             PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION
+//         ]
+//     );
+// } catch (PDOException $e) {
+//     die("Adatbázis hiba: " . $e->getMessage());
+// }
+
+/* ---------- ADATOK LEKÉRÉSE ---------- */
+// $stmt = $pdo->prepare("SELECT username, email, password FROM users WHERE id = ?");
+// $stmt->execute([$userId]);
+// $user = $stmt->fetch(PDO::FETCH_ASSOC);
+
+// if (!$user) {
+//     die("Felhasználó nem található!");
+// }
+
+/* ---------- ŰRLAP FELDOLGOZÁSA ---------- */
+// $message = "";
+
+// if ($_SERVER["REQUEST_METHOD"] === "POST") {
+
+//     $username = trim($_POST["username"]);
+//     $email = trim($_POST["email"]);
+//     $oldPassword = $_POST["old_password"];
+//     $newPassword = $_POST["new_password"];
+
+    // Régi jelszó ellenőrzése
+    // if (!password_verify($oldPassword, $user["password"])) {
+    //     $message = "❌ Hibás régi jelszó!";
+    // } else {
+
+        // Ha nincs új jelszó megadva, marad a régi
+//         if (!empty($newPassword)) {
+//             $hashedPassword = password_hash($newPassword, PASSWORD_DEFAULT);
+//         } else {
+//             $hashedPassword = $user["password"];
+//         }
+
+//         $update = $pdo->prepare(
+//             "UPDATE users 
+//              SET username = ?, email = ?, password = ?
+//              WHERE id = ?"
+//         );
+
+//         $update->execute([
+//             $username,
+//             $email,
+//             $hashedPassword,
+//             $userId
+//         ]);
+
+//         $message = "✅ Adatok sikeresen frissítve!";
+//     }
+// }
+// ?> 
+
 <!DOCTYPE html>
 <html lang="hu">
 <head>
@@ -18,14 +93,32 @@
 
     <main>
         <form id="registerForm">
-            <label for="username">Felhasználónév</label> <br>
+            <label for="username">Új felhasználónév</label> <br>
             <input type="username" id="username" name="username" required> <br>
-            <label for="email">Email cím:</label> <br>
+
+            <label for="email">Új email</label> <br>
             <input type="email" id="email" name="email" required> <br>
-            <label for="password">Jelszó:</label> <br>
+
+            <label for="password">Új jelszó</label> <br>
             <input type="password" id="password" name="password" required> <br>
+
+            <!-- <form method="registerForm">
+                <label for="username">Új felhasználónév</label>
+                <input type="username" id="username" name="username" required><br>
+
+                <label for="email">Új email</label>
+                <input type="email" id="email" name="email" required><br>
+
+                <label for="password">Új jelszó</label>
+                <input type="password" id="password" name="password" required   ><br>
+            </form> -->
+                <div>
+                    <button type="submit" class="button1"><a href="../beallitasok/beallitasok.php">Mentés</a></button>
+                </div>
+            
+
         
-            <button type="submit">Regisztráció</button>
+            
 
         </form>
     </main>
