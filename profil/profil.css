@@ -80,29 +80,21 @@ height: 2.25rem;
 
 /* Tartalom kezdete */
 .tartalom{
-    display: flex;
-    flex-direction: column;
     align-items: center;
+    justify-content: center;
+    display: flex;
+    gap: 80px;
+    flex-direction: row;
+    justify-content: center;
 }
-.button1{
-    margin: 30px auto 0;
-    background-color: #6C9995;
-    border: none;
-    font-family: 'Times New Roman', Times, serif;
-    font-size: 30px;
-    height: 60px;
-    width: 500px;
-    color: white;
-    cursor: pointer;
-    transition: all 0.3s ease;
-    margin-left: 20%;
+.tartalom>h1{
+  text-align: left;
 }
-.button1:hover{
-    background-color: #97bbb9;
-    transform: scale(1.05);
+form{
+  text-align: center;
 }
 .button2{
-    margin: 30px auto 0;
+    margin: 30px 0px;
     background-color: #6C9995;
     border: none;
     font-family: 'Times New Roman', Times, serif;
@@ -112,16 +104,11 @@ height: 2.25rem;
     color: white;
     cursor: pointer;
     transition: all 0.3s ease;
+    align-self: center;
 }
 .button2:hover{
     background-color: #97bbb9;
     transform: scale(1.05);
-}
-.valtoztatasok{
-    display: flex;
-    gap: 80px;
-    justify-content: center;
-    align-items: center;
 }
 .profilkep_gomb{
     width: 400px;
@@ -137,7 +124,7 @@ height: 2.25rem;
     background-color: #97bbb9;
     transform: scale(1.05);
 }
-.nev_input{
+.display_input{
     width: 400px;
     height: 80px;
     font-size:30px;
@@ -146,115 +133,13 @@ height: 2.25rem;
 
 
 /* Rólam rész kezdete */
-.rolam{
-    padding-left: 330px;
-    margin-bottom: 50px;
-}
 .rolam_input{
     width: 800px;
     height: 200px;
     font-size:30px;
+    padding: 10px;
     vertical-align: top;
-    align-self: flex-start;
-    padding-top: 10px;
+    resize: none;
 }
 /* Rólam rész vége */
 
-/* Footer kezdete */
-footer{
-  margin-top: 100px;
-  height: 400px;
-  width: 100%;
-  position: static;
-  bottom: 0;
-  color: white;
-}
-
-#footerFelso{
-  display: flex;
-  background-color: #6C9995;
-  height: 80%;
-  width: 100%;
-}
-
-#footerAlso{
-  height: 21%;
-}
-
-#logo{
-  padding: 0px 20px;
-  height: 100%;
-  display: flex;
-}
-#verticalLine {
-  width: 1px;
-  height: 80%; 
-  background-color: #fff; 
-  align-self: center;
-}
-#logoImg{
-  height: 100%;
-  width: 100%;
-}   
-#socialmedia{
-  height: 100%;
-  width: 40%;
-  align-content: center;
-  justify-items: center;
-}
-#imgsRow{
-  margin-right: 450px;
-  height: 25%;
-  display: flex;
-}
-#jobboldal{
-  right: 0;
-  height: 100%;
-}
-#kapcsolat{
-  height: 70%;
-  width: 100%;
-}
-#hirlevel{
-  height: fit-content;
-  width: 100%;
-  display: flex;
-  gap: 10px;
-  align-items: center;
-}
-#hirlevel input{
-  width: 80%;
-  height: 40px;
-  border: none;
-  border-radius: 5px;
-  padding: 10px;
-  font-size: 14px;
-}
-#hirlevel input:focus{
-  outline: none;
-  box-shadow: 0 0 5px rgba(255, 255, 255, 0.5);
-}
-#hirlevel button{
-  width: 80%;
-  height: 45px;
-  background-color: #5A7D7A;
-  border: none;
-  border-radius: 5px;
-  color: white;
-  font-size: 16px;
-  cursor: pointer;
-  transition: all 0.3s ease;
-}
-#hirlevel button:hover{
-  background-color: #97bbb9;
-  transform: scale(1.05);
-}
-
-#footerAlso{
-  display: flex;
-  background-color: #8C8C8C;
-  text-align: center;
-  justify-content: center;
-  vertical-align: middle;
-}
-/* Footer vege */

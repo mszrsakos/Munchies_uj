@@ -43,9 +43,7 @@ footer{
 }
 #imgsRow>a>img{
   height: 100%;
-  margin-top: 50%;
-  margin-left: 50%;
-  
+  margin-left: 100%;
 }
 #jobboldal{
   right: 0;

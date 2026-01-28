@@ -12,6 +12,7 @@ body{
     background-image: url("../imgs/receptek_bg.jpg");
     background-size: cover;
     background-repeat: no-repeat;
+    width: 100%;
 }
 
 /* Tartalom kezdete */
