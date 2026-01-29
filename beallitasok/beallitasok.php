@@ -1,77 +1,62 @@
 <?php
-// session_start();
-// var_dump($_SESSION);
-// die()
+session_start();
 
-/* ---------- BEJELENTKEZÉS ELLENŐRZÉSE ---------- */
-// if (!isset($_SESSION["user_id"])) {
-//     die("Nem vagy bejelentkezve!");
-// }
+if (!isset($_SESSION["email"])) {
+    header("Location: ../bejelentkezes/bejelentkezes.php");
+    exit();
+}
 
-//$userId = $_SESSION["user_id"];
+$email = $_SESSION['email'];
 
-/* ---------- ADATBÁZIS KAPCSOLAT ---------- */
-// try {
-//     $pdo = new PDO(
-//         "mysql:host=localhost;dbname=munchies;charset=utf8",
-//         "felhasznalonev",
-//         "jelszo",
-//         [
-//             PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION
-//         ]
-//     );
-// } catch (PDOException $e) {
-//     die("Adatbázis hiba: " . $e->getMessage());
-// }
+include("../database.php");
 
-/* ---------- ADATOK LEKÉRÉSE ---------- */
-// $stmt = $pdo->prepare("SELECT username, email, password FROM users WHERE id = ?");
-// $stmt->execute([$userId]);
-// $user = $stmt->fetch(PDO::FETCH_ASSOC);
+// Fetch user_id based on the email stored in the session
+$sql = "SELECT id FROM users WHERE email = ?";
+$stmt = $conn->prepare($sql);
+$stmt->bind_param("s", $email);
+$stmt->execute();
+$result = $stmt->get_result();
+$user = $result->fetch_assoc();
+$stmt->close();
 
-// if (!$user) {
-//     die("Felhasználó nem található!");
-// }
+if (!$user) {
+    // If no user is found, redirect to login
+    header("Location: ../bejelentkezes/bejelentkezes.php");
+    exit();
+}
 
-/* ---------- ŰRLAP FELDOLGOZÁSA ---------- */
-// $message = "";
+$user_id = $user['id']; // Get the user_id
 
-// if ($_SERVER["REQUEST_METHOD"] === "POST") {
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    if (isset($_POST["username"])) {
+        $username = trim($_POST['username']);
+        $new_email = trim($_POST['email']);
+        $password = trim($_POST['password']);
 
-//     $username = trim($_POST["username"]);
-//     $email = trim($_POST["email"]);
-//     $oldPassword = $_POST["old_password"];
-//     $newPassword = $_POST["new_password"];
+        // Fetch current user data from the database
+        $sql = "SELECT username, email FROM users WHERE id = ?";
+        $stmt = $conn->prepare($sql);
+        $stmt->bind_param("i", $user_id);
+        $stmt->execute();
+        $result = $stmt->get_result();
+        $current_user = $result->fetch_assoc();
+        $stmt->close();
 
-    // Régi jelszó ellenőrzése
-    // if (!password_verify($oldPassword, $user["password"])) {
-    //     $message = "❌ Hibás régi jelszó!";
-    // } else {
+        // Compare new values with current values
+        if ($username !== $current_user['username'] || $new_email !== $current_user['email']) {
+            $sql = "UPDATE users SET username = ?, email = ? WHERE id = ?";
+            $stmt = $conn->prepare($sql);
+            $stmt->bind_param("ssi", $username, $new_email, $user_id);
+            $stmt->execute();
+            $stmt->close();
 
-        // Ha nincs új jelszó megadva, marad a régi
-//         if (!empty($newPassword)) {
-//             $hashedPassword = password_hash($newPassword, PASSWORD_DEFAULT);
-//         } else {
-//             $hashedPassword = $user["password"];
-//         }
-
-//         $update = $pdo->prepare(
-//             "UPDATE users 
-//              SET username = ?, email = ?, password = ?
-//              WHERE id = ?"
-//         );
-
-//         $update->execute([
-//             $username,
-//             $email,
-//             $hashedPassword,
-//             $userId
-//         ]);
-
-//         $message = "✅ Adatok sikeresen frissítve!";
-//     }
-// }
-// ?> 
+            $_SESSION['email'] = $new_email; // Update session email
+            header("Location: beallitasok.php");
+            exit();
+        }
+    }
+}
+?> 
 
 <!DOCTYPE html>
 <html lang="hu">
@@ -92,34 +77,18 @@
         <div><h1>Személyes adatok módosítása</h1></div>
 
     <main>
-        <form id="registerForm">
+        <form action="<?php htmlspecialchars($_SERVER["PHP_SELF"])?>" method="post">
             <label for="username">Új felhasználónév</label> <br>
-            <input type="username" id="username" name="username" required> <br>
+            <input type="username" id="username" name="username"> <br>
 
             <label for="email">Új email</label> <br>
-            <input type="email" id="email" name="email" required> <br>
+            <input type="email" id="email" name="email"> <br>
 
             <label for="password">Új jelszó</label> <br>
-            <input type="password" id="password" name="password" required> <br>
-
-            <!-- <form method="registerForm">
-                <label for="username">Új felhasználónév</label>
-                <input type="username" id="username" name="username" required><br>
-
-                <label for="email">Új email</label>
-                <input type="email" id="email" name="email" required><br>
-
-                <label for="password">Új jelszó</label>
-                <input type="password" id="password" name="password" required   ><br>
-            </form> -->
-                <div>
-                    <button type="submit" class="button1"><a href="../beallitasok/beallitasok.php">Mentés</a></button>
-                </div>
-            
-
-        
-            
-
+            <input type="password" id="password" name="password"> <br>
+            <div>
+                <button type="submit" class="button1"><a href="../beallitasok/beallitasok.php">Mentés</a></button>
+            </div>
         </form>
     </main>
 
