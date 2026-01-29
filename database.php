@@ -1,7 +1,7 @@
 <?php
-    $db_server = "172.16.100.33"; # sulis host
-    $db_user = "admin";
-    $db_pass = "123";
+    $db_server = "localhost"; # sulis host
+    $db_user = "root";
+    $db_pass = "";
     $db_name = "munchies";
     $conn = "";
 
