@@ -44,6 +44,7 @@ footer{
 #imgsRow>a>img{
   height: 100%;
   margin-left: 100%;
+  margin-top: 50%;
 }
 #jobboldal{
   right: 0;
