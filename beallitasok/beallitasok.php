@@ -10,7 +10,7 @@ $email = $_SESSION['email'];
 
 include("../database.php");
 
-// Fetch user_id based on the email stored in the session
+/* Fetch user_id */
 $sql = "SELECT id FROM users WHERE email = ?";
 $stmt = $conn->prepare($sql);
 $stmt->bind_param("s", $email);
@@ -20,43 +20,97 @@ $user = $result->fetch_assoc();
 $stmt->close();
 
 if (!$user) {
-    // If no user is found, redirect to login
     header("Location: ../bejelentkezes/bejelentkezes.php");
     exit();
 }
 
-$user_id = $user['id']; // Get the user_id
+$user_id = $user['id'];
 
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    if (isset($_POST["username"])) {
-        $username = trim($_POST['username']);
-        $new_email = trim($_POST['email']);
-        $password = trim($_POST['password']);
+if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
-        // Fetch current user data from the database
-        $sql = "SELECT username, email FROM users WHERE id = ?";
+    $new_username = trim($_POST['username'] ?? '');
+    $new_email    = trim($_POST['email'] ?? '');
+    $new_password = trim($_POST['password'] ?? '');
+
+    /* Fetch current user data */
+    $sql = "SELECT username, email, password FROM users WHERE id = ?";
+    $stmt = $conn->prepare($sql);
+    $stmt->bind_param("i", $user_id);
+    $stmt->execute();
+    $current_user = $stmt->get_result()->fetch_assoc();
+    $stmt->close();
+
+    $errors = [];
+
+    /* Check username availability */
+    if ($new_username !== "" && $new_username !== $current_user['username']) {
+        $sql = "SELECT id FROM users WHERE username = ? AND id != ?";
         $stmt = $conn->prepare($sql);
-        $stmt->bind_param("i", $user_id);
+        $stmt->bind_param("si", $new_username, $user_id);
         $stmt->execute();
-        $result = $stmt->get_result();
-        $current_user = $result->fetch_assoc();
+        $stmt->store_result();
+
+        if ($stmt->num_rows > 0) {
+            $errors[] = "Ez a felhasználónév már foglalt.";
+        }
+        $stmt->close();
+    }
+
+    /* Check email availability */
+    if ($new_email !== "" && $new_email !== $current_user['email']) {
+        $sql = "SELECT id FROM users WHERE email = ? AND id != ?";
+        $stmt = $conn->prepare($sql);
+        $stmt->bind_param("si", $new_email, $user_id);
+        $stmt->execute();
+        $stmt->store_result();
+
+        if ($stmt->num_rows > 0) {
+            $errors[] = "Ez az email cím már használatban van.";
+        }
+        $stmt->close();
+    }
+
+    /* Stop if errors exist */
+    if (!empty($errors)) {
+        $_SESSION['errors'] = $errors;
+        header("Location: beallitasok.php");
+        exit();
+    }
+
+    /* Update username */
+    if ($new_username !== "" && $new_username !== $current_user['username']) {
+        $sql = "UPDATE users SET username = ? WHERE id = ?";
+        $stmt = $conn->prepare($sql);
+        $stmt->bind_param("si", $new_username, $user_id);
+        $stmt->execute();
+        $stmt->close();
+    }
+
+    /* Update email */
+    if ($new_email !== "" && $new_email !== $current_user['email']) {
+        $sql = "UPDATE users SET email = ? WHERE id = ?";
+        $stmt = $conn->prepare($sql);
+        $stmt->bind_param("si", $new_email, $user_id);
+        $stmt->execute();
         $stmt->close();
 
-        // Compare new values with current values
-        if ($username !== $current_user['username'] || $new_email !== $current_user['email']) {
-            $sql = "UPDATE users SET username = ?, email = ? WHERE id = ?";
-            $stmt = $conn->prepare($sql);
-            $stmt->bind_param("ssi", $username, $new_email, $user_id);
-            $stmt->execute();
-            $stmt->close();
-
-            $_SESSION['email'] = $new_email; // Update session email
-            header("Location: beallitasok.php");
-            exit();
-        }
+        $_SESSION['email'] = $new_email;
     }
+
+    /* Update password (still plaintext – see note below) */
+    if ($new_password !== "") {
+        $sql = "UPDATE users SET password = ? WHERE id = ?";
+        $stmt = $conn->prepare($sql);
+        $stmt->bind_param("si", $new_password, $user_id);
+        $stmt->execute();
+        $stmt->close();
+    }
+
+    header("Location: ../profil/profil.php");
+    exit();
 }
-?> 
+?>
+ 
 
 <!DOCTYPE html>
 <html lang="hu">
@@ -77,7 +131,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         <div><h1>Személyes adatok módosítása</h1></div>
 
     <main>
-        <form action="<?php htmlspecialchars($_SERVER["PHP_SELF"])?>" method="post">
+        <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"])?>" method="post">
             <label for="username">Új felhasználónév</label> <br>
             <input type="username" id="username" name="username"> <br>
 
@@ -87,8 +141,17 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             <label for="password">Új jelszó</label> <br>
             <input type="password" id="password" name="password"> <br>
             <div>
-                <button type="submit" class="button1"><a href="../beallitasok/beallitasok.php">Mentés</a></button>
+                <button type="submit" class="button1">Mentés</button>
             </div>
+
+            <?php if (isset($_SESSION['errors'])): ?>
+                <div style="color: red; margin-top: 10px;">
+                    <?php foreach ($_SESSION['errors'] as $error): ?>
+                        <p><?= htmlspecialchars($error) ?></p>
+                    <?php endforeach; ?>
+                </div>
+                <?php unset($_SESSION['errors']); ?>
+            <?php endif; ?>
         </form>
     </main>
 
