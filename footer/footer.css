@@ -22,11 +22,15 @@ footer{
   padding: 0px 20px;
   height: 100%;
   vertical-align: top;
+
+
 }
 #logoImg{
   height: 80%;
   width: 100%;
   margin-top: 15%;
+  margin-left: 10%;
+
 }   
 #socialmedia{
   height: 100%;
@@ -39,14 +43,18 @@ footer{
 }
 #imgsRow>a>img{
   height: 100%;
+  margin-left: 100%;
   margin-top: 50%;
-  margin-left: 50%;
-  
 }
 #jobboldal{
   right: 0;
   height: 100%;
   margin-left: 10%;
+  
+}
+#jobboldal a{
+  text-decoration: none;
+  color:  white;
 }
 #kapcsolat{
   height: 70%;

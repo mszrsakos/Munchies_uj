@@ -1,6 +1,6 @@
 <?php
     session_start();
-
+    
     if (isset($_SESSION["email"])) {
         header("Location: ../fooldal/index.php");
         exit();
@@ -73,7 +73,7 @@
                 <?php unset($_SESSION["error"]); ?>
             <?php endif; ?>
             <button type="submit" name="bejelentkezes" onclick="return loginCheck()">Bejelentkezés</button>
-            <p style="color: black;">Nincs még fiókod? <a href="../regisztracio/regisztracio.php">Regisztrálj itt!</a></p>
+            <p style="color: black;">Nincs még fiókod? <a href="../regisztracio/regisztracio.php" style="color:#6C9995">Regisztrálj itt!</a></p>
         </form>
     </main>
 

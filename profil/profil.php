@@ -4,26 +4,45 @@
         header("Location: ../bejelentkezes/bejelentkezes.php");
         exit();
     }
+    include_once('../database.php');
 
-    // if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    $email = $_SESSION['email'] ?? '';
 
-    //     if (isset($_POST["felhasznSubmit"])) {
-    //         $username = trim(($_POST['username']));
-    //         $new_email = trim(($_POST['email']));
+    $username = '';
+    if ($email && $stmt = $conn->prepare("SELECT username FROM users WHERE email = ? LIMIT 1")) {
+        $stmt->bind_param("s", $email);
+        $stmt->execute();
+        $stmt->bind_result($fetched_username);
+        if ($stmt->fetch()) {
+            $username = $fetched_username;
+        }
+        $stmt->close();
+    }
 
-    //         if ($username !== $user['username'] || $new_email !== $user['email']) {
-    //             $sql = "UPDATE users SET username = ?, email = ? WHERE id = ?";
-    //             $stmt = $conn->prepare($sql);
-    //             $stmt->bind_param("ssi", $username, $new_email, $user_id);
-    //             $stmt->execute();
-    //             $stmt->close();
-    //             $_SESSION['email'] = $new_email;
-    //             header("Location: beallitasok.php"); 
-    //             exit();
-                
-    //         }
-    //     }
-    // }
+    $display = null;
+
+    if ($email && $stmt = $conn->prepare("SELECT display FROM users WHERE email = ? LIMIT 1")) {
+        $stmt->bind_param("s", $email);
+        $stmt->execute();
+        $stmt->bind_result($fdisplay);
+        if ($stmt->fetch()) $display = $fdisplay;
+        $stmt->close();
+    }
+    if ($_SERVER["REQUEST_METHOD"] == "POST") {
+        if (isset($_POST["display_input"])) {
+            $new_display = trim($_POST["display_input"]);
+            if ($email && $stmt = $conn->prepare("UPDATE users SET display = ? WHERE email = ?")) {
+                $stmt->bind_param("ss", $new_display, $email);
+                $stmt->execute();
+                $stmt->close();
+                $display = $new_display;
+                header("Location: profil.php");
+                exit();
+            }
+        }
+    }
+    
+    
 ?>
 <!DOCTYPE html>
 <html lang="hu">
@@ -51,7 +70,11 @@
                 <img class="profil_kep" src="../imgs/profil_kep-removebg-preview.png" alt="profilkep">
             </div>
             <div class="adatok">
-                <h1 class="nev">Varga Krisztina</h1>
+                <h1 class="nev"><?php if($display === null || trim($display) === '') {
+                    echo htmlspecialchars($username);
+                } else {
+                    echo htmlspecialchars($display);
+                }?></h1>
                 <br>
 
                 <div class="valami">
@@ -66,34 +89,31 @@
          <!-- Szemelyes adatok vege -->
 
          <!-- Tartalom kezdete -->
-         <div class="tartalom">
-            <div>
-                <button class="button1"><a href="../beallitasok/beallitasok.php">Beállítások</a></button>
-                <button class="button1"><a href="../kijelentkezes.php">Kijelentkezés</a></button>
+         <div>
+            <div class="tartalom">
+                <button class="button2"><a href="../beallitasok/beallitasok.php">Személyes adatok módosítása</a></button>
+                <button class="button2"><a href="../kijelentkezes.php">Kijelentkezés</a></button>
             </div>
 
-            <div class="valtoztatasok">
-                <div>
-                    <h1>Profilkép</h1>
-                    <button class="profilkep_gomb">+</button>
+            <form action="profil.php" method="POST">
+                <div class="tartalom">
+                    <div>
+                        <h1>Profilkép</h1>
+                        <button class="profilkep_gomb" type="button">+</button>
+                    </div>
+                    <div>
+                        <h1>Név</h1>
+                        <input type="text" name="display_input" class="display_input">
+                    </div>
                 </div>
-                <div>
-                    <h1>Név</h1>
-                    <input type="text" class="nev_input">
+                <div class="rolam">
+                    <h1>Rólam</h1>
+                    <textarea name="rolam_input" class="rolam_input"></textarea>
                 </div>
-            
-            </div>
+                <button class="button2"  type="submit">Mentés</button>
+            </form>
         </div>
-
-
          <!-- Tartalom vege -->
-
-        <!-- Rolam rész kezdete -->
-         <div class="rolam">
-                <h1>Rólam</h1>
-                <input type="text" class="rolam_input">
-        </div>
-        <!-- Rólam rész vége -->
     </div>
     
     <?php include("../footer/footer.html"); ?>   

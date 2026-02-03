@@ -59,9 +59,10 @@
         }
         $userID = $stmt->insert_id;
         $_SESSION["email"] = $email;
-    
+
         $stmt->close();
         $conn->close();
+        header("Location: ../fooldal/index.php");
     };
 ?>
 

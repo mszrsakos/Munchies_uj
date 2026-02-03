@@ -29,7 +29,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Button2 (Változtatások mentése) gomb kattintásának kezelése
     const button2 = document.querySelector('.button2');
-    const nevInput = document.querySelector('.nev_input');
+    const nevInput = document.querySelector('.display_input');
     const nevElement = document.querySelector('.nev');
 
     button2.addEventListener('click', function() {

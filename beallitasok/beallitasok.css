@@ -7,13 +7,91 @@ body{
     color: white;
 }
 
-main{
-    padding: 20px 50px;
-}
+
 
 h1{
     background-color: #6C9995;
     padding: 10px 20px;
     border-radius: 10px;
     width: fit-content;
+    margin: auto;
+    margin-top: 5%;
 }
+
+.tartalom{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.button1{
+    margin: 30px auto 0;
+    background-color: #6C9995;
+    border: none;
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 30px;
+    height: 60px;
+    width: 500px;
+    color: white;
+    cursor: pointer;
+    transition: all 0.3s ease;
+
+}
+.button1 a{
+    color: white;
+    margin: auto;
+}
+.button1:hover{
+    background-color: #97bbb9;
+    transform: scale(1.05);
+}
+body{
+    margin: 0;
+    display: grid;
+    grid-template-rows: auto 1fr auto;
+    font-family: "Inter";
+    background-image: url("../imgs/receptek_bg.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    color: white;
+}
+
+
+main{
+    display: flex;
+    width: 100%;
+    height: 600px;
+    justify-content: center;
+    align-items: center;
+}
+
+form{
+    text-align: center;
+}
+
+label{
+    padding: 10px 30px;
+    background: #6C9995;
+    border-radius: 10px;
+    font-size: 30px;
+}
+
+input[type="email"], input[type="password"], input[type="username"]{
+    width: 500px;
+    height: 30px;
+    margin-bottom: 20px;
+    border-radius: 10px;
+    border: 1px solid #ccc;
+    padding: 10px;
+    font-size: 16px;
+}
+label[type="email"], label[type="password"], label[type="username"]{
+    width: 500px;
+    height: 30px;
+    margin-bottom: 20px;
+    border-radius: 10px;
+    border: 1px solid #ccc;
+    padding: 10px;
+    font-size: 16px;
+}
+
+
