@@ -17,16 +17,7 @@ body{
 
 /* Tartalom kezdete */
 
-.ajanlat_tartalom{  
-  display: flex;
-  /* justify-content: center; */
-  justify-content: space-between; /* Egyenletes elosztás a képek között */
-  align-items: center; /* Képek igazítása függőlegesen */
-  gap: 10px;
-  align-items: center;
-  min-height: 400px;
 
-}
 
 
 
@@ -99,34 +90,6 @@ body{
 }
 
 
-
-
-
-
-/* Tartalom vége */
-
-
-/* footer (jo!!!!)*/ 
-
-
-/* footer vége */
-
-/* tartalom */
-.ajanlat_tartalom>.kep{
-  margin: 30px;
-  height: 350px;
-  width: 500px;
-}
-.ajanlat_tartalom{
-    width: 800px;
-    margin: auto;
-    text-align: center;
-    display: flex;
-    flex-direction: row;
-    grid-template-columns: repeat(3, 1fr); /* Három egyenlő oszlop */
-    gap: 20px;
-}
-
 .ajanlat{
   color: #fff;
   font-size: 250%;
@@ -144,6 +107,28 @@ body{
 
 
 }
+.ajanlat p {
+  margin: 0; /* Eltávolítja az alapértelmezett margót */
+  line-height: 1.5; /* Szöveg sorainak magassága */
+  text-align: center; /* Szöveg középre igazítása */
+}
+
+
+
+.ajanlat_tartalom>.kep{
+  margin: 30px;
+  height: 350px;
+  width: 500px;
+}
+.ajanlat_tartalom{
+    width: 800px;
+    margin: auto;
+    text-align: center;
+    display: flex;
+    flex-direction: row;
+    grid-template-columns: repeat(3, 1fr); /* Három egyenlő oszlop */
+    gap: 20px;
+}
 .ajanlat_tartalom p{
   color:  black;
   font-size: 250%;
@@ -153,11 +138,7 @@ body{
   width: 100%;
   
 }
-.ajanlat p {
-  margin: 0; /* Eltávolítja az alapértelmezett margót */
-  line-height: 1.5; /* Szöveg sorainak magassága */
-  text-align: center; /* Szöveg középre igazítása */
-}
+
 .ajanlat_tartalom>a{
   text-decoration: none;
   color: black;
@@ -251,5 +232,55 @@ body{
 
 }
 
+/* receptek tartalom kezdet */
+.receptTartalom {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between; /* Egyenletes elosztás */
+  gap: 20px; /* Távolság az elemek között */
+  margin-left: 10%;
+  margin-right: 10%;
+}
+
+.img-wrapper {
+  flex: 1 1 calc(25% - 20px); /* 25%-os szélesség, mínusz a gap */
+  box-sizing: border-box; /* Padding és border figyelembe vétele */
+  text-align: center;
+}
+/* receptek tartalom vege */
+
 
 /* tartalom vége */
+
+.searchWrap{
+  width: 100%;
+  max-width: 80%;
+  position: relative;
+}
+
+.searchDropdown{
+  list-style: none;
+  margin: 10px auto 0 auto;
+  padding: 0;
+  width: 100%;
+  background: #6C9995;
+  border-radius: 18px;
+  overflow: hidden;
+  display: none;
+  max-height: 260px;
+  overflow-y: auto;
+}
+
+.searchDropdown.show{ display: block; }
+
+.searchDropdown li{
+  padding: 12px 18px;
+  cursor: pointer;
+  color: white;
+  font-size: 20px;
+}
+
+.searchDropdown li:hover,
+.searchDropdown li.active{
+  background: rgba(255,255,255,0.12);
+}
