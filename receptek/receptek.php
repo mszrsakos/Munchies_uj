@@ -23,7 +23,7 @@
         <div class="ajanlat_tartalom"> 
             <!-- Tom Yum leves -->
                 <div class="img-wrapper">
-                        <a class="kepLink" href="../recept/Tom Yum recept/tomYum.php">
+                        <a class="kepLink" href="recept.php?id=<?= (int)$row["id"] ?>">
                                 <img class="kep" src="../imgs/tomyum.jpeg" alt="">
                             
                             <div class="content fade">
@@ -52,17 +52,64 @@
                         </a>  
                 </div>
         </div>
+
+            <!-- jobb oldal -->
+            
+        
+        
+        <!-- search bar -->
+        <div class="container">
+            <form action="" method="get" class="search-bar">
+                <input type="text" placeholder="Keresés receptre..." />
+                <button type="submit"><img src="../imgs/keresesbtn-removebg-preview.png"></button>
+            </form>
+            <ul class="searchDropdown" id="recipeSearchDropdown" role="listbox"></ul>
+        </div>
+
+        <!-- search bar vege -->
+
+        <div class="receptTartalom">
+                        <!-- Tom Yum leves -->
+                        <div class="img-wrapper">
+                                <a class="kepLink" href="../recept/Tom Yum recept/tomYum.php">
+                                        <img class="kep" src="../imgs/tomyum.jpeg" alt="">
+                                    
+                                    <div class="content fade">
+                                        Tom Yum leves
+                                    </div>
+                                </a>
+                        </div>
+                        <!-- Pulyka Wellington módra -->
+                        <div class="img-wrapper">
+                                <a class="kepLink" href="../recept/Pulyka Wellington módra/pulykaWell.php">
+                                        <img class="kep" src="../imgs/pulyka_wellington.jpeg" alt="">
+                                    
+                                    <div class="content fade">
+                                        Pulyka Wellington módra   
+                                    </div>
+                                </a>
+                        </div>
+                        <div class="img-wrapper">
+                                <a class="kepLink" href="../recept/Tom Yum recept/tomYum.php">
+                                        <img class="kep" src="../imgs/tomyum.jpeg" alt="">
+                                    
+                                    <div class="content fade">
+                                        Tom Yum leves
+                                    </div>
+                                </a>
+                        </div>
+                        <!-- Rozé kacsamell kétkáposztás kockával -->
+                        <div class="img-wrapper"  > 
+                                <a class="kepLink" href="../recept/Rozé kacsamell kétkáposztás kockával/rozeKacsamell.php">
+                                        <img class="kep" src="../imgs/roze-kacsamell.jpeg" alt="">
+                                    
+                                    <div class="content fade">
+                                        Rozé kacsamell kétkáposztás kockával
+                                    </div>  
+                                </a>  
+                        </div>
+        </div>
     </div>
-
-    
-
-    <div class="container">
-        <form action="" method="get" class="search-bar">
-            <input type="text" placeholder="Keresés receptre..." />
-            <button type="submit"><img src="../imgs/keresesbtn-removebg-preview.png"></button>
-        </form>
-    </div>
-
     <!-- tartalom vege -->
 
     <?php include("../footer/footer.html");?>

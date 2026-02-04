@@ -19,6 +19,7 @@
         $stmt->close();
     }
 
+    // display name
     $display = null;
 
     if ($email && $stmt = $conn->prepare("SELECT display FROM users WHERE email = ? LIMIT 1")) {
@@ -42,6 +43,8 @@
         }
     }
     
+    
+
     
 ?>
 <!DOCTYPE html>
@@ -67,7 +70,7 @@
         <!-- Szemelyes adatok kezdete -->
          <div class="szemelyes_adatok">
             <div>
-                <img class="profil_kep" src="../imgs/profil_kep-removebg-preview.png" alt="profilkep">
+                <img class="profil_kep" src="profilkep.php" alt="profilkep">
             </div>
             <div class="adatok">
                 <h1 class="nev"><?php if($display === null || trim($display) === '') {
