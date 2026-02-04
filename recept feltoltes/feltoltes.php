@@ -18,12 +18,49 @@
     <div class="cim">
         <h1>Saját recept feltöltése</h1>
     </div>
+    <h1>Recept alapadatok</h1>
 
     <div class="recept_alapadatok" >
-        <h1>Recept alapadatok</h1>
-        
-        <p>Recept neve:</p>
+
+        <div class="recept_neve" >
+        <label for="recept_neve">Recept neve:</label>
         <input type="text" id="recept_neve" name="recept_neve" placeholder="Írd be a recept nevét">
+        </div>
+
+        <div class="category-box">
+  <p class="label">Kategória</p>
+
+  <label>
+    <input type="checkbox" name="category[]" value="leves">
+    Leves
+  </label>
+
+  <label>
+    <input type="checkbox" name="category[]" value="foetel">
+    Főétel
+  </label>
+
+  <label>
+    <input type="checkbox" name="category[]" value="desszert">
+    Desszert
+  </label>
+
+  <label>
+    <input type="checkbox" name="category[]" value="vegetarianus">
+    Vegetáriánus
+  </label>
+
+  <label>
+    <input type="checkbox" name="category[]" value="vegan">
+    Vegán
+  </label>
+
+  <label>
+    <input type="checkbox" name="category[]" value="gyors">
+    Gyors recept
+  </label>
+</div>
+        
     </div>
 
 
