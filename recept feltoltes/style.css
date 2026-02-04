@@ -1,0 +1,17 @@
+html{
+    background-color: #D2E4E3;
+    color: white;
+    font-family: "Inter";
+
+}
+.cim{
+    text-align: center;
+    font-size: 20px;
+}
+.recept_alapadatok{
+    display: flex;
+}
+.recept_alapadatok input{
+width: 200px;
+height: 30px;
+}
