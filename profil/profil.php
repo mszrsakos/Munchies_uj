@@ -70,7 +70,7 @@
         <!-- Szemelyes adatok kezdete -->
          <div class="szemelyes_adatok">
             <div>
-                <img class="profil_kep" src="profilkep.php" alt="profilkep">
+                <img class="profil_kep" src="profilkep.php?v=1" alt="profilkep"><img class="profil_kep" src="profilkep.php?v=1" alt="profilkep">
             </div>
             <div class="adatok">
                 <h1 class="nev"><?php if($display === null || trim($display) === '') {
@@ -100,10 +100,23 @@
 
             <form action="profil.php" method="POST">
                 <div class="tartalom">
-                    <div>
-                        <h1>Profilkép</h1>
-                        <button class="profilkep_gomb" type="button">+</button>
-                    </div>
+                <form id="profilePicForm"
+                    action="upload_profilkep.php"
+                    method="POST"
+                    enctype="multipart/form-data">
+
+                    <input type="file"
+                        id="profilePicInput"
+                        name="profile_picture"
+                        accept="image/*"
+                        hidden>
+
+                    <button type="button"
+                            class="profilkep_gomb"
+                            onclick="document.getElementById('profilePicInput').click()">
+                        +
+                    </button>
+                </form>
                     <div>
                         <h1>Név</h1>
                         <input type="text" name="display_input" class="display_input">
