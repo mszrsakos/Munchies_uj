@@ -23,7 +23,7 @@
         <div class="ajanlat_tartalom"> 
             <!-- Tom Yum leves -->
                 <div class="img-wrapper">
-                        <a class="kepLink" href="../recept/Tom Yum recept/tomYum.php">
+                        <a class="kepLink" href="recept.php?id=<?= (int)$row["id"] ?>">
                                 <img class="kep" src="../imgs/tomyum.jpeg" alt="">
                             
                             <div class="content fade">
@@ -65,6 +65,7 @@
             </form>
             <ul class="searchDropdown" id="recipeSearchDropdown" role="listbox"></ul>
         </div>
+
         <!-- search bar vege -->
 
         <div class="receptTartalom">
