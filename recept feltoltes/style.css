@@ -8,10 +8,44 @@ html{
     text-align: center;
     font-size: 20px;
 }
-.recept_alapadatok{
+.recept_neve p {
+    margin: 0;
+}
+
+.recept_neve {
     display: flex;
+    align-items: center;
+    gap: 10px;
 }
-.recept_alapadatok input{
-width: 200px;
-height: 30px;
+
+.recept_neve p {
+    margin: 0;
 }
+.recept_neve input {
+    padding: 6px 10px;
+}
+
+.category-box {
+    background: #fff;
+    padding: 16px;
+    border-radius: 12px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+    gap: 10px;
+  }
+  
+  .category-box .label {
+    grid-column: 1 / -1;
+    font-weight: bold;
+    margin-bottom: 6px;
+  }
+  
+  .category-box label {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    cursor: pointer;
+  }
+
+
