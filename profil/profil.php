@@ -53,7 +53,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Profil</title>
-    <link rel="stylesheet" href="profil.css">
+    <link rel="stylesheet" href="profil1.css">
     <link rel="stylesheet" href="../header/header.css">
     <link rel="stylesheet" href="../footer/footer.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -92,39 +92,32 @@
          <!-- Szemelyes adatok vege -->
 
          <!-- Tartalom kezdete -->
-         <div>
-            <div class="tartalom">
+         <div class="tartalom">
+            <div class="tartalomElemek">
                 <button class="button2"><a href="../beallitasok/beallitasok.php">Személyes adatok módosítása</a></button>
                 <button class="button2"><a href="../kijelentkezes.php">Kijelentkezés</a></button>
             </div>
 
             <form action="profil.php" method="POST">
-                <div class="tartalom">
-                <form id="profilePicForm"
-                    action="upload_profilkep.php"
-                    method="POST"
-                    enctype="multipart/form-data">
-
-                    <input type="file"
-                        id="profilePicInput"
-                        name="profile_picture"
-                        accept="image/*"
-                        hidden>
-
-                    <button type="button"
-                            class="profilkep_gomb"
-                            onclick="document.getElementById('profilePicInput').click()">
-                        +
-                    </button>
-                </form>
-                    <div>
-                        <h1>Név</h1>
-                        <input type="text" name="display_input" class="display_input">
+                <div>
+                    <div class="tartalomElemek">
+                        <form id="profilePicForm" action="upload_profilkep.php" method="POST" enctype="multipart/form-data">
+                            <div>
+                                <h1>Profilkép</h1>
+                                <input type="file" id="profilePicInput" name="profile_picture"accept="image/*" hidden>
+                                <button type="button" class="profilkep_gomb" onclick="document.getElementById('profilePicInput').click()">+</button>
+                            </div>
+                        </form>
+                        <div>
+                            <h1>Név</h1>
+                            <input type="text" name="display_input" class="display_input">
+                        </div>
                     </div>
-                </div>
-                <div class="rolam">
-                    <h1>Rólam</h1>
-                    <textarea name="rolam_input" class="rolam_input"></textarea>
+                <div class="tartalomElemek">
+                    <div class="rolam">
+                        <h1>Rólam</h1>
+                        <textarea name="rolam_input" class="rolam_input"></textarea>
+                    </div>   
                 </div>
                 <button class="button2"  type="submit">Mentés</button>
             </form>

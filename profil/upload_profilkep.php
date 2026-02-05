@@ -59,3 +59,4 @@ $conn->close();
 
 header("Location: profil.php");
 exit;
+?>
