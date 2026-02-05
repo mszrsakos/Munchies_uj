@@ -1,3 +1,21 @@
+<?php
+require_once "../database.php";
+
+$q = trim($_GET["q"] ?? "");
+
+if ($q !== "") {
+  $stmt = mysqli_prepare($conn, "SELECT id, title, image_url FROM recipes WHERE title LIKE ? ORDER BY created_at DESC");
+  $like = "%".$q."%";
+  mysqli_stmt_bind_param($stmt, "s", $like);
+  mysqli_stmt_execute($stmt);
+  $result = mysqli_stmt_get_result($stmt);
+} else {
+  $result = mysqli_query($conn, "SELECT id, title, image_url FROM recipes ORDER BY created_at DESC");
+}
+
+function h($s){ return htmlspecialchars((string)$s, ENT_QUOTES, "UTF-8"); }
+?>
+
 <!DOCTYPE html>
 <html lang="hu">
 <head>
@@ -23,13 +41,10 @@
         <div class="ajanlat_tartalom"> 
             <!-- Tom Yum leves -->
                 <div class="img-wrapper">
-                        <a class="kepLink" href="recept.php?id=<?= (int)$row["id"] ?>">
-                                <img class="kep" src="../imgs/tomyum.jpeg" alt="">
-                            
-                            <div class="content fade">
-                                Tom Yum leves
-                            </div>
-                        </a>
+                    <a class="kepLink" href="../recept/recept.php?id=1">
+                        <img class="kep" src="../imgs/tomyum.jpeg" alt="">
+                        <div class="content fade">Tom Yum leves</div>
+                    </a>
                 </div>
                 <!-- Pulyka Wellington módra -->
                 <div class="img-wrapper">
@@ -59,55 +74,24 @@
         
         <!-- search bar -->
         <div class="container">
-            <form action="" method="get" class="search-bar">
-                <input type="text" placeholder="Keresés receptre..." />
-                <button type="submit"><img src="../imgs/keresesbtn-removebg-preview.png"></button>
-            </form>
-            <ul class="searchDropdown" id="recipeSearchDropdown" role="listbox"></ul>
+        <form action="" method="get" class="search-bar" autocomplete="off">
+            <input type="text" name="q" value="<?= h($_GET["q"] ?? "") ?>" placeholder="Keresés receptre..." />
+            <button type="submit"><img src="../imgs/keresesbtn-removebg-preview.png"></button>
+        </form>
+
         </div>
 
         <!-- search bar vege -->
 
         <div class="receptTartalom">
-                        <!-- Tom Yum leves -->
-                        <div class="img-wrapper">
-                                <a class="kepLink" href="../recept/Tom Yum recept/tomYum.php">
-                                        <img class="kep" src="../imgs/tomyum.jpeg" alt="">
-                                    
-                                    <div class="content fade">
-                                        Tom Yum leves
-                                    </div>
-                                </a>
-                        </div>
-                        <!-- Pulyka Wellington módra -->
-                        <div class="img-wrapper">
-                                <a class="kepLink" href="../recept/Pulyka Wellington módra/pulykaWell.php">
-                                        <img class="kep" src="../imgs/pulyka_wellington.jpeg" alt="">
-                                    
-                                    <div class="content fade">
-                                        Pulyka Wellington módra   
-                                    </div>
-                                </a>
-                        </div>
-                        <div class="img-wrapper">
-                                <a class="kepLink" href="../recept/Tom Yum recept/tomYum.php">
-                                        <img class="kep" src="../imgs/tomyum.jpeg" alt="">
-                                    
-                                    <div class="content fade">
-                                        Tom Yum leves
-                                    </div>
-                                </a>
-                        </div>
-                        <!-- Rozé kacsamell kétkáposztás kockával -->
-                        <div class="img-wrapper"  > 
-                                <a class="kepLink" href="../recept/Rozé kacsamell kétkáposztás kockával/rozeKacsamell.php">
-                                        <img class="kep" src="../imgs/roze-kacsamell.jpeg" alt="">
-                                    
-                                    <div class="content fade">
-                                        Rozé kacsamell kétkáposztás kockával
-                                    </div>  
-                                </a>  
-                        </div>
+            <?php while ($row = mysqli_fetch_assoc($result)): ?>
+                <div class="img-wrapper">
+                <a class="kepLink" href="../recept/recept.php?id=<?= (int)$row["id"] ?>">
+                    <img class="kep" src="<?= h($row["image_url"]) ?>" alt="">
+                    <div class="content fade"><?= h($row["title"]) ?></div>
+                </a>
+                </div>
+            <?php endwhile; ?>
         </div>
     </div>
     <!-- tartalom vege -->
