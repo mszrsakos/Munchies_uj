@@ -1,5 +1,10 @@
 <?php
-require_once "database.php";
+ini_set('display_errors', 1);
+ini_set('display_startup_errors', 1);
+error_reporting(E_ALL);
+
+
+require_once "../database.php";
 
 $id = (int)($_GET["id"] ?? 0);
 if ($id <= 0) { http_response_code(400); die("Hibás recept id."); }
@@ -46,9 +51,10 @@ $difficulty = !empty($recipe["difficulty"]) ? $recipe["difficulty"] : "—";
   <title><?= h($title) ?></title>
 
   <!-- Use your TomYum styling as the general recipe style -->
-  <link rel="stylesheet" href="tomYum.css">
-  <link rel="stylesheet" href="../../header/header.css">
-  <link rel="stylesheet" href="../../footer/receptfooter.css">
+  <link rel="stylesheet" href="../recept sema/recept.css">
+  <link rel="stylesheet" href="../header/header.css">
+  <link rel="stylesheet" href="../footer/receptfooter.css">
+
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -56,7 +62,7 @@ $difficulty = !empty($recipe["difficulty"]) ? $recipe["difficulty"] : "—";
 </head>
 <body>
 
-<?php include("../../header/receptHeader.html"); ?>
+<?php include("../header/receptHeader.html"); ?>
 
 <div class="teljes_oldal">
   <div class="container">
@@ -124,14 +130,15 @@ $difficulty = !empty($recipe["difficulty"]) ? $recipe["difficulty"] : "—";
 
 <div class="spacer"></div>
 
-<?php include("../../footer/receptfooter.html"); ?>
+<?php include("../footer/receptfooter.html"); ?>
 
 <script>
   // Pass DB data to JS for serving-scaling:
   window.RECIPE_BASE_SERVINGS = <?= (int)$baseServings ?>;
   window.RECIPE_INGREDIENTS = <?= json_encode($ingredients, JSON_UNESCAPED_UNICODE) ?>;
 </script>
-<script src="recept.js"></script>
+<script src="../recept sema/recept.js"></script>
+
 
 </body>
 </html>
