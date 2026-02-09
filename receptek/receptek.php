@@ -41,14 +41,14 @@ function h($s){ return htmlspecialchars((string)$s, ENT_QUOTES, "UTF-8"); }
         <div class="ajanlat_tartalom"> 
             <!-- Tom Yum leves -->
                 <div class="img-wrapper">
-                    <a class="kepLink" href="../recept/recept.php?id=1">
+                    <a class="kepLink" href="../recept_sema/recept.php?id=1">
                         <img class="kep" src="../imgs/tomyum.jpeg" alt="">
                         <div class="content fade">Tom Yum leves</div>
                     </a>
                 </div>
                 <!-- Pulyka Wellington módra -->
                 <div class="img-wrapper">
-                        <a class="kepLink" href="../recept/Pulyka Wellington módra/pulykaWell.php">
+                        <a class="kepLink" href="../recept_sema/recept.php?id=3">
                                 <img class="kep" src="../imgs/pulyka_wellington.jpeg" alt="">
                             
                             <div class="content fade">
@@ -58,7 +58,7 @@ function h($s){ return htmlspecialchars((string)$s, ENT_QUOTES, "UTF-8"); }
                 </div>
                 <!-- Rozé kacsamell kétkáposztás kockával -->
                 <div class="img-wrapper"  > 
-                        <a class="kepLink" href="../recept/Rozé kacsamell kétkáposztás kockával/rozeKacsamell.php">
+                        <a class="kepLink" href="../recept_sema/recept.php?id=4">
                                 <img class="kep" src="../imgs/roze-kacsamell.jpeg" alt="">
                             
                             <div class="content fade">
