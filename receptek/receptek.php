@@ -84,16 +84,16 @@ function h($s){ return htmlspecialchars((string)$s, ENT_QUOTES, "UTF-8"); }
         <!-- search bar vege -->
 
         <div class="receptTartalom">
-            <?php while ($row = mysqli_fetch_assoc($result)): ?>
-                <div class="img-wrapper">
-                <a class="kepLink" href="../recept/recept.php?id=<?= (int)$row["id"] ?>">
-                    <img class="kep" src="<?= h($row["image_url"]) ?>" alt="">
-                    <div class="content fade"><?= h($row["title"]) ?></div>
-                </a>
-                </div>
-            <?php endwhile; ?>
+                <?php while ($row = mysqli_fetch_assoc($result)): ?>
+                        <div class="img-wrapper">
+                            <a class="kepLink" href="../recept_sema/recept.php?id=<?= (int)$row["id"] ?>">
+                                <img class="kep" src="../imgs/<?= h($row["image_url"]) ?>" alt="">
+                                <div class="content fade"><?= h($row["title"]) ?></div>
+                            </a>
+                        </div>
+                <?php endwhile; ?>
         </div>
-    </div>
+
     <!-- tartalom vege -->
 
     <?php include("../footer/footer.html");?>
