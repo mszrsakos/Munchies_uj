@@ -121,7 +121,7 @@
                     hidden>
 
                 <button type="button"
-                        class="profilkep_gomb"
+                        class="button2"
                         onclick="document.getElementById('profilePicInput').click()">
                     +
                 </button>
