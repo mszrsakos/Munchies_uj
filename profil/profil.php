@@ -19,7 +19,7 @@
         $stmt->close();
     }
 
-    // display name
+    // display name, about me
     $display = $about_me = null;
     if ($stmt = $conn->prepare("SELECT display, about_me FROM users WHERE email = ? LIMIT 1")) {
         $stmt->bind_param("s", $email);
@@ -44,6 +44,7 @@
             exit();
         }
     } 
+    $display_value = trim($display) ?: $username;
     
     // profile pic
     $profile_image_url = null;
@@ -55,18 +56,6 @@
         if ($stmt->fetch()) $profile_image_url = $fprofile_image_url;
         $stmt->close();
     }
-
-    // aboutme
-    
-    if ($stmt = $conn->prepare("SELECT about_me FROM users WHERE email = ? LIMIT 1")) {
-        $stmt->bind_param("s", $email);
-        $stmt->execute();
-        $stmt->bind_result($fabout_me);
-        $stmt->fetch();
-        $stmt->close();
-    }
-
-    
 ?>
 <!DOCTYPE html>
 <html lang="hu">
@@ -143,7 +132,7 @@
                         
                         <div>
                             <h1>Név</h1>
-                            <input type="text" name="display_input" class="display_input">
+                            <input type="text" name="display_input" class="display_input" value="<?= htmlspecialchars($display_value) ?>">
                         </div>
                     </div>
                 <div class="tartalomElemek">
