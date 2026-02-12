@@ -20,28 +20,30 @@
     }
 
     // display name
-    $display = null;
-
-    if ($email && $stmt = $conn->prepare("SELECT display FROM users WHERE email = ? LIMIT 1")) {
+    $display = $about_me = null;
+    if ($stmt = $conn->prepare("SELECT display, about_me FROM users WHERE email = ? LIMIT 1")) {
         $stmt->bind_param("s", $email);
         $stmt->execute();
-        $stmt->bind_result($fdisplay);
-        if ($stmt->fetch()) $display = $fdisplay;
+        $stmt->bind_result($display, $about_me);
+        $stmt->fetch();
         $stmt->close();
     }
-    if ($_SERVER["REQUEST_METHOD"] == "POST") {
-        if (isset($_POST["display_input"])) {
-            $new_display = trim($_POST["display_input"]);
-            if ($email && $stmt = $conn->prepare("UPDATE users SET display = ? WHERE email = ?")) {
-                $stmt->bind_param("ss", $new_display, $email);
-                $stmt->execute();
-                $stmt->close();
-                $display = $new_display;
-                header("Location: profil.php");
-                exit();
-            }
+    if ($_SERVER["REQUEST_METHOD"] === "POST") {
+        $new_display = trim($_POST["display_input"] ?? '');
+        $new_about_me = trim($_POST["rolam_input"] ?? '');
+    
+        if ($stmt = $conn->prepare("UPDATE users SET display = ?, about_me = ? WHERE email = ?")) {
+            $stmt->bind_param("sss", $new_display, $new_about_me, $email);
+            $stmt->execute();
+            $stmt->close();
+    
+            $display = $new_display;
+            $about_me = $new_about_me;
+    
+            header("Location: profil.php");
+            exit();
         }
-    }   
+    } 
     
     // profile pic
     $profile_image_url = null;
@@ -53,6 +55,18 @@
         if ($stmt->fetch()) $profile_image_url = $fprofile_image_url;
         $stmt->close();
     }
+
+    // aboutme
+    
+    if ($stmt = $conn->prepare("SELECT about_me FROM users WHERE email = ? LIMIT 1")) {
+        $stmt->bind_param("s", $email);
+        $stmt->execute();
+        $stmt->bind_result($fabout_me);
+        $stmt->fetch();
+        $stmt->close();
+    }
+
+    
 ?>
 <!DOCTYPE html>
 <html lang="hu">
@@ -133,10 +147,10 @@
                         </div>
                     </div>
                 <div class="tartalomElemek">
-                    <div class="rolam">
-                        <h1>Rólam</h1>
-                        <textarea name="rolam_input" class="rolam_input"></textarea>
-                    </div>   
+                <div class="rolam">
+                    <h1>Rólam</h1>
+                    <textarea name="rolam_input" class="rolam_input"><?= htmlspecialchars($about_me ?? '') ?></textarea>
+                </div> 
                 </div>
                 <button class="button2"  type="submit">Mentés</button>
             </form>
