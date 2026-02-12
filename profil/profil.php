@@ -41,11 +41,18 @@
                 exit();
             }
         }
-    }
+    }   
     
-    
+    // profile pic
+    $profile_image_url = null;
 
-    
+    if ($email && $stmt = $conn->prepare("SELECT profile_image_url FROM users WHERE email = ? LIMIT 1")) {
+        $stmt->bind_param("s", $email);
+        $stmt->execute();
+        $stmt->bind_result($fprofile_image_url);
+        if ($stmt->fetch()) $profile_image_url = $fprofile_image_url;
+        $stmt->close();
+    }
 ?>
 <!DOCTYPE html>
 <html lang="hu">
@@ -70,7 +77,7 @@
         <!-- Szemelyes adatok kezdete -->
          <div class="szemelyes_adatok">
             <div>
-                <img class="profil_kep" src="profilkep.php?v=1" alt="profilkep"><img class="profil_kep" src="profilkep.php?v=1" alt="profilkep">
+            <img class="profil_kep" src="<?= htmlspecialchars($profile_image_url ?? '../imgs/profil_kep-removebg-preview.png') ?>" alt="profilkep">
             </div>
             <div class="adatok">
                 <h1 class="nev"><?php if($display === null || trim($display) === '') {
@@ -97,17 +104,29 @@
                 <button class="button2"><a href="../beallitasok/beallitasok.php">Személyes adatok módosítása</a></button>
                 <button class="button2"><a href="../kijelentkezes.php">Kijelentkezés</a></button>
             </div>
+            <form id="profilePicForm"
+                action="upload_profilkep.php"
+                method="POST"
+                enctype="multipart/form-data">
 
+                <h1>Profilkép</h1>
+
+                <input type="file"
+                    id="profilePicInput"
+                    name="profile_picture"
+                    accept="image/*"
+                    hidden>
+
+                <button type="button"
+                        class="profilkep_gomb"
+                        onclick="document.getElementById('profilePicInput').click()">
+                    +
+                </button>
+            </form>
             <form action="profil.php" method="POST">
                 <div>
                     <div class="tartalomElemek">
-                        <form id="profilePicForm" action="upload_profilkep.php" method="POST" enctype="multipart/form-data">
-                            <div>
-                                <h1>Profilkép</h1>
-                                <input type="file" id="profilePicInput" name="profile_picture"accept="image/*" hidden>
-                                <button type="button" class="profilkep_gomb" onclick="document.getElementById('profilePicInput').click()">+</button>
-                            </div>
-                        </form>
+                        
                         <div>
                             <h1>Név</h1>
                             <input type="text" name="display_input" class="display_input">

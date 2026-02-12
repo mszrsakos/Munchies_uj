@@ -116,7 +116,7 @@ form{
     background-color: #97bbb9;
     transform: scale(1.05);
 }
-.profilkep_gomb{
+input[name="profile_picture"]{
     width: 400px;
     height: 80px;
     cursor: pointer;
