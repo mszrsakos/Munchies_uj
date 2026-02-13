@@ -8,8 +8,15 @@ require_once "../database.php";
 $id = (int)($_GET["id"] ?? 0);
 if ($id <= 0) { http_response_code(400); die("Hibás recept id."); }
 
-/* ===== Recept betöltése ===== */
-$stmt = mysqli_prepare($conn, "SELECT * FROM recipes WHERE id = ?");
+/* ===== Recept + beküldő betöltése (users.display) ===== */
+$sql = "
+  SELECT r.*, u.display AS creator_name
+  FROM recipes r
+  LEFT JOIN users u ON u.id = r.created_by
+  WHERE r.id = ?
+  LIMIT 1
+";
+$stmt = mysqli_prepare($conn, $sql);
 mysqli_stmt_bind_param($stmt, "i", $id);
 mysqli_stmt_execute($stmt);
 $recipe = mysqli_fetch_assoc(mysqli_stmt_get_result($stmt));
@@ -30,7 +37,7 @@ while ($row = mysqli_fetch_assoc($res)) {
 }
 mysqli_stmt_close($stmt);
 
-/* ===== Elkészítés lépések betöltése (recipe_steps) ===== */
+/* ===== Elkészítés lépések betöltése ===== */
 $steps = [];
 $stmt = mysqli_prepare($conn, "SELECT step_no, step_text FROM recipe_steps WHERE recipe_id = ? ORDER BY step_no ASC");
 mysqli_stmt_bind_param($stmt, "i", $id);
@@ -44,14 +51,22 @@ mysqli_stmt_close($stmt);
 
 function h($s){ return htmlspecialchars((string)$s, ENT_QUOTES, "UTF-8"); }
 
+/* ===== Oldal változók ===== */
 $title = $recipe["title"] ?? "Recept";
-$image = $recipe["image_url"] ?? "";$imageFile = $recipe["image_url"] ?? "";
-$image = $imageFile ? "../imgs/" . ltrim($imageFile, "/") : "";
+
+/* Kép: DB-ben fájlnév van -> ../imgs/fajlnev */
+$imageFile = trim((string)($recipe["image_url"] ?? ""));
+$image = $imageFile !== "" ? "../imgs/" . ltrim($imageFile, "/") : "";
+
 $baseServings = (int)($recipe["base_servings"] ?? 1);
 
 $time = !empty($recipe["time_minutes"]) ? ((int)$recipe["time_minutes"] . "p") : "—";
 $cost = !empty($recipe["cost"]) ? $recipe["cost"] : "—";
 $difficulty = !empty($recipe["difficulty"]) ? $recipe["difficulty"] : "—";
+
+/* Beküldő (display) */
+$creator = trim((string)($recipe["creator_name"] ?? ""));
+$creatorLabel = $creator !== "" ? $creator : "ismeretlen";
 ?>
 <!DOCTYPE html>
 <html lang="hu">
@@ -70,13 +85,18 @@ $difficulty = !empty($recipe["difficulty"]) ? $recipe["difficulty"] : "—";
 </head>
 <body>
 
-<?php include("../header/Header.html"); ?>
+<?php include("../header/header.html"); ?>
 
 <div class="teljes_oldal">
   <div class="container">
 
     <div class="left">
       <h1><?= h($title) ?></h1>
+
+      <!-- Beküldő -->
+      <p style="margin: 6px 0 14px 0; opacity: .8;">
+        Beküldte: <a class="bekuldo"href=""><strong><?= h($creatorLabel) ?></strong></a>
+      </p>
 
       <?php if ($image): ?>
         <img class="kep" src="<?= h($image) ?>" alt="<?= h($title) ?>">
@@ -104,11 +124,12 @@ $difficulty = !empty($recipe["difficulty"]) ? $recipe["difficulty"] : "—";
           <p>Adagok száma</p>
           <div class="counter2">
             <button type="button" onclick="decrease()">−</button>
-            <span id="count"><?= $baseServings ?></span>
+            <span id="count"><?= (int)$baseServings ?></span>
             <button type="button" onclick="increase()">+</button>
           </div>
         </div>
 
+        <!-- recept.js tölti fel -->
         <ul></ul>
       </div>
     </div>
@@ -119,7 +140,29 @@ $difficulty = !empty($recipe["difficulty"]) ? $recipe["difficulty"] : "—";
       <ol>
         <?php if (count($steps) > 0): ?>
           <?php foreach ($steps as $s): ?>
-            <li><?= h($s["step_text"]) ?></li>
+            <?php
+              $text = trim((string)($s["step_text"] ?? ""));
+              $isHeading = false;
+              $clean = $text;
+
+              // ## Alcím
+              if (str_starts_with($clean, "##")) {
+                $isHeading = true;
+                $clean = trim(substr($clean, 2));
+              }
+              // -- Alcím --
+              else if (str_starts_with($clean, "--") && str_ends_with($clean, "--")) {
+                $isHeading = true;
+                $clean = trim($clean, "- ");
+              }
+            ?>
+
+            <?php if ($isHeading): ?>
+              <li><strong><?= h($clean) ?></strong></li>
+            <?php else: ?>
+              <li><?= h($text) ?></li>
+            <?php endif; ?>
+
           <?php endforeach; ?>
         <?php else: ?>
           <li>—</li>
