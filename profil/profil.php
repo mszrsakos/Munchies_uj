@@ -80,7 +80,7 @@
         <!-- Szemelyes adatok kezdete -->
          <div class="szemelyes_adatok">
             <div>
-            <img class="profil_kep" src="<?= htmlspecialchars($profile_image_url ?? '../imgs/profil_kep-removebg-preview.png') ?>" alt="profilkep">
+                <img class="profil_kep" src="<?= htmlspecialchars($profile_image_url ?? '../imgs/profil_kep-removebg-preview.png') ?>" alt="profilkep">
             </div>
             <div class="adatok">
                 <h1 class="nev"><?php if($display === null || trim($display) === '') {
