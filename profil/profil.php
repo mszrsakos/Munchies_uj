@@ -120,9 +120,8 @@
                     accept="image/*"
                     hidden>
 
-                <button class="button2"
-                        type="button"
-                        class="profilkep_gomb"
+                <button type="button"
+                        class="button2"
                         onclick="document.getElementById('profilePicInput').click()">
                     +
                 </button>
