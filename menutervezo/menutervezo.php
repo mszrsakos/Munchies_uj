@@ -23,64 +23,52 @@
 
     <?php include("../header/header.html");?>
 
-    <main>
-        <div id="tableContainer"></div>
-        <div id="navigation">
-            <button id="prevWeek">Előző hét</button>
-            <button id="nextWeek">Következő hét</button>
+    <div class="grid-container">
+        <div class="row">
+            <div class="cell">Hétfő</div>
+            <div class="cell">Kedd</div>
+            <div class="cell">Szerda</div>
+            <div class="cell">Csütörtök</div>
+            <div class="cell">Péntek</div>
         </div>
-    </main>
-    <script src="menutervezo.js"></script>
-    <!-- <main class="tablazat">
-        <div class="cell"></div>
-        <div class="cell">Reggeli</div>
-        <div class="cell">Ebéd</div>
-        <div class="cell">Vacsora</div>
-        <div class="cell">Egyéb</div>
+        <div class="row">
+            <div class="cell"></div>
+            <div class="cell"></div>
+            <div class="cell"></div>
+            <div class="cell"></div>
+            <div class="cell"></div>
+        </div>
+        <div class="row">
+            <div class="cell"></div>
+            <div class="cell"></div>
+            <div class="cell"></div>
+            <div class="cell"></div>
+            <div class="cell"></div>
+        </div>
+        <div class="row">
+            <div class="cell"></div>
+            <div class="cell"></div>
+            <div class="cell"></div>
+            <div class="cell"></div>
+            <div class="cell"></div>
+        </div>
+        <div class="row">
+            <div class="cell"></div>
+            <div class="cell"></div>
+            <div class="cell"></div>
+            <div class="cell"></div>
+            <div class="cell"></div>
+        </div>
+        <div class="row">
+            <div class="cell"></div>
+            <div class="cell"></div>
+            <div class="cell"></div>
+            <div class="cell"></div>
+            <div class="cell"></div>
+        </div>
+    </div>
 
-        <div class="cell">Hétfő</div>
-        <div class="cell"><button>+</button></div>
-        <div class="cell"><button>+</button></div>
-        <div class="cell"><button>+</button></div>
-        <div class="cell"><button>+</button></div>
 
-        <div class="cell">Kedd</div>
-        <div class="cell"><button>+</button></div>
-        <div class="cell"><button>+</button></div>
-        <div class="cell"><button>+</button></div>
-        <div class="cell"><button>+</button></div>
-
-        <div class="cell">Szerda</div>
-        <div class="cell"><button>+</button></div>
-        <div class="cell"><button>+</button></div>
-        <div class="cell"><button>+</button></div>
-        <div class="cell"><button>+</button></div>
-
-        <div class="cell">Csütörtök</div>
-        <div class="cell"><button>+</button></div>
-        <div class="cell"><button>+</button></div>
-        <div class="cell"><button>+</button></div>
-        <div class="cell"><button>+</button></div>
-
-        <div class="cell">Péntek</div>
-        <div class="cell"><button>+</button></div>
-        <div class="cell"><button>+</button></div>
-        <div class="cell"><button>+</button></div>
-        <div class="cell"><button>+</button></div>
-
-        <div class="cell">Szombat</div>
-        <div class="cell"><button>+</button></div>
-        <div class="cell"><button>+</button></div>
-        <div class="cell"><button>+</button></div>
-        <div class="cell"><button>+</button></div>
-
-        <div class="cell">Vasárnap</div>
-        <div class="cell"><button>+</button></div>
-        <div class="cell"><button>+</button></div>
-        <div class="cell"><button>+</button></div>
-        <div class="cell"><button>+</button></div>
-    </main> -->
-    
     <?php include("../footer/footer.html"); ?>
 
 </body>

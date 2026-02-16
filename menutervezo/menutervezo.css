@@ -5,113 +5,16 @@ body{
 }
 
 /* tablazat */
-.tablazat{
-    font-size: xx-large;
-    font-family: "Inter";
-    color: #6C9995;
+.grid-container {
     display: grid;
-    grid-template-columns: repeat(5, 1fr);
-    grid-template-rows: repeat(8, 100px);
-    margin: 40px;
-    border: 0.5px solid black;
-}
-.cell{
-    
-    border: 0.5px solid black;
-    display: flex;    
-    justify-content: center;
-    align-items: center;
-}
-button{
-    font-size: xx-large;
-    background-color: #D2E4E3;
-    width: 100%;
-    height: 100%;
-    border: 0px;
 }
 
-#navigation {
-    display: flex;
-    justify-content: center;
-    margin: 20px 0;
+/* alap cella */
+.cell {
+    background-color: #e0e0e0;
+    width: 20%;
+    height: 100px;
+    border-radius: 8px;
 }
 
-#navigation button {
-    margin: 0 10px;
-    padding: 10px 20px;
-    font-size: 16px;
-    cursor: pointer;
-}
 
-/* footer */
-footer{
-    height: 300px;
-    width: 100%;
-    position: static;
-    bottom: 0;
-    color: white;
-}
-
-#footerFelso{
-    display: flex;
-    background-color: #6C9995;
-    height: 80%;
-    width: 100%;
-}
-
-#footerAlso{
-    height: 20%;
-}
-
-#logo{
-    padding: 0px 20px;
-    height: 100%;
-    display: flex;
-}
-#verticalLine {
-    width: 1px;
-    height: 80%; 
-    background-color: #fff; 
-    align-self: center;
-}
-#logoImg{
-    height: 100%;
-    width: 100%;
-}   
-#socialmedia{
-    height: 100%;
-    width: 40%;
-    align-content: center;
-    justify-items: center;
-}
-#imgsRow{
-    height: 25%;
-    display: flex;
-}
-#jobboldal{
-    right: 0;
-    height: 100%;
-}
-#kapcsolat{
-    height: 70%;
-    width: 100%;
-}
-#hirlevel{
-    height: fit-content;
-    width: 100%;
-    display: flex;
-}
-input{
-    width: 60%;
-    height: 40%;
-}
-
-#footerAlso{
-    display: flex;
-    background-color: #8C8C8C;
-    text-align: center;
-    justify-content: center;
-    vertical-align: middle;
-}
-
-/* footer vége */
