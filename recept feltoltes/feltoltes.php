@@ -15,83 +15,83 @@
 </head>
 <body>
 <?php include("../header/Header.html");?>
-<div class="tartalom">
-
-    <div class="cim">
+<div class="cim">
         <h1>Saját recept feltöltése</h1>
     </div>
-    <h1>Recept alapadatok</h1>
+<div class="tartalom">
 
-    <div class="recept_alapadatok" >
+    
 
-        <div class="recept_neve" >
-        <label for="recept_neve">Recept neve:</label>
-        <input type="text" id="recept_neve" name="recept_neve" placeholder="Írd be a recept nevét">
-        </div>
+<!-- UJ RECEPT KARTYA KEZDETE -->
+<div class="card">
 
-        <div class="category-box" >
-  <h3>Válassz étel kategóriát</h3>
+<h2>Új recept</h2>
 
-  <label class="checkbox">
-    <input type="checkbox"> Leves
-  </label>
+<input class="recipe-input" placeholder="Recept neve">
 
-  <label class="checkbox">
-    <input type="checkbox"> Előétel
-  </label>
+<p>Kategória:</p>
 
-  <label class="checkbox">
-    <input type="checkbox"> Főétel
-  </label>
+<div class="tags">
 
-  <label class="checkbox">
-    <input type="checkbox"> Desszert
-  </label>
+<label class="tag">
+<input type="checkbox">
+<span>Leves</span>
+</label>
 
-  <label class="checkbox">
-    <input type="checkbox"> Ital
-  </label>
+<label class="tag">
+<input type="checkbox">
+<span>Előétel</span>
+</label>
+
+<label class="tag">
+<input type="checkbox">
+<span>Főétel</span>
+</label>
+
+<label class="tag">
+<input type="checkbox">
+<span>Desszert</span>
+</label>
+
+<label class="tag">
+<input type="checkbox">
+<span>Ital</span>
+</label>
+
 </div>
 
-
-
-
-<!-- 
-        <div class="category-box">
-  <p class="label">Kategória</p>
-
-  <label>
-    <input type="checkbox" name="category[]" value="leves">
-    Leves
-  </label>
-
-  <label>
-    <input type="checkbox" name="category[]" value="foetel">
-    Főétel
-  </label>
-
-  <label>
-    <input type="checkbox" name="category[]" value="desszert">
-    Desszert
-  </label>
-
-  <label>
-    <input type="checkbox" name="category[]" value="vegetarianus">
-    Vegetáriánus
-  </label>
-
-  <label>
-    <input type="checkbox" name="category[]" value="vegan">
-    Vegán
-  </label>
-
-  <label>
-    <input type="checkbox" name="category[]" value="gyors">
-    Gyors recept
-  </label>
 </div>
-        
-    </div> -->
+<!-- UJ RECEPT KARTYA VEGE -->
+
+
+<!-- ALAPANYAGOK FELTOLTESE KEZDETE -->
+<div class="container">
+    <h2>Alapanyagok feltöltése</h2>
+
+    <input type="text" id="ingredientInput" placeholder="Írd be az alapanyagot">
+    <button onclick="addIngredient()">Hozzáadás</button>
+
+    <h3>Alapanyagok:</h3>
+    <ul id="ingredientList"></ul>
+</div>
+
+<script>
+function addIngredient() {
+    const input = document.getElementById("ingredientInput");
+    const list = document.getElementById("ingredientList");
+
+    if (input.value.trim() !== "") {
+        const li = document.createElement("li");
+        li.textContent = input.value;
+        list.appendChild(li);
+        input.value = "";
+    }
+}
+</script>
+<!-- ALAPANYAGOK FELTOLTESE VEGE -->
+
+
+
 
 
 

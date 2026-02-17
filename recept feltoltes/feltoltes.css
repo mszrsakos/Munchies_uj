@@ -8,43 +8,105 @@ html{
     text-align: center;
     font-size: 20px;
 }
-.recept_neve p {
-    margin: 0;
-}
 
-.recept_neve {
-    color: white;
+.tartalom{
     display: flex;
-    align-items: center;
-    gap: 10px;
 }
+/* uj recept kartya kezdete */
+.card {
+    margin-left: 300px;
+    color: #6C9995;
+    background:white;
+    padding:30px;
+    width:330px;
+    border-radius:16px;
+    box-shadow:0 20px 40px rgba(0,0,0,.25);
+    }
+    
+    h2 {
+    text-align:center;
+    margin-bottom:20px;
+    }
+    
+    .recipe-input {
+    width:100%;
+    padding:12px;
+    border-radius:10px;
+    border:1px solid #ddd;
+    margin-bottom:15px;
+    }
+    
+    .tags {
+    display:flex;
+    flex-wrap:wrap;
+    gap:10px;
+    }
+    
+    .tag input {
+    display:none;
+    }
+    
+    .tag span {
+    padding:8px 14px;
+    border-radius:999px;
+    border:1px solid #ddd;
+    cursor:pointer;
+    transition:.2s;
+    font-size:14px;
+    }
+    
+    .tag input:checked + span {
+    background:#667eea;
+    color:white;
+    border-color:#667eea;
+    }
+    
+    .tag span:hover {
+    border-color:#667eea;
+    }
+    /* Uj recept kartya vege */
 
-.recept_neve p {
-    margin: 0;
-}
-.recept_neve input {
-    padding: 6px 10px;
-}
 
-.category-box {
-    width: 250px;
-    padding: 15px;
-    border-radius: 10px;
+
+
+/* ALAPANYAGOK HOZZAADASA KEZDETE */
+.container {
+    width: 300px;
+    margin: 100px auto;
     background: #6C9995;
+    padding: 20px;
+    border-radius: 8px;
     color: white;
-    box-shadow: 0 4px 10px rgba(0,0,0,.1);
- 
-  }
-  
-  .category-box label {
-    display: block;        /* EZ teszi egymás alá */
-    margin-bottom: 8px;
+}
+
+input {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 10px;
+}
+
+button {
+    width: 100%;
+    padding: 8px;
+    background: #4CAF50;
+    color: white;
+    border: none;
     cursor: pointer;
-    font-size: 15px;
-  }
-  
-  .category-box input {
-    margin-right: 8px;
-  }
+}
+
+button:hover {
+    background: #45a049;
+}
+
+ul {
+    padding-left: 20px;
+}
+
+li {
+    margin: 5px 0;
+}
+/* ALAPANYAGOK HOZZAADASA VEGE */
+
+
 
 
