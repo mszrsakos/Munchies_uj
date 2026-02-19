@@ -18,6 +18,22 @@
 <div class="cim">
         <h1>Saját recept feltöltése</h1>
     </div>
+
+    <div class="kep_hozzaadas">
+    <h1 class="section-title" >Recept képe</h1>
+
+<div class="upload-area" id="uploadArea">
+    <input type="file" id="imageInput" accept="image/*" hidden>
+    
+    <div class="upload-content" onclick="document.getElementById('imageInput').click()">
+        <div class="upload-icon">📷</div>
+        <p>Kattints vagy húzd ide a képet</p>
+    </div>
+
+    <img id="previewImage" class="preview" />
+</div>
+
+    </div>
 <div class="tartalom">
 
     
@@ -56,6 +72,16 @@
 <label class="tag">
 <input type="checkbox">
 <span>Ital</span>
+</label>
+
+<label class="tag">
+<input type="checkbox">
+<span>Reggeli</span>
+</label>
+
+<label class="tag">
+<input type="checkbox">
+<span>Sütemény</span>
 </label>
 
 </div>
@@ -104,9 +130,39 @@ function addIngredient() {
 
 
 
-
 </div>
 
+<div class="step-container">
+
+
+<p class="section-title">Elkészítés lépései</p>
+
+<div class="step-box">
+    <input type="text" id="stepInput" placeholder="Írd be a lépést...">
+    <button onclick="addStep()">+</button>
+</div>
+
+<ol id="stepList" class="step-list"></ol>
+
+<script>
+function addStep() {
+    const input = document.getElementById("stepInput");
+    const list = document.getElementById("stepList");
+
+    if (input.value.trim() !== "") {
+        const li = document.createElement("li");
+        li.textContent = input.value;
+        list.appendChild(li);
+        input.value = "";
+    }
+}
+</script>
+</div>
+
+<div class="hozzaad_gomb">
+    <button class="submit-button">Recept feltöltése</button>
+
+</div>
 <script src="feltoltes.js"></script>
 </body>
 </html>
