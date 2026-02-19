@@ -95,7 +95,7 @@ $creatorLabel = $creator !== "" ? $creator : "ismeretlen";
 
       <!-- Beküldő -->
       <p style="margin: 6px 0 14px 0; opacity: .8;">
-        Beküldte: <a class="bekuldo"href=""><strong><?= h($creatorLabel) ?></strong></a>
+        Beküldte: <a class="bekuldo"href="../masFelhasznalo/masFelhasznalo.php"><strong><?= h($creatorLabel) ?></strong></a>
       </p>
 
       <?php if ($image): ?>
