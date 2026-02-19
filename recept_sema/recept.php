@@ -10,7 +10,7 @@ if ($id <= 0) { http_response_code(400); die("Hibás recept id."); }
 
 /* ===== Recept + beküldő betöltése (users.display) ===== */
 $sql = "
-  SELECT r.*, u.display AS creator_name
+  SELECT r.*, u.display AS creator_name, u.email AS created_by, u.profile_image_url AS creator_image
   FROM recipes r
   LEFT JOIN users u ON u.id = r.created_by
   WHERE r.id = ?
@@ -67,7 +67,16 @@ $difficulty = !empty($recipe["difficulty"]) ? $recipe["difficulty"] : "—";
 /* Beküldő (display) */
 $creator = trim((string)($recipe["creator_name"] ?? ""));
 $creatorLabel = $creator !== "" ? $creator : "ismeretlen";
+
+$isOwnProfile = isset($_SESSION["email"]) && $_SESSION["email"] === $recipe["created_by_email"];
+$profileLink = $isOwnProfile ? "../profil/profil.php" : "../masFelhasznalo/masFelhasznalo.php?id=" . (int)$recipe["created_by"];
+/* Ellenőrizd, hogy a bejelentkezett felhasználó azonos-e a beküldővel */
+$isOwnProfile = isset($_SESSION["user_id"]) && $_SESSION["user_id"] === (int)$recipe["created_by"];
+$profileLink = $isOwnProfile 
+    ? "../profil/profil.php" 
+    : "../masFelhasznalo/masFelhasznalo.php?id=" . (int)$recipe["created_by"];
 ?>
+
 <!DOCTYPE html>
 <html lang="hu">
 <head>
@@ -95,7 +104,7 @@ $creatorLabel = $creator !== "" ? $creator : "ismeretlen";
 
       <!-- Beküldő -->
       <p style="margin: 6px 0 14px 0; opacity: .8;">
-        Beküldte: <a class="bekuldo"href="../masFelhasznalo/masFelhasznalo.php"><strong><?= h($creatorLabel) ?></strong></a>
+        Beküldte: <a class="bekuldo" href="<?= h($profileLink) ?>"><strong><?= h($creatorLabel) ?></strong></a>
       </p>
 
       <?php if ($image): ?>

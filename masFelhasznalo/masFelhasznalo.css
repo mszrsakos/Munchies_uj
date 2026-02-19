@@ -1,0 +1,166 @@
+html{
+    background-color: #D2E4E3;
+    color: white;
+    font-family:"Inter";
+}
+body{
+    margin: 0;
+    display: grid;
+    grid-template-rows: auto 1fr auto;
+    font-family: "Inter";
+    font-style: italic;
+    background-image: url("../imgs/receptek_bg.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+#kereses{
+display: flex;
+justify-content: center;
+align-items: center;
+font-family: "Inter";
+border-radius: 25px;
+}
+#kereses input[type="button"]{
+width: 15%;
+background-position-x: -5px;
+border-radius: 50px;
+height: 2.55rem;
+background-color: #6C9995;
+color: white;
+
+}
+#kereses input[type="button"]:hover{
+background-color: #97bbb9;
+color: black;
+}
+#kereses input[type="text"]{
+border-radius: 50px;
+padding-left: 1.25rem;
+height: 2.25rem;
+}
+
+/* Szemelyes adatok kezdete */
+.szemelyes_adatok{
+    background-color: #91b4b1;
+    height: 30%;
+    display: flex;
+    align-items: center;
+    gap: 50px;
+}
+.profil_kep img{
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    object-fit: cover;
+    display: block;
+    flex-shrink: 0;
+}
+.szemelyes_adatok > div:first-child {
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    overflow: hidden;
+    margin-left: 300px;
+}
+.adatok h1{
+    padding-top: 20px;
+  font-size: 60px;
+}
+.valami{
+    display: flex;
+    gap: 50px;
+    font-size: 20px;
+}
+
+
+
+
+/* Szemelyes adatok vege */
+
+/* Tartalom kezdete */
+.tartalom{
+    align-items: center;
+    justify-content: center;
+    display: block;
+    gap: 80px;
+    flex-direction: row;
+    justify-content: center;
+}
+.tartalomElemek{
+    display: flex;
+    gap: 80px;
+    flex-direction: row;
+    justify-content: center;
+}
+.tartalom>h1{
+  text-align: left;
+}
+form{
+  text-align: center;
+}
+.button2{
+    margin: 30px 0px;
+    background-color: #6C9995;
+    border: none;
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 30px;
+    height: 60px;
+    width: 500px;
+    color: white;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    align-self: center;
+}
+.button2:hover{
+    background-color: #97bbb9;
+    transform: scale(1.05);
+}
+input[name="profile_picture"]{
+    width: 300px;
+    height: 80px;
+    cursor: pointer;
+    background-color: #6C9995;
+    border: none;
+    color: white;
+    font-size: 30px;
+    transition: all 0.3s ease;
+}
+.profilkep_gomb:hover{
+    background-color: #97bbb9;
+    transform: scale(1.05);
+}
+.display_input{
+    width: 400px;
+    height: 80px;
+    font-size:30px;
+}
+.profil-sor {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 80px;
+    margin-top: 40px;
+}
+
+.nev-form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* Tartalom vege */
+
+
+/* Rólam rész kezdete */
+.rolam_input{
+    width: 800px;
+    height: 200px;
+    font-size:30px;
+    padding: 10px;
+    vertical-align: top;
+    resize: none;
+}
+
+/* Rólam rész vége */
+
