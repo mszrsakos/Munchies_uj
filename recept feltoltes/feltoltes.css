@@ -8,9 +8,69 @@ html{
     text-align: center;
     font-size: 20px;
 }
+/* Kep hozzaad kezdete */
+.kep_hozzaadas{
+    padding-top: 10px;
+}
 
+.section-title {
+    width: 400px;
+    margin: auto;
+    border-radius: 8px;
+    color: #6C9995;
+    background-color: white;
+    text-align: center;
+    font-weight: 600;
+    margin-bottom: 10px;
+}
+
+.upload-area {
+    margin: auto;
+    width: 700px;
+    border: 2px dashed #d1d5db;
+    border-radius: 16px;
+    padding: 30px;
+    text-align: center;
+    background: #f9fafb;
+    cursor: pointer;
+    transition: 0.3s;
+    position: relative;
+}
+
+.upload-area:hover {
+    border-color: #667eea;
+    background: #eef1ff;
+}
+
+.upload-icon {
+    font-size: 40px;
+    margin-bottom: 10px;
+}
+
+.upload-content p {
+    margin: 0;
+    color: #6b7280;
+    font-size: 14px;
+}
+
+.preview {
+    margin-top: 15px;
+    max-width: 100%;
+    border-radius: 14px;
+    display: none;
+}
+
+
+
+
+/* Kep hozzaad vege */
 .tartalom{
+    
+    padding-left: 70px;
     display: flex;
+    padding: 40px;
+    align-items: center;
+    gap: 50px;
 }
 /* uj recept kartya kezdete */
 .card {
@@ -18,7 +78,8 @@ html{
     color: #6C9995;
     background:white;
     padding:30px;
-    width:330px;
+    width:500px;
+    height: 400px;
     border-radius:16px;
     box-shadow:0 20px 40px rgba(0,0,0,.25);
     }
@@ -40,6 +101,7 @@ html{
     display:flex;
     flex-wrap:wrap;
     gap:10px;
+    
     }
     
     .tag input {
@@ -71,10 +133,10 @@ html{
 
 /* ALAPANYAGOK HOZZAADASA KEZDETE */
 .container {
-    width: 300px;
-    margin: 100px auto;
+    width: 500px;
+    height: 400px;
     background: #6C9995;
-    padding: 20px;
+    padding: 50px;
     border-radius: 8px;
     color: white;
 }
@@ -107,6 +169,77 @@ li {
 }
 /* ALAPANYAGOK HOZZAADASA VEGE */
 
+/* Elkeszites lepesei kezdete */
+.step-container{
+    width: 900px;
+    height: 300px;
+    margin: auto;
+    background-color: #6C9995;
+    border-radius: 8px;
+    padding: 10px;
+}
+.section-title {
+    
+    font-weight: 600;
+    margin-bottom: 10px;
+}
 
+.step-box {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 20px;
+}
 
+.step-box input {
+    flex: 1;
+    padding: 14px;
+    border-radius: 14px;
+    border: none;
+    background: #f3f4f6;
+    font-size: 14px;
+    transition: 0.2s;
+}
 
+.step-box input:focus {
+    outline: none;
+    background: #e8ebff;
+}
+
+.step-box button {
+    width: 50px;
+    border: none;
+    border-radius: 14px;
+    background: #667eea;
+    color: white;
+    font-size: 20px;
+    cursor: pointer;
+    transition: 0.2s;
+    box-shadow: 0 5px 15px rgba(102,126,234,.4);
+}
+
+.step-box button:hover {
+    transform: translateY(-2px);
+}
+
+.step-list {
+    padding-left: 0;
+    list-style-position: inside;
+}
+
+.step-list li {
+    background: white;
+    color: black;
+    padding: 14px;
+    border-radius: 14px;
+    margin-bottom: 10px;
+    box-shadow: 0 5px 15px rgba(0,0,0,.05);
+    font-size: 14px;
+}
+/* Elkeszites lepesei vege */
+
+.hozzaad_gomb{
+    width: 500px;
+    margin: auto;
+    padding: 20px;
+    border-radius: 10px;
+}
