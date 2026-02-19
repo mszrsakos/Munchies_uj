@@ -2,6 +2,7 @@ body{
     background-color: #D2E4E3;
     margin: 0px;
     font-family: "Inter", sans-serif;
+    font-style: italic;
     display: block;
 }
 
@@ -36,7 +37,7 @@ main{
     border-bottom: 1px solid #ccc;
     text-align: center;
     align-content: center;
-    font-size: x-large;
+    font-size: xx-large;
 }
 
 .grid-table > div > button {
@@ -57,28 +58,176 @@ main{
     margin: 20px;
     border: 2px solid black;
     border-radius: 20px;
+    display: block;
 }
 
-#valasztottEtkezes{
-    height: 80px;
+#etelValasztasTop{
+    top: 0;
+    height: 16%;
+    display: flex;
+}
+
+#valasztottEtkezesText{
+    height: 90%;
     width: 300px;
     margin: 0px;
     padding: 5px;
     border-right: 2px solid black;
     border-bottom: 2px solid black;
     border-bottom-right-radius: 20px;
-    left: 0;
-    top: 0;
-    justify-content: center;
     align-content: center;
     background-color: #91b4b1;
-}
-
-#valasztottEtkezesText{
     font-size: x-large;
     font-weight: bold;
     text-align: center;
     margin: 0px;
     color: white;
-    
+}
+
+/* searchbar */
+
+.searchbarDiv{
+    font-family: "Inter";
+    width: 50%;
+    margin: auto;
+    height: fit-content;
+    background-image: linear-gradient(#6C9995),(#6C9995),;
+    background-position: center;
+    background-size: cover;
+    justify-content: center;
+    align-content: center;
+}
+.search-bar{
+    height: 50px;
+    font-family: "Inter";
+    width: 100%;
+    max-width: 80%;
+    display: flex;
+    background: #6C9995;
+    align-items: center;
+    border-radius: 60px;
+    padding: 5px 20px;
+    backdrop-filter: blur(4px) saturate(180%);
+}
+.search-bar input{
+    background: transparent;
+    flex: 1;
+    border: 0;
+    outline: none;
+    font-size: 25px;
+    color: white;
+}
+::placeholder
+{
+    color:white;
+    opacity: 25%;
+}
+.search-bar button img{
+    width: 30px;
+}
+.search-bar button{
+    border: 0;
+    border-radius: 50%;
+    width: 60px;
+    height: 60px;
+    background: #6C9995;
+}
+
+/* searchbar vége */
+
+/* recept */
+
+#etelValasztasBottom{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 20px; 
+    margin: 2% 5%;
+    overflow-y: auto;
+    overscroll-behavior: none;
+    height: 70%;
+}
+
+.kepLink {
+    display: block; 
+    text-decoration: none; 
+    color: inherit; 
+}
+
+.kepLink>img {
+    display: block; 
+    width: 100%; 
+    aspect-ratio: 1/1; 
+    object-fit: cover; 
+    object-position: center; 
+}
+.kepLink .content {
+    position: absolute;
+    inset: 0;
+    font-size: 2rem;
+    padding: 1rem;
+    background-color: rgba(108, 153, 149, 0.7);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    transition: opacity 500ms ease-in-out;
+}
+.ajanlat_tartalom button{
+    border: none;
+    background: none;
+    cursor: pointer;
+}
+.img-wrapper{
+    position: relative;
+    overflow: hidden;
+    flex: 1; 
+    max-width: 20%; 
+    text-align: center; 
+}
+.img-wrapper>img{
+    display: block;
+    width: 100%;
+    aspect-ratio: 1/1;
+    object-fit: cover;
+    object-position: center;
+    height: auto;
+}
+.img-wrapper>.content{
+    position: absolute;
+    inset: 0;
+    font-size: 2rem;
+    padding: 1rem;
+    background-color: #6C9995;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.img-wrapper>img,
+.img-wrapper>.content{
+    transition: transform 200mx ease-in-out;
+    color: white;
+}
+.img-wrapper:hover .content {
+    opacity: 1;
+    color: white;
+}
+
+.img-wrapper:hover>img.blur{
+    filter: blur(5px);
+}
+.content.fade{
+    transition: opacity 500ms ease-in-out;
+    color: white;
+}
+.img-wrapper>.content.fade{
+    opacity: 0;
+}  
+.img-wrapper:hover>.content.fade{
+    opacity: 0.7;
+}
+.img-wrapper {
+  flex: 1 1 calc(25% - 20px);
+  box-sizing: border-box; 
+  text-align: center;
 }

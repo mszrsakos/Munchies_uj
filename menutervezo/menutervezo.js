@@ -21,3 +21,21 @@ document.querySelector(".grid-table").addEventListener("click", function (e) {
 
     valasztottEtkezesText.textContent = `${rowName} – ${columnName}`;
   });
+
+// no refresh
+const form = document.getElementById("searchForm");
+const input = document.getElementById("searchInput");
+const results = document.getElementById("etelValasztasBottom");
+
+form.addEventListener("submit", async (e) => {
+    e.preventDefault();
+
+    const q = input.value.trim();
+
+    const response = await fetch(
+        `?ajax=1&q=${encodeURIComponent(q)}`
+    );
+
+    const html = await response.text();
+    results.innerHTML = html;
+});
