@@ -1,0 +1,84 @@
+body{
+    background-color: #D2E4E3;
+    margin: 0px;
+    font-family: "Inter", sans-serif;
+    display: block;
+}
+
+
+/* tablazat */
+main{
+    align-content: center;
+}
+
+.grid-table{
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    grid-auto-rows: minmax(50px, auto);
+    border: 2px solid black;
+    font-family: Arial, sans-serif;
+    font-weight: bold;
+    color: black;
+    margin: 20px;
+    border-radius: 20px;
+}
+
+.grid-header {
+    background-color: #91b4b1;
+    color: white;
+}
+
+.grid-table > div {
+    width: auto;
+    height: 100px;
+    padding: 10px;
+    border-right: 1px solid #ccc;
+    border-bottom: 1px solid #ccc;
+    text-align: center;
+    align-content: center;
+    font-size: x-large;
+}
+
+.grid-table > div > button {
+    width: 100%;
+    height: 100%;
+    padding: 0px;
+    border: none;
+    background-color: transparent;
+    font-size: x-large;
+    cursor: pointer;
+}
+
+/* etel valaszto */
+
+#etelValasztas{
+    height: 500px;
+    width: auto;
+    margin: 20px;
+    border: 2px solid black;
+    border-radius: 20px;
+}
+
+#valasztottEtkezes{
+    height: 80px;
+    width: 300px;
+    margin: 0px;
+    padding: 5px;
+    border-right: 2px solid black;
+    border-bottom: 2px solid black;
+    border-bottom-right-radius: 20px;
+    left: 0;
+    top: 0;
+    justify-content: center;
+    align-content: center;
+    background-color: #91b4b1;
+}
+
+#valasztottEtkezesText{
+    font-size: x-large;
+    font-weight: bold;
+    text-align: center;
+    margin: 0px;
+    color: white;
+    
+}

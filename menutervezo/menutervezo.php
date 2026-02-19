@@ -11,9 +11,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Menütervező</title>
-    <link rel="stylesheet" href="../header/header.css">
-    <link rel="stylesheet" href="menutervezo.css">
     <link rel="stylesheet" href="../footer/footer.css">
+    <link rel="stylesheet" href="menutervezo1.css">
+    
+    <link rel="stylesheet" href="../header/header.css">
     <link rel="icon" type="image/x-icon" href="../imgs/munchieslogo.png">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -33,21 +34,30 @@
             <div class="grid-header">Egyéb</div>
 
             <!-- Row 1 -->
-            <div class="grid-header">R1 C1</div><div>R1 C2</div><div>R1 C3</div><div>R1 C4</div><div>R1 C5</div>
+            <div class="grid-header">Hétfő</div><div><button>+</button></div><div><button>+</button></div><div><button>+</button></div><div><button>+</button></div>
             <!-- Row 2 -->
-            <div class="grid-header">R2 C1</div><div>R2 C2</div><div>R2 C3</div><div>R2 C4</div><div>R2 C5</div>
+            <div class="grid-header">Kedd</div><div><button>+</button></div><div><button>+</button></div><div><button>+</button></div><div><button>+</button></div>
             <!-- Row 3 -->
-            <div class="grid-header">R3 C1</div><div>R3 C2</div><div>R3 C3</div><div>R3 C4</div><div>R3 C5</div>
+            <div class="grid-header">Szerda</div><div><button>+</button></div><div><button>+</button></div><div><button>+</button></div><div><button>+</button></div>
             <!-- Row 4 -->
-            <div class="grid-header">R4 C1</div><div>R4 C2</div><div>R4 C3</div><div>R4 C4</div><div>R4 C5</div>
+            <div class="grid-header">Csütörtök</div><div><button>+</button></div><div><button>+</button></div><div><button>+</button></div><div><button>+</button></div>
             <!-- Row 5 -->
-            <div class="grid-header">R5 C1</div><div>R5 C2</div><div>R5 C3</div><div>R5 C4</div><div>R5 C5</div>
+            <div class="grid-header">Péntek</div><div><button>+</button></div><div><button>+</button></div><div><button>+</button></div><div><button>+</button></div>
+            <!-- Row 6 -->
+            <div class="grid-header">Szombat</div><div><button>+</button></div><div><button>+</button></div><div><button>+</button></div><div><button>+</button></div>
+            <!-- Row 7 -->
+            <div class="grid-header">Vasárnap</div><div><button>+</button></div><div><button>+</button></div><div><button>+</button></div><div><button>+</button></div>
         </div>
     </main>
 
+    <div id="etelValasztas">
+        <div id="valasztottEtkezes">
+            <p id="valasztottEtkezesText"></p>
+        </div>
+    </div>
 
     <?php include("../footer/footer.html"); ?>
-
+    <script src="menutervezo.js"></script>
 </body>
     
 </html>
