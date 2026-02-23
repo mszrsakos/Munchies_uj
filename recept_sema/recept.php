@@ -1,6 +1,9 @@
 <?php
+session_start();
+$loggedInUserId = (int)($_SESSION["user_id"] ?? 0);
 ini_set('display_errors', 1);
 ini_set('display_startup_errors', 1);
+
 error_reporting(E_ALL);
 
 require_once "../database.php";
@@ -10,13 +13,20 @@ if ($id <= 0) { http_response_code(400); die("Hibás recept id."); }
 
 /* ===== Recept + beküldő betöltése (users.display) ===== */
 $sql = "
-  SELECT r.*, u.display AS creator_name, u.email AS created_by, u.profile_image_url AS creator_image
+  SELECT 
+    r.*,
+    u.id AS creator_id,
+    u.display AS creator_name,
+    u.profile_image_url AS creator_image
   FROM recipes r
   LEFT JOIN users u ON u.id = r.created_by
   WHERE r.id = ?
   LIMIT 1
 ";
+
 $stmt = mysqli_prepare($conn, $sql);
+if (!$stmt) { die("Prepare hiba: " . mysqli_error($conn)); }
+
 mysqli_stmt_bind_param($stmt, "i", $id);
 mysqli_stmt_execute($stmt);
 $recipe = mysqli_fetch_assoc(mysqli_stmt_get_result($stmt));
@@ -67,14 +77,25 @@ $difficulty = !empty($recipe["difficulty"]) ? $recipe["difficulty"] : "—";
 /* Beküldő (display) */
 $creator = trim((string)($recipe["creator_name"] ?? ""));
 $creatorLabel = $creator !== "" ? $creator : "ismeretlen";
+$creatorId = (int)($recipe["creator_id"] ?? 0);
 
-$isOwnProfile = isset($_SESSION["email"]) && $_SESSION["email"] === $recipe["created_by_email"];
-$profileLink = $isOwnProfile ? "../profil/profil.php" : "../masFelhasznalo/masFelhasznalo.php?id=" . (int)$recipe["created_by"];
-/* Ellenőrizd, hogy a bejelentkezett felhasználó azonos-e a beküldővel */
-$isOwnProfile = isset($_SESSION["user_id"]) && $_SESSION["user_id"] === (int)$recipe["created_by"];
-$profileLink = $isOwnProfile 
-    ? "../profil/profil.php" 
-    : "../masFelhasznalo/masFelhasznalo.php?id=" . (int)$recipe["created_by"];
+if ($creatorId > 0) {
+  if ($loggedInUserId === $creatorId) {
+    $profileLink = "../profil/profil.php";
+  } else {
+    $profileLink = "../masFelhasznalo/masFelhasznalo.php?id=" . $creatorId;
+  }
+} else {
+  $profileLink = null;
+}
+
+// $isOwnProfile = isset($_SESSION["email"]) && $_SESSION["email"] === $recipe["created_by_email"];
+// $profileLink = $isOwnProfile ? "../profil/profil.php" : "../masFelhasznalo/masFelhasznalo.php?id=" . (int)$recipe["created_by"];
+// /* Ellenőrizd, hogy a bejelentkezett felhasználó azonos-e a beküldővel */
+// $isOwnProfile = isset($_SESSION["user_id"]) && $_SESSION["user_id"] === (int)$recipe["created_by"];
+// $profileLink = $isOwnProfile 
+//     ? "../profil/profil.php" 
+//     : "../masFelhasznalo/masFelhasznalo.php?id=" . (int)$recipe["created_by"];
 ?>
 
 <!DOCTYPE html>
@@ -104,8 +125,14 @@ $profileLink = $isOwnProfile
 
       <!-- Beküldő -->
       <p style="margin: 6px 0 14px 0; opacity: .8;">
-        Beküldte: <a class="bekuldo" href="<?= h($profileLink) ?>"><strong><?= h($creatorLabel) ?></strong></a>
+      <?php if ($profileLink): ?>
+        Beküldte: <a href="<?= h($profileLink) ?>"><strong><?= h($creatorLabel) ?></strong></a>
+      <?php else: ?>
+        Beküldte: <strong>ismeretlen</strong>
+      <?php endif; ?>
+      
       </p>
+      
 
       <?php if ($image): ?>
         <img class="kep" src="<?= h($image) ?>" alt="<?= h($title) ?>">
