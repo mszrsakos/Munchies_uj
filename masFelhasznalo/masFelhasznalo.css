@@ -1,9 +1,9 @@
-html{
+html {
     background-color: #D2E4E3;
     color: white;
-    font-family:"Inter";
+    font-family: "Inter";
 }
-body{
+body {
     margin: 0;
     display: grid;
     grid-template-rows: auto 1fr auto;
@@ -14,153 +14,150 @@ body{
     background-repeat: no-repeat;
 }
 
-#kereses{
-display: flex;
-justify-content: center;
-align-items: center;
-font-family: "Inter";
-border-radius: 25px;
-}
-#kereses input[type="button"]{
-width: 15%;
-background-position-x: -5px;
-border-radius: 50px;
-height: 2.55rem;
-background-color: #6C9995;
-color: white;
-
-}
-#kereses input[type="button"]:hover{
-background-color: #97bbb9;
-color: black;
-}
-#kereses input[type="text"]{
-border-radius: 50px;
-padding-left: 1.25rem;
-height: 2.25rem;
-}
-
-/* Szemelyes adatok kezdete */
-.szemelyes_adatok{
-    background-color: #91b4b1;
-    height: 30%;
-    display: flex;
-    align-items: center;
-    gap: 50px;
-}
-.profil_kep img{
-    width: 200px;
-    height: 200px;
+.profil_kep img {
+    width: 400px;
+    height: 400px;
     border-radius: 50%;
     object-fit: cover;
     display: block;
     flex-shrink: 0;
+    margin: auto;
+    margin-top: 10%;
+    border: #555 solid 5px;
 }
-.szemelyes_adatok > div:first-child {
-    width: 200px;
-    height: 200px;
-    border-radius: 50%;
+.profil_kep h1 {
+    text-align: center;
+    margin-top: 20px;
+    font-size: 2.5em;
+    color: #6C9995;
+}
+.profil_kep p {
+    text-align: center;
+    margin-top: 10px;
+    font-size: 3.6em;
+    color: white;
+    background-color: #6C9995;
+    width: 50%;
+    margin: auto;
+    margin-top: 5%;
+}
+#masProfilEmail, #masProfilRolam {
+    margin: auto;
+    margin-top: 0;
+}
+
+
+
+.receptek {
+    margin: 50px auto;
+    width: 80%;
+    background-color: rgba(196, 196, 196, 0.8);
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+.receptek h2 {
+    text-align: center;
+    color: white;
+    width: 50%;
+    margin: auto;
+    margin-top: 5%;
+    font-size: 2em;
+    margin-bottom: 20px;
+    background-color: #6C9995;
+}
+
+
+#nincsRecept{
+    text-align: center;
+    color: #555;
+    font-size: 1.2em;
+}
+.masikFelhasznaloTartalom{
+    width: 80%;
+    margin: auto;
+    background-color: rgba(255, 255, 255, 0.8);
+    margin-top: 10%;
+    border: #555 solid 5px;
+}
+.masikFelhasznaloTartalom p{
+    border-radius: 5%;
+}
+
+.img-wrapper{
+    position: relative;
     overflow: hidden;
-    margin-left: 300px;
-}
-.adatok h1{
-    padding-top: 20px;
-  font-size: 60px;
-}
-.valami{
-    display: flex;
-    gap: 50px;
-    font-size: 20px;
-}
+    flex: 1; 
+    max-width: 33%; 
+    text-align: center; 
 
-
-
-
-/* Szemelyes adatok vege */
-
-/* Tartalom kezdete */
-.tartalom{
-    align-items: center;
-    justify-content: center;
+  }
+  .img-wrapper>img{
     display: block;
-    gap: 80px;
-    flex-direction: row;
-    justify-content: center;
-}
-.tartalomElemek{
-    display: flex;
-    gap: 80px;
-    flex-direction: row;
-    justify-content: center;
-}
-.tartalom>h1{
-  text-align: left;
-}
-form{
-  text-align: center;
-}
-.button2{
-    margin: 30px 0px;
+    width: 100%;
+    aspect-ratio: 1/1;
+    object-fit: cover;
+    object-position: center;
+    height: auto;
+  }
+  .img-wrapper>.content{
+    position: absolute;
+    inset: 0;
+    font-size: 2rem;
+    padding: 1rem;
     background-color: #6C9995;
-    border: none;
-    font-family: 'Times New Roman', Times, serif;
-    font-size: 30px;
-    height: 60px;
-    width: 500px;
-    color: white;
-    cursor: pointer;
-    transition: all 0.3s ease;
-    align-self: center;
-}
-.button2:hover{
-    background-color: #97bbb9;
-    transform: scale(1.05);
-}
-input[name="profile_picture"]{
-    width: 300px;
-    height: 80px;
-    cursor: pointer;
-    background-color: #6C9995;
-    border: none;
-    color: white;
-    font-size: 30px;
-    transition: all 0.3s ease;
-}
-.profilkep_gomb:hover{
-    background-color: #97bbb9;
-    transform: scale(1.05);
-}
-.display_input{
-    width: 400px;
-    height: 80px;
-    font-size:30px;
-}
-.profil-sor {
+  
     display: flex;
     justify-content: center;
-    align-items: flex-start;
-    gap: 80px;
-    margin-top: 40px;
-}
-
-.nev-form {
-    display: flex;
-    flex-direction: column;
     align-items: center;
-}
-
-/* Tartalom vege */
-
-
-/* Rólam rész kezdete */
-.rolam_input{
-    width: 800px;
-    height: 200px;
-    font-size:30px;
-    padding: 10px;
-    vertical-align: top;
-    resize: none;
-}
-
-/* Rólam rész vége */
+  }
+  .img-wrapper>img,
+  .img-wrapper>.content{
+    transition: transform 200mx ease-in-out;
+    color: white;
+  }
+  .img-wrapper:hover .content {
+    opacity: 1;
+    color: white;
+  }
+  
+  .img-wrapper:hover>img.blur{
+    filter: blur(5px);
+  }
+  .content.fade{
+    transition: opacity 500ms ease-in-out;
+    color: white;
+  }
+  .img-wrapper>.content.fade{
+    opacity: 0;
+  }  
+  .img-wrapper:hover>.content.fade{
+    opacity: 0.7;
+  
+  }
+  .kepLink {
+    display: block;
+    text-decoration: none;
+    color: inherit; 
+  }
+  
+  .kepLink>img {
+    display: block;
+    width: 100%;
+    aspect-ratio: 1/1; 
+    object-fit: cover; 
+    object-position: center; 
+  }
+  .kepLink .content {
+    position: absolute;
+    inset: 0;
+    font-size: 2rem;
+    padding: 1rem;
+    background-color: rgba(108, 153, 149, 0.7);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    transition: opacity 500ms ease-in-out;
+  }
 

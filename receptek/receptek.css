@@ -1,6 +1,6 @@
   html{
     background-color: #D2E4E3;
-    color: white;
+
     font-family:"Inter";
 }
 body{
@@ -94,23 +94,22 @@ body{
   color: #fff;
   font-size: 250%;
   font-weight: 600;
-  text-align: center; /* Szöveg vízszintes középre igazítása */
-  background-color: #6C9995; /* Háttérszín */
+  text-align: center; 
+  background-color: #6C9995; 
   background-size: auto;
-  display: flex; /* Flexbox használata */
-  justify-content: center; /* Vízszintes középre igazítás */
-  align-items: center; /* Függőleges középre igazítás */
-  padding: 10px 20px; /* Szöveg körüli belső margó */
-  border-radius: 10px; /* Lekerekített sarkok */
-  margin: 5% auto; /* Középre igazítás a szülőelemben */
-  width: fit-content; /* Csak a tartalom szélességét vegye figyelembe */
-
+  display: flex; 
+  justify-content: center; 
+  align-items: center; 
+  padding: 10px 20px; 
+  border-radius: 10px; 
+  margin: 5% auto; 
+  width: fit-content; 
 
 }
 .ajanlat p {
-  margin: 0; /* Eltávolítja az alapértelmezett margót */
-  line-height: 1.5; /* Szöveg sorainak magassága */
-  text-align: center; /* Szöveg középre igazítása */
+  margin: 0; 
+  line-height: 1.5;
+  text-align: center;
 }
 
 
@@ -126,7 +125,7 @@ body{
     text-align: center;
     display: flex;
     flex-direction: row;
-    grid-template-columns: repeat(3, 1fr); /* Három egyenlő oszlop */
+    grid-template-columns: repeat(3, 1fr);
     gap: 20px;
 }
 .ajanlat_tartalom p{
@@ -152,17 +151,17 @@ body{
 
 }
 .kepLink {
-  display: block; /* A hivatkozás blokkszintűvé tétele */
-  text-decoration: none; /* Aláhúzás eltávolítása */
-  color: inherit; /* Szöveg színének öröklése */
+  display: block;
+  text-decoration: none;
+  color: inherit; 
 }
 
 .kepLink>img {
-  display: block; /* Kép blokkszintűvé tétele */
-  width: 100%; /* Kép teljes szélességben */
-  aspect-ratio: 1/1; /* Négyzetes arány */
-  object-fit: cover; /* Kép kitöltése arányosan */
-  object-position: center; /* Középre igazítás */
+  display: block;
+  width: 100%;
+  aspect-ratio: 1/1; 
+  object-fit: cover; 
+  object-position: center; 
 }
 .kepLink .content {
   position: absolute;
@@ -184,9 +183,9 @@ body{
 .img-wrapper{
   position: relative;
   overflow: hidden;
-  flex: 1; /* Egyenlő szélesség a képek között */
-  max-width: 33%; /* A három kép egy sorban legyen */
-  text-align: center; /* Igazítás középre */
+  flex: 1; 
+  max-width: 33%; 
+  text-align: center; 
 }
 .img-wrapper>img{
   display: block;
@@ -236,15 +235,15 @@ body{
 .receptTartalom {
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-between; /* Egyenletes elosztás */
-  gap: 20px; /* Távolság az elemek között */
+  justify-content: space-between;
+  gap: 20px; 
   margin-left: 10%;
   margin-right: 10%;
 }
 
 .img-wrapper {
-  flex: 1 1 calc(25% - 20px); /* 25%-os szélesség, mínusz a gap */
-  box-sizing: border-box; /* Padding és border figyelembe vétele */
+  flex: 1 1 calc(25% - 20px); 
+  box-sizing: border-box; 
   text-align: center;
 }
 /* receptek tartalom vege */
