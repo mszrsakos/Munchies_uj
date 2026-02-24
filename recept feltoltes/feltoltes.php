@@ -132,6 +132,7 @@ function addIngredient() {
 
 </div>
 
+<!-- Elkeszetes lepesei kezdete -->
 <div class="step-container">
 
 
@@ -163,6 +164,9 @@ function addStep() {
     <button class="submit-button">Recept feltöltése</button>
 
 </div>
+<!-- Elkeszites lepesei vege  -->
+
+
 <script src="feltoltes.js"></script>
 </body>
 </html>
