@@ -30,6 +30,7 @@
                 session_regenerate_id(true);
 
                 $_SESSION["email"] = $email;
+                $_SESSION["user_id"] = $user["id"];
                 $_SESSION["username"] = $row["username"];
 
                 header("Location: ../profil/profil.php");
