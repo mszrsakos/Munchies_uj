@@ -49,7 +49,7 @@ $profileLink = $isOwnProfile
 </head>
 <body>
     <?php include("../header/header.html"); ?>
-    <div class="masikFelhasznaloTartalom">
+    <!-- <div class="masikFelhasznaloTartalom"> -->
         <div class="profil_kep">
             <img src="<?= htmlspecialchars(!empty($user["profile_image_url"]) ? $user["profile_image_url"] : '../imgs/profil_kep-removebg-preview.png') ?>" alt="Profilkép" class="profile-picture">
             <h1><?= htmlspecialchars($user["display"] ?? $user["username"]) ?></h1>
@@ -63,7 +63,7 @@ $profileLink = $isOwnProfile
             <h2>Feltöltött receptek</h2>
 
             <?php if (mysqli_num_rows($userRecipes) > 0): ?>
-                <div class="receptTartalom">
+                
                     <?php while ($row = mysqli_fetch_assoc($userRecipes)): ?>
                         <div class="img-wrapper">
                             <a class="kepLink" href="../recept_sema/recept.php?id=<?= (int)$row["id"] ?>">
@@ -72,7 +72,7 @@ $profileLink = $isOwnProfile
                             </a>
                         </div>
                     <?php endwhile; ?>
-                </div>
+               
             <?php else: ?>
                 <p id="nincsRecept">A felhasználónak még nincs feltöltött receptje.</p>
             <?php endif; ?>
