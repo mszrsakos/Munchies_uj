@@ -1,28 +1,36 @@
-// nap etkezes kiiras
-let valasztottEtkezesText = document.getElementById("valasztottEtkezesText");
-document.querySelector(".grid-table").addEventListener("click", function (e) {
-    if (e.target.tagName !== "BUTTON") return;
+/* =========================
+   CELL CLICK → OPEN CHOOSER
+========================= */
 
-    const columns = 5;
-    const cells = Array.from(this.children);
+let selectedSlot = null;
 
-    const buttonCell = e.target.parentElement;
-    const cellIndex = cells.indexOf(buttonCell);
+const overlay = document.getElementById("etelOverlay");
+const chooser = document.getElementById("etelValasztas");
+const gridTable = document.querySelector(".grid-table");
+const valasztottEtkezesText = document.getElementById("valasztottEtkezesText");
 
-    // Row calculations
-    const rowIndex = Math.floor(cellIndex / columns);
-    const rowStart = rowIndex * columns;
+gridTable.addEventListener("click", (e) => {
+    const btn = e.target.closest(".add-btn");
+    if (!btn) return;
 
-    // Column calculations
-    const columnIndex = cellIndex % columns;
+    selectedSlot = {
+        day: btn.dataset.day,
+        meal: btn.dataset.meal,
+        button: btn
+    };
 
-    const rowName = cells[rowStart].textContent.trim();
-    const columnName = cells[columnIndex].textContent.trim();
+    // ✅ SET TEXT HERE
+    valasztottEtkezesText.textContent =
+        `${selectedSlot.day} – ${selectedSlot.meal}`;
 
-    valasztottEtkezesText.textContent = `${rowName} – ${columnName}`;
-  });
+    overlay.style.display = "flex";
+});
 
-// no refresh
+
+/* =========================
+   SEARCH (AJAX, NO REFRESH)
+========================= */
+
 const form = document.getElementById("searchForm");
 const input = document.getElementById("searchInput");
 const results = document.getElementById("etelValasztasBottom");
@@ -31,35 +39,22 @@ form.addEventListener("submit", async (e) => {
     e.preventDefault();
 
     const q = input.value.trim();
-
-    const response = await fetch(
-        `?ajax=1&q=${encodeURIComponent(q)}`
-    );
-
+    const response = await fetch(`?ajax=1&q=${encodeURIComponent(q)}`);
     const html = await response.text();
+
     results.innerHTML = html;
 });
 
-let selectedSlot = null;
 
-// When user clicks "+"
-document.querySelectorAll(".add-recipe").forEach(btn => {
-    btn.addEventListener("click", () => {
-        selectedSlot = {
-            day: btn.dataset.day,
-            meal: btn.dataset.meal,
-            button: btn
-        };
+/* =========================
+   RECIPE CLICK → SAVE TO DB
+========================= */
 
-        document.getElementById("etelValasztas").style.display = "block";
-    });
-});
-
-document.addEventListener("click", async (e) => {
+results.addEventListener("click", async (e) => {
     const link = e.target.closest(".kepLink");
     if (!link || !selectedSlot) return;
 
-    e.preventDefault();
+    e.preventDefault(); // 🚫 stop navigation
 
     const recipeId = new URL(link.href).searchParams.get("id");
 
@@ -76,10 +71,25 @@ document.addEventListener("click", async (e) => {
     const result = await response.json();
 
     if (result.success) {
-        selectedSlot.button.textContent = "✓";
-        selectedSlot.button.disabled = true;
-        document.getElementById("etelValasztas").style.display = "none";
-    } else {
-        alert("Hiba mentés közben");
+        // get clicked recipe image
+        const recipeImg = link.querySelector("img");
+        const imgClone = recipeImg.cloneNode(true);
+    
+        imgClone.classList.add("menu-img");
+    
+        // clear the cell and insert image
+        const cell = selectedSlot.button.parentElement;
+        cell.innerHTML = "";
+        cell.appendChild(imgClone);
+    
+        overlay.style.display = "none";
+        selectedSlot = null;
+    }
+});
+
+overlay.addEventListener("click", (e) => {
+    if (e.target === overlay) {
+        overlay.style.display = "none";
+        selectedSlot = null;
     }
 });

@@ -118,7 +118,7 @@ if (isset($_GET["ajax"]) && $_GET["ajax"] === "1") {
     <title>Menütervező</title>
 
     <link rel="stylesheet" href="../footer/footer.css">
-    <link rel="stylesheet" href="menutervezo.css">
+    <link rel="stylesheet" href="menutervezo1.css">
     <link rel="stylesheet" href="../header/header.css">
     <link rel="icon" type="image/x-icon" href="../imgs/munchieslogo.png">
 </head>
@@ -155,7 +155,11 @@ if (isset($_GET["ajax"]) && $_GET["ajax"] === "1") {
                         alt="<?= h($menu[$day][$meal]["title"]) ?>"
                     >
                 <?php else: ?>
-                    <button class="add-btn">+</button>
+                    <button
+                        class="add-btn add-recipe"
+                        data-day="<?= h($day) ?>"
+                        data-meal="<?= h($meal) ?>"
+                    >+</button>
                 <?php endif; ?>
 
             </div>
@@ -166,32 +170,34 @@ if (isset($_GET["ajax"]) && $_GET["ajax"] === "1") {
 </div>
 </main>
 
-<div id="etelValasztas">
-    <div id="etelValasztasTop">
-        <p id="valasztottEtkezesText"></p>
+<div id="etelOverlay">
+    <div id="etelValasztas">
+        <div id="etelValasztasTop">
+            <p id="valasztottEtkezesText"></p>
 
-        <div class="searchbarDiv">
-            <form id="searchForm" class="search-bar" autocomplete="off">
-                <input type="text"
-                       id="searchInput"
-                       name="q"
-                       placeholder="Keresés receptre..." />
-                <button type="submit">
-                    <img src="../imgs/keresesbtn-removebg-preview.png">
-                </button>
-            </form>
-        </div>
-    </div>
-
-    <div id="etelValasztasBottom">
-        <?php while ($row = mysqli_fetch_assoc($result)): ?>
-            <div class="img-wrapper">
-                <a class="kepLink" href="../recept_sema/recept.php?id=<?= (int)$row["id"] ?>">
-                    <img class="kep" src="../imgs/<?= h($row["image_url"]) ?>" alt="">
-                    <div class="content fade"><?= h($row["title"]) ?></div>
-                </a>
+            <div class="searchbarDiv">
+                <form id="searchForm" class="search-bar" autocomplete="off">
+                    <input type="text"
+                        id="searchInput"
+                        name="q"
+                        placeholder="Keresés receptre..." />
+                    <button type="submit">
+                        <img src="../imgs/keresesbtn-removebg-preview.png">
+                    </button>
+                </form>
             </div>
-        <?php endwhile; ?>
+        </div>
+
+        <div id="etelValasztasBottom">
+            <?php while ($row = mysqli_fetch_assoc($result)): ?>
+                <div class="img-wrapper">
+                    <a class="kepLink" href="../recept_sema/recept.php?id=<?= (int)$row["id"] ?>">
+                        <img class="kep" src="../imgs/<?= h($row["image_url"]) ?>" alt="">
+                        <div class="content fade"><?= h($row["title"]) ?></div>
+                    </a>
+                </div>
+            <?php endwhile; ?>
+        </div>
     </div>
 </div>
 
