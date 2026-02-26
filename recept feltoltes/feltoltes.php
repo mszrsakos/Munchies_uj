@@ -16,24 +16,21 @@
 <body>
 <?php include("../header/Header.html");?>
 <div class="cim">
-        <h1>Saját recept feltöltése</h1>
-    </div>
-
-    <div class="kep_hozzaadas">
-    <h1 class="section-title" >Recept képe</h1>
-
-<div class="upload-area" id="uploadArea">
-    <input type="file" id="imageInput" accept="image/*" hidden>
-    
-    <div class="upload-content" onclick="document.getElementById('imageInput').click()">
-        <div class="upload-icon">📷</div>
-        <p>Kattints vagy húzd ide a képet</p>
-    </div>
-
-    <img id="previewImage" class="preview" />
+    <h1>Saját recept feltöltése</h1>
 </div>
 
+<div class="kep_hozzaadas">
+    <h1 class="section-title">Recept képe</h1>
+
+    <div class="upload-area" id="uploadArea">
+        <input type="file" id="imageInput" accept="image/*" hidden>
+
+        <div class="upload-content" id="uploadContent">
+            <div class="upload-icon">📷</div>
+            <p>Kattints vagy húzd ide a képet</p>
+        </div>
     </div>
+</div>
 <div class="tartalom">
 
     
@@ -167,6 +164,6 @@ function addStep() {
 <!-- Elkeszites lepesei vege  -->
 
 
-<script src="feltoltes.js"></script>
+<script src="app.js"></script>
 </body>
 </html>
