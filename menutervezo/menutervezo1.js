@@ -9,17 +9,63 @@ const chooser = document.getElementById("etelValasztas");
 const gridTable = document.querySelector(".grid-table");
 const valasztottEtkezesText = document.getElementById("valasztottEtkezesText");
 
+gridTable.addEventListener("click", async (e) => {
+    const removeBtn = e.target.closest(".remove-btn");
+    if (!removeBtn) return;
+
+    e.stopPropagation(); // prevent chooser opening
+
+    const wrapper = removeBtn.closest(".menu-img-wrapper");
+    const day = wrapper.dataset.day;
+    const meal = wrapper.dataset.meal;
+
+    const response = await fetch("delete_menu.php", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ day, meal })
+    });
+
+    const result = await response.json();
+
+    if (result.success) {
+        const cell = wrapper.closest(".cell");
+        cell.innerHTML = `
+            <button class="add-btn add-recipe"
+                    data-day="${day}"
+                    data-meal="${meal}">
+                +
+            </button>
+        `;
+    }
+});
+
+
 gridTable.addEventListener("click", (e) => {
+    console.log("GRID CLICK", e.target);
+
     const btn = e.target.closest(".add-btn");
-    if (!btn) return;
+    const img = e.target.closest(".menu-img");
+
+    if (!btn && !img) {
+        console.log("Not a button or image");
+        return;
+    }
+
+    const source = btn || img;
+
+    console.log("SOURCE:", source.dataset);
 
     selectedSlot = {
-        day: btn.dataset.day,
-        meal: btn.dataset.meal,
-        button: btn
+        day: source.dataset.day,
+        meal: source.dataset.meal,
+        element: source
     };
 
-    // ✅ SET TEXT HERE
+    if (!selectedSlot.day || !selectedSlot.meal) {
+        console.error("Missing day/meal on clicked element");
+        return;
+    }
+
     valasztottEtkezesText.textContent =
         `${selectedSlot.day} – ${selectedSlot.meal}`;
 
@@ -71,16 +117,26 @@ results.addEventListener("click", async (e) => {
     const result = await response.json();
 
     if (result.success) {
-        // get clicked recipe image
         const recipeImg = link.querySelector("img");
-        const imgClone = recipeImg.cloneNode(true);
     
-        imgClone.classList.add("menu-img");
+        const wrapper = document.createElement("div");
+        wrapper.className = "menu-img-wrapper";
+        wrapper.dataset.day = selectedSlot.day;
+        wrapper.dataset.meal = selectedSlot.meal;
     
-        // clear the cell and insert image
-        const cell = selectedSlot.button.parentElement;
+        const img = recipeImg.cloneNode(true);
+        img.classList.add("menu-img");
+    
+        const removeBtn = document.createElement("button");
+        removeBtn.className = "remove-btn";
+        removeBtn.textContent = "✕";
+    
+        wrapper.appendChild(img);
+        wrapper.appendChild(removeBtn);
+    
+        const cell = selectedSlot.element.closest(".cell");
         cell.innerHTML = "";
-        cell.appendChild(imgClone);
+        cell.appendChild(wrapper);
     
         overlay.style.display = "none";
         selectedSlot = null;
