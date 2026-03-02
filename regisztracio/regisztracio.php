@@ -89,7 +89,7 @@
                 <?php unset($_SESSION["error"]); ?>
             <?php endif; ?>
 
-            <button type="submit">Regisztráció</button>
+            <button type="submit" class="bejelentkezes">Regisztráció</button>
             
         </form>
     </main>

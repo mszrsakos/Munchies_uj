@@ -34,7 +34,7 @@ h1{
     color: white;
     cursor: pointer;
     transition: all 0.3s ease;
-
+    border-radius: 40px;
 }
 .button1 a{
     color: white;

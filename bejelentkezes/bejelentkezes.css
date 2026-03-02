@@ -21,7 +21,27 @@ main{
 form{
     text-align: center;
 }
-
+.bejelentkezes{
+    margin: 30px auto 0;
+    background-color: #6C9995;
+    border: none;
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 30px;
+    height: 60px;
+    width: 500px;
+    color: white;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    border-radius: 40px;
+}
+.bejelentkezes a{
+    color: white;
+    margin: auto;
+}
+.bejelentkezes:hover{
+    background-color: #97bbb9;
+    transform: scale(1.05);
+}
 label{
     padding: 10px 30px;
     background: #6C9995;

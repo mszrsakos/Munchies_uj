@@ -111,6 +111,7 @@ form{
     cursor: pointer;
     transition: all 0.3s ease;
     align-self: center;
+    border-radius: 40px;
 }
 .button2:hover{
     background-color: #97bbb9;

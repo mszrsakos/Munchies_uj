@@ -74,7 +74,7 @@
                 <p class="error"><?= $_SESSION["error"]; ?></p>
                 <?php unset($_SESSION["error"]); ?>
             <?php endif; ?>
-            <button type="submit" name="bejelentkezes" onclick="return loginCheck()">Bejelentkezés</button>
+            <button type="submit" name="bejelentkezes" class="bejelentkezes" onclick="return loginCheck()">Bejelentkezés</button>
             <p style="color: black;">Nincs még fiókod? <a href="../regisztracio/regisztracio.php" style="color:#6C9995">Regisztrálj itt!</a></p>
         </form>
     </main>
