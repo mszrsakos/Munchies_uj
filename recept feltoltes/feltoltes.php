@@ -83,6 +83,39 @@
 
 </div>
 
+<!-- ÚJ RÉSZ KEZDETE -->
+
+<div class="extra-fields">
+
+    <div class="field">
+        <label>Elkészítési idő (perc):</label>
+        <input type="number" id="prepTime" placeholder="Pl: 45p">
+    </div>
+
+    <div class="field">
+        <label>Költség:</label>
+        <select id="cost">
+            <option value="">Válassz...</option>
+            <option value="olcso">Olcsó</option>
+            <option value="megfizetheto">Megfizethető</option>
+            <option value="draga">Drága</option>
+        </select>
+    </div>
+
+    <div class="field">
+        <label>Nehézség:</label>
+        <select id="difficulty">
+            <option value="">Válassz...</option>
+            <option value="konnyu">Könnyű</option>
+            <option value="kozepes">Közepes</option>
+            <option value="nehez">Nehéz</option>
+        </select>
+    </div>
+
+</div>
+
+<!-- ÚJ RÉSZ VÉGE -->
+
 </div>
 <!-- UJ RECEPT KARTYA VEGE -->
 
@@ -114,6 +147,7 @@ function addIngredient() {
 <!-- ALAPANYAGOK FELTOLTESE VEGE -->
 
 
+</div>
 
 
 

@@ -50,3 +50,9 @@ function handleImage(file) {
 
     reader.readAsDataURL(file);
 }
+
+const prepTime = document.getElementById("prepTime").value;
+const cost = document.getElementById("cost").value;
+const difficulty = document.getElementById("difficulty").value;
+
+console.log(prepTime, cost, difficulty);
