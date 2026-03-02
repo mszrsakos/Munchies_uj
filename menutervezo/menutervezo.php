@@ -22,6 +22,8 @@ if (!isset($_SESSION["user_id"])) {
     $stmt->close();
 }
 
+$user_id = (int)$_SESSION["user_id"];
+
 $menu = [];
 
 $stmt = $conn->prepare("
@@ -149,11 +151,18 @@ if (isset($_GET["ajax"]) && $_GET["ajax"] === "1") {
             <div class="cell" data-day="<?= h($day) ?>" data-meal="<?= h($meal) ?>">
 
                 <?php if (isset($menu[$day][$meal])): ?>
-                    <img
-                        src="../imgs/<?= h($menu[$day][$meal]["image_url"]) ?>"
-                        class="menu-img"
-                        alt="<?= h($menu[$day][$meal]["title"]) ?>"
-                    >
+                    <div class="menu-img-wrapper"
+                        data-day="<?= h($day) ?>"
+                        data-meal="<?= h($meal) ?>">
+
+                        <img
+                            src="../imgs/<?= h($menu[$day][$meal]["image_url"]) ?>"
+                            class="menu-img"
+                            alt="<?= h($menu[$day][$meal]["title"]) ?>"
+                        >
+
+                        <button class="remove-btn" title="Eltávolítás">✕</button>
+                    </div>
                 <?php else: ?>
                     <button
                         class="add-btn add-recipe"
@@ -203,6 +212,6 @@ if (isset($_GET["ajax"]) && $_GET["ajax"] === "1") {
 
 <?php include("../footer/footer.html");?>
 
-<script src="menutervezo.js"></script>
+<script src="menutervezo1.js"></script>
 </body>
 </html>
