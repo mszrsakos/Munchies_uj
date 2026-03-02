@@ -16,30 +16,20 @@
 
 
         if (empty($username) || empty($email) || empty($password)) {
-            die("
-                <p>Az összes mezőt ki kell tölteni! Átirányítás 5 másodperc múlva...</p>
-                <script>
-                    setTimeout(function() {
-                        window.location.href = 'regisztracio.php';
-                    }, 5000);
-                </script>
-            ");
+            $_SESSION["error"] = "Az összes mező kitöltése kötelező!";
+            header("Location: ../regisztracio/regisztracio.php");
+            exit();
         }
 
-        $stmt = $conn->prepare("SELECT id FROM users WHERE email = ?");
-        $stmt->bind_param("s", $email);
+        $stmt = $conn->prepare("SELECT id FROM users WHERE email = ? OR username = ?");
+        $stmt->bind_param("ss", $email, $username);
         $stmt->execute();
         $stmt->store_result();
 
         if ($stmt->num_rows > 0) {
-            die("
-                <p>Az email már használatban van. Átirányítás 5 másodperc múlva...</p>
-                <script>
-                    setTimeout(function() {
-                        window.location.href = 'regisztracio.php';
-                    }, 5000);
-                </script>
-            ");
+            $_SESSION["error"] = "Az email cím vagy a felhasználónév már foglalt!";
+            header("Location: ../regisztracio/regisztracio.php");
+            exit();
         }
         $stmt->close();
 
@@ -62,7 +52,7 @@
 
         $stmt->close();
         $conn->close();
-        header("Location: ../fooldal/index.php");
+        header("Location: ../profil/profil.php");
     };
 ?>
 
@@ -93,8 +83,14 @@
             <input type="email" id="email" name="email" required> <br>
             <label for="password">Jelszó:</label> <br>
             <input type="password" id="password" name="password" required> <br>
-        
+
+            <?php if (isset($_SESSION["error"])): ?>
+                <p class="error"><?= $_SESSION["error"]; ?></p>
+                <?php unset($_SESSION["error"]); ?>
+            <?php endif; ?>
+
             <button type="submit">Regisztráció</button>
+            
         </form>
     </main>
 
