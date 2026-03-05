@@ -132,21 +132,16 @@ if (isset($_GET["ajax"]) && $_GET["ajax"] === "1") {
 <main>
     <div class="grid-table">
 
-    <!-- Top-left empty corner -->
     <div></div>
 
-    <!-- Meal headers -->
     <?php foreach ($meals as $meal): ?>
         <div class="grid-header"><?= h($meal) ?></div>
     <?php endforeach; ?>
 
-    <!-- Rows -->
     <?php foreach ($days as $day): ?>
 
-        <!-- Day header -->
         <div class="grid-header"><?= h($day) ?></div>
 
-        <!-- Cells -->
         <?php foreach ($meals as $meal): ?>
             <div class="cell" data-day="<?= h($day) ?>" data-meal="<?= h($meal) ?>">
 

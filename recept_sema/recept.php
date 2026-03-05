@@ -89,6 +89,22 @@ if ($creatorId > 0) {
   $profileLink = null;
 }
 
+$liked = false;
+
+if ($loggedInUserId > 0) {
+
+  $stmt = mysqli_prepare($conn, "SELECT id FROM recipe_likes WHERE user_id = ? AND recipe_id = ?");
+  mysqli_stmt_bind_param($stmt, "ii", $loggedInUserId, $id);
+  mysqli_stmt_execute($stmt);
+  $res = mysqli_stmt_get_result($stmt);
+
+  if (mysqli_fetch_assoc($res)) {
+    $liked = true;
+  }
+
+  mysqli_stmt_close($stmt);
+}
+
 // $isOwnProfile = isset($_SESSION["email"]) && $_SESSION["email"] === $recipe["created_by_email"];
 // $profileLink = $isOwnProfile ? "../profil/profil.php" : "../masFelhasznalo/masFelhasznalo.php?id=" . (int)$recipe["created_by"];
 // /* Ellenőrizd, hogy a bejelentkezett felhasználó azonos-e a beküldővel */
@@ -121,8 +137,14 @@ if ($creatorId > 0) {
   <div class="container">
 
     <div class="left">
-      <h1><?= h($title) ?></h1>
-
+      <div id="title" style="display: flex; align-items: center; gap: 20px;">
+        <h1><?= h($title) ?></h1>
+        <img 
+          src="<?= $liked ? '../imgs/red_heart.png' : '../imgs/clear_heart.png' ?>" 
+          id="like"
+        >
+      </div>
+      
       <!-- Beküldő -->
       <p style="margin: 6px 0 14px 0; opacity: .8;">
       <?php if ($profileLink): ?>
@@ -218,6 +240,8 @@ if ($creatorId > 0) {
 <script>
   window.RECIPE_BASE_SERVINGS = <?= (int)$baseServings ?>;
   window.RECIPE_INGREDIENTS = <?= json_encode($ingredients, JSON_UNESCAPED_UNICODE) ?>;
+  window.RECIPE_ID = <?= $id ?>;
+  window.LOGGED_IN_USER = <?= $loggedInUserId ?>;
 </script>
 <script src="../recept_sema/recept.js"></script>
 
