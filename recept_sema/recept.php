@@ -139,10 +139,12 @@ if ($loggedInUserId > 0) {
     <div class="left">
       <div id="title" style="display: flex; align-items: center; gap: 20px;">
         <h1><?= h($title) ?></h1>
-        <img 
-          src="<?= $liked ? '../imgs/red_heart.png' : '../imgs/clear_heart.png' ?>" 
-          id="like"
-        >
+        <form method="POST" action="kedveles.php" style="display:inline;">
+          <input type="hidden" name="recipe_id" value="<?= $id ?>">
+          <button type="submit" style="border:none;background:none;cursor:pointer;">
+            <img src="<?= $liked ? '../imgs/red_heart.png' : '../imgs/clear_heart.png' ?>" id="like">
+          </button>
+        </form>
       </div>
       
       <!-- Beküldő -->
@@ -243,7 +245,7 @@ if ($loggedInUserId > 0) {
   window.RECIPE_ID = <?= $id ?>;
   window.LOGGED_IN_USER = <?= $loggedInUserId ?>;
 </script>
-<script src="../recept_sema/recept.js"></script>
+<script src="recept.js"></script>
 
 </body>
 </html>
