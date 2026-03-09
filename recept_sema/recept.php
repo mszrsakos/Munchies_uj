@@ -2,7 +2,7 @@
 session_start();
 $loggedInUserId = (int)($_SESSION["user_id"] ?? 0);
 ini_set('display_errors', 1);
-ini_set('display_startup_errors', 1);
+ini_set('display_startup_errors', 1);Í
 
 error_reporting(E_ALL);
 
@@ -11,7 +11,7 @@ require_once "../database.php";
 $id = (int)($_GET["id"] ?? 0);
 if ($id <= 0) { http_response_code(400); die("Hibás recept id."); }
 
-/* ===== Recept + beküldő betöltése (users.display) ===== */
+
 $sql = "
   SELECT 
     r.*,
@@ -34,7 +34,7 @@ mysqli_stmt_close($stmt);
 
 if (!$recipe) { http_response_code(404); die("Nincs ilyen recept."); }
 
-/* ===== Hozzávalók betöltése ===== */
+
 $stmt = mysqli_prepare($conn, "SELECT amount, unit, name FROM recipe_ingredients WHERE recipe_id = ? ORDER BY id ASC");
 mysqli_stmt_bind_param($stmt, "i", $id);
 mysqli_stmt_execute($stmt);
@@ -47,7 +47,7 @@ while ($row = mysqli_fetch_assoc($res)) {
 }
 mysqli_stmt_close($stmt);
 
-/* ===== Elkészítés lépések betöltése ===== */
+
 $steps = [];
 $stmt = mysqli_prepare($conn, "SELECT step_no, step_text FROM recipe_steps WHERE recipe_id = ? ORDER BY step_no ASC");
 mysqli_stmt_bind_param($stmt, "i", $id);
@@ -61,10 +61,9 @@ mysqli_stmt_close($stmt);
 
 function h($s){ return htmlspecialchars((string)$s, ENT_QUOTES, "UTF-8"); }
 
-/* ===== Oldal változók ===== */
+
 $title = $recipe["title"] ?? "Recept";
 
-/* Kép: DB-ben fájlnév van -> ../imgs/fajlnev */
 $imageFile = trim((string)($recipe["image_url"] ?? ""));
 $image = $imageFile !== "" ? "../imgs/" . ltrim($imageFile, "/") : "";
 
@@ -74,7 +73,7 @@ $time = !empty($recipe["time_minutes"]) ? ((int)$recipe["time_minutes"] . "p") :
 $cost = !empty($recipe["cost"]) ? $recipe["cost"] : "—";
 $difficulty = !empty($recipe["difficulty"]) ? $recipe["difficulty"] : "—";
 
-/* Beküldő (display) */
+
 $creator = trim((string)($recipe["creator_name"] ?? ""));
 $creatorLabel = $creator !== "" ? $creator : "ismeretlen";
 $creatorId = (int)($recipe["creator_id"] ?? 0);
@@ -105,13 +104,7 @@ if ($loggedInUserId > 0) {
   mysqli_stmt_close($stmt);
 }
 
-// $isOwnProfile = isset($_SESSION["email"]) && $_SESSION["email"] === $recipe["created_by_email"];
-// $profileLink = $isOwnProfile ? "../profil/profil.php" : "../masFelhasznalo/masFelhasznalo.php?id=" . (int)$recipe["created_by"];
-// /* Ellenőrizd, hogy a bejelentkezett felhasználó azonos-e a beküldővel */
-// $isOwnProfile = isset($_SESSION["user_id"]) && $_SESSION["user_id"] === (int)$recipe["created_by"];
-// $profileLink = $isOwnProfile 
-//     ? "../profil/profil.php" 
-//     : "../masFelhasznalo/masFelhasznalo.php?id=" . (int)$recipe["created_by"];
+
 ?>
 
 <!DOCTYPE html>
@@ -189,7 +182,7 @@ if ($loggedInUserId > 0) {
           </div>
         </div>
 
-        <!-- recept.js tölti fel -->
+        
         <ul></ul>
       </div>
     </div>
@@ -205,12 +198,12 @@ if ($loggedInUserId > 0) {
               $isHeading = false;
               $clean = $text;
 
-              // ## Alcím
+              
               if (str_starts_with($clean, "##")) {
                 $isHeading = true;
                 $clean = trim(substr($clean, 2));
               }
-              // -- Alcím --
+
               else if (str_starts_with($clean, "--") && str_ends_with($clean, "--")) {
                 $isHeading = true;
                 $clean = trim($clean, "- ");

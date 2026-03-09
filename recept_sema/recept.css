@@ -5,7 +5,7 @@ body {
     background-color: #D2E4E3;
   }
   
-  /* ===== FŐ OLDAL ===== */
+
   .teljes_oldal {
     display: flex;
     justify-content: center;
@@ -19,7 +19,7 @@ body {
     width: 100%;
   }
   
-  /* ===== BAL OLDAL ===== */
+
   .left {
     width: 100%;
   }
@@ -40,7 +40,7 @@ body {
     transition: transform 0.2s ease;
   }
   
-  /* Recept kép */
+
   .kep {
     display: block;
     margin: 30px auto;
@@ -53,7 +53,7 @@ body {
     background: #fff;
   }
   
-  /* ===== INFO TÁBLA ===== */
+
   .tapanyag_kaloria {
     margin: auto;
     width: 600px;
@@ -73,7 +73,7 @@ body {
     border-right: none;
   }
   
-  /* ===== HOZZÁVALÓK ===== */
+
   .hozzavalok {
     margin: 40px auto;
     background: linear-gradient(135deg, #6C9995 80%, #97bbb9);
@@ -100,7 +100,7 @@ body {
     padding: 10px 18px;
   }
   
-  /* ===== ADAG SZÁMLÁLÓ ===== */
+
   .counter {
     display: flex;
     align-items: center;
@@ -144,7 +144,7 @@ body {
     font-weight: bold;
   }
   
-  /* ===== ELKÉSZÍTÉS ===== */
+
   .right {
     width: 100%;
     background: linear-gradient(135deg, #f7fafc, #e6f2f1);
@@ -169,13 +169,13 @@ body {
     line-height: 1.5;
   }
   
-  /* ===== SPACER ===== */
+
   .spacer,
   .spacer2 {
     height: 40px;
   }
   
-  /* ===== MOBIL ===== */
+
   @media (max-width: 900px) {
     .container {
       flex-direction: column;

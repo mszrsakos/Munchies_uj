@@ -5,7 +5,7 @@
     let servings = baseServings;
   
     function formatNumber(n) {
-      // show integers cleanly, decimals if needed
+      
       if (Number.isInteger(n)) return String(n);
       return String(Math.round(n * 100) / 100);
     }
@@ -26,7 +26,7 @@
           const unit = ing.unit ? (ing.unit + " ") : "";
           li.textContent = `${formatNumber(newAmount)} ${unit}${ing.name}`;
         } else {
-          li.textContent = ing.name; // “ízlés szerint” etc.
+          li.textContent = ing.name; 
         }
   
         ul.appendChild(li);
