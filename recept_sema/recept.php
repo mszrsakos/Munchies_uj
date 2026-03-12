@@ -2,7 +2,7 @@
 session_start();
 $loggedInUserId = (int)($_SESSION["user_id"] ?? 0);
 ini_set('display_errors', 1);
-ini_set('display_startup_errors', 1);Í
+ini_set('display_startup_errors', 1);
 
 error_reporting(E_ALL);
 
@@ -132,12 +132,12 @@ if ($loggedInUserId > 0) {
     <div class="left">
       <div id="title" style="display: flex; align-items: center; gap: 20px;">
         <h1><?= h($title) ?></h1>
-        <form method="POST" action="kedveles.php" style="display:inline;">
+        <form method="POST" action="kedveles.php">
           <input type="hidden" name="recipe_id" value="<?= $id ?>">
           <button type="submit" style="border:none;background:none;cursor:pointer;">
-            <img src="<?= $liked ? '../imgs/red_heart.png' : '../imgs/clear_heart.png' ?>" id="like">
+              <img src="<?= $liked ? '../imgs/red_heart.png' : '../imgs/clear_heart.png' ?>" width="50">
           </button>
-        </form>
+      </form>
       </div>
       
       <!-- Beküldő -->

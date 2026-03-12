@@ -1,6 +1,5 @@
 <?php
 session_start();
-
 require_once "../database.php";
 
 $userId = $_SESSION["user_id"] ?? 0;
@@ -9,6 +8,7 @@ if (!$userId) {
     header("Location: ../bejelentkezes/bejelentkezes.php");
     exit;
 }
+
 $recipeId = (int)($_POST["recipe_id"] ?? 0);
 
 if ($recipeId <= 0) {
@@ -32,7 +32,6 @@ if (mysqli_fetch_assoc($res)) {
     $stmt = mysqli_prepare($conn, "INSERT INTO recipe_likes (user_id, recipe_id) VALUES (?, ?)");
     mysqli_stmt_bind_param($stmt, "ii", $userId, $recipeId);
     mysqli_stmt_execute($stmt);
-
 }
 
 header("Location: recept.php?id=".$recipeId);
