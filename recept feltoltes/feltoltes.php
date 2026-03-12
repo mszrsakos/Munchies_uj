@@ -66,10 +66,6 @@
 <span>Desszert</span>
 </label>
 
-<label class="tag">
-<input type="checkbox">
-<span>Ital</span>
-</label>
 
 <label class="tag">
 <input type="checkbox">
@@ -146,19 +142,6 @@ function addIngredient() {
 </script>
 <!-- ALAPANYAGOK FELTOLTESE VEGE -->
 </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
 </div>
 
 <!-- Elkeszetes lepesei kezdete -->
