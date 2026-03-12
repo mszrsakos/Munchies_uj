@@ -186,3 +186,52 @@ body {
     }
   }
   
+
+
+
+  /* TABLET 1400px – 800px */
+@media (max-width: 1400px) and (min-width: 800px) {
+
+  /* container flex layout */
+  .container {
+    display: flex;
+    justify-content: center;
+    gap: 40px; /* a két rész között */
+    flex-wrap: wrap; /* ha nem fér el, alulra ugrik */
+  }
+
+  /* bal oldal (cím, kép, hozzávalók) */
+  .left {
+    flex: 1 1 400px; /* rugalmas szélesség, max 400px */
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* kép középre */
+    gap: 20px;
+  }
+
+  /* kép középre */
+  .kep {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    margin: 0 auto;
+  }
+
+  /* jobb oldal (elkészítés) */
+  .right {
+    flex: 1 1 400px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  /* cím középre */
+  #title h1 {
+    text-align: center;
+  }
+
+  /* táblázat és counter középre */
+  .valami, .hozzavalok {
+    width: 100%;
+  }
+}
