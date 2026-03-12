@@ -145,8 +145,6 @@ function addIngredient() {
 }
 </script>
 <!-- ALAPANYAGOK FELTOLTESE VEGE -->
-
-
 </div>
 
 
