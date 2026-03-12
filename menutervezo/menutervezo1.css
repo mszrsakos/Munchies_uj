@@ -156,9 +156,9 @@ main{
 }
 
 #etelValasztas {
-    background: #fff;
+    background-color: #D2E4E3;
     width: min(1100px, 95vw);
-    height: 80vh;
+    height: 700px;
     margin: auto;
     border-radius: 12px;
     display: flex;
@@ -169,7 +169,7 @@ main{
 #etelValasztasBottom{
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-between;
+    justify-content:center;
     gap: 20px; 
     margin: 2% 5%;
     overflow-y: auto;
@@ -213,6 +213,7 @@ main{
     flex: 1; 
     max-width: 20%; 
     text-align: center; 
+    height: min-content;
 }
 .img-wrapper>img{
     display: block;
