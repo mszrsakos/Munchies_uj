@@ -3,6 +3,11 @@ const imageInput = document.getElementById("imageInput");
 const uploadContent = document.getElementById("uploadContent");
 const uploadArea = document.getElementById("uploadArea");
 
+const prepTime = document.getElementById("prepTime").value;
+const cost = document.getElementById("cost").value;
+const difficulty = document.getElementById("difficulty").value;
+
+
 // Kattintásra file picker megnyitása
 uploadContent.addEventListener("click", () => {
     imageInput.click();
@@ -51,8 +56,5 @@ function handleImage(file) {
     reader.readAsDataURL(file);
 }
 
-const prepTime = document.getElementById("prepTime").value;
-const cost = document.getElementById("cost").value;
-const difficulty = document.getElementById("difficulty").value;
 
 console.log(prepTime, cost, difficulty);
