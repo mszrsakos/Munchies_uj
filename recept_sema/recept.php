@@ -132,12 +132,12 @@ if ($loggedInUserId > 0) {
     <div class="left">
       <div id="title" style="display: flex; align-items: center; gap: 20px;">
         <h1><?= h($title) ?></h1>
-        <form method="POST" action="kedveles.php" style="display:inline;">
+        <form method="POST" action="kedveles.php">
           <input type="hidden" name="recipe_id" value="<?= $id ?>">
           <button type="submit" style="border:none;background:none;cursor:pointer;">
-            <img src="<?= $liked ? '../imgs/red_heart.png' : '../imgs/clear_heart.png' ?>" id="like">
+              <img src="<?= $liked ? '../imgs/red_heart.png' : '../imgs/clear_heart.png' ?>" width="50">
           </button>
-        </form>
+      </form>
       </div>
       
       <!-- Beküldő -->
