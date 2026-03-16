@@ -14,8 +14,7 @@ footer{
   height: 80%;
   width: 100%;
   margin-top: 300px;
-  justify-content:space-evenly;
-  vertical-align: middle;
+  justify-content: space-evenly;
 }
 
 #footerAlso{
@@ -25,7 +24,7 @@ footer{
 #logo{
   padding: 0px 20px;
   height: 100%;
-  vertical-align: middle;
+  align-content: center;
 }
 #logoImg{
   height: 80%;
@@ -34,6 +33,7 @@ footer{
 #socialmedia{
   height: 100%;
   width: 40%;
+  align-content: center;
 }
 #imgsRow{
   height: 50%;
@@ -47,6 +47,7 @@ footer{
 #jobboldal{
   right: 0;
   height: 100%;
+  align-content: center;
 }
 #jobboldal a{
   text-decoration: none;
@@ -55,6 +56,7 @@ footer{
 #kapcsolat{
   height: 70%;
   width: 100%;
+  align-content: center;
 }
 
 #hirlevel{
@@ -82,7 +84,7 @@ footer{
   border-radius: 999px;
   overflow: hidden;
   box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
-  margin: -5% auto;
+  margin-bottom: 16px;
 }
 
 .hirlevel input {
@@ -117,3 +119,5 @@ footer{
   background-color: #fff; 
   align-self: center;
 }
+
+
