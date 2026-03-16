@@ -1,6 +1,6 @@
 footer{
   height: 300px;
-  margin-top: 250px;
+  margin-top: 200px;
   width: 100%;
   position:static;
   bottom: 0;
@@ -13,7 +13,6 @@ footer{
   background-color: #6C9995;
   height: 80%;
   width: 100%;
-  margin-top: 300px;
   justify-content: space-evenly;
 }
 
@@ -28,7 +27,7 @@ footer{
 }
 #logoImg{
   height: 80%;
-  width: 100%;
+  width: auto;
 }   
 #socialmedia{
   height: 100%;
@@ -38,7 +37,7 @@ footer{
 #imgsRow{
   height: 50%;
   display: flex;
-  justify-content: space-between;
+  justify-content: space-evenly;
 }
 #imgsRow>a>img{
   height: 100%;
@@ -121,3 +120,15 @@ footer{
 }
 
 
+@media only screen and (min-width: 800px) and (max-width: 1000px){
+  #imgsRow{
+    height: 30%;
+    /* flex-direction: column; */
+  }
+  #socialmedia{
+    
+  }
+  #socialmedia a{
+    
+  }
+}
