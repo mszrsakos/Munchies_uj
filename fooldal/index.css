@@ -75,7 +75,7 @@ body{
     border-radius: 25px;
     border: 5px solid #6C9995;
     justify-content: center;
-    align-items: center
+    align-items: center;
 }
 #menutervezo:hover{
     background-color: #C1DCDC;
@@ -87,6 +87,33 @@ body{
     display: inline-block;
     margin: 0 auto 0 auto;
     margin-top: 50px;
+    justify-content: center;
+    align-items: center;
 
 }
 /*oldal vége*/
+
+
+
+/* media query */
+
+@media screen and (min-width: 800px) and (max-width: 1200px) {
+    #navTxt{
+        font-size: 100px;
+    }
+    #receptek, #menutervezo{
+        width: 400px;
+        height: 500px;
+        font-size: 60px;
+        margin: 2%;
+        justify-content: center;
+        align-items: center;
+        /* justify-content: space-between; */
+        
+    }
+    .oldalak{
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+}
