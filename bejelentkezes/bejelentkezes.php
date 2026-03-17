@@ -64,9 +64,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["bejelentkezes"])) {
 
 <body>
 
-    <?php include("../header/header.html"); ?>
+    <!-- <?php include("../header/header.html"); ?> -->
 
-    <main>
+    <!-- <main>
         <form id="loginForm" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="POST">
 
             <label for="email">Email cím:</label>
@@ -98,7 +98,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["bejelentkezes"])) {
             </p>
 
         </form>
-    </main>
+    </main> -->
 
     <?php include("../footer/footer.html"); ?>
 

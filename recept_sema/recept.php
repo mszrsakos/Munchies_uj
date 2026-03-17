@@ -130,7 +130,7 @@ if ($loggedInUserId > 0) {
   <div class="container">
 
     <div class="left">
-      <div id="title" style="display: flex; align-items: center; gap: 20px;">
+      <div id="title" style="display: flex; justify-content: center ;align-items: center; gap: 20px;">
         <h1><?= h($title) ?></h1>
         <form method="POST" action="kedveles.php">
           <input type="hidden" name="recipe_id" value="<?= $id ?>">
@@ -141,7 +141,7 @@ if ($loggedInUserId > 0) {
       </div>
       
       <!-- Beküldő -->
-      <p style="margin: 6px 0 14px 0; opacity: .8;">
+      <p style="margin: 6px 0 14px 0; justify-content:center ;opacity: .8;">
       <?php if ($profileLink): ?>
         Beküldte: <a href="<?= h($profileLink) ?>"><strong><?= h($creatorLabel) ?></strong></a>
       <?php else: ?>
@@ -170,23 +170,8 @@ if ($loggedInUserId > 0) {
         </table>
       </div>
 
-      <div class="hozzavalok">
-        <h1>Hozzávalók</h1>
-
-        <div class="counter">
-          <p>Adagok száma</p>
-          <div class="counter2">
-            <button type="button" onclick="decrease()">−</button>
-            <span id="count"><?= (int)$baseServings ?></span>
-            <button type="button" onclick="increase()">+</button>
-          </div>
-        </div>
-
-        
-        <ul></ul>
-      </div>
-    </div>
-
+      
+    <div id="adatok">
     <div class="right">
       <h1>Elkészítés</h1>
 
@@ -221,9 +206,36 @@ if ($loggedInUserId > 0) {
           <li>—</li>
         <?php endif; ?>
       </ol>
+    </div>  
+
+
+
+    <div class="hozzavalok">
+        <h1>Hozzávalók</h1>
+
+        <div class="counter">
+          <p>Adagok száma</p>
+          <div class="counter2">
+            <button type="button" onclick="decrease()">−</button>
+            <span id="count"><?= (int)$baseServings ?></span>
+            <button type="button" onclick="increase()">+</button>
+          </div>
+        </div>
+
+        
+        <ul></ul>
+      </div>
     </div>
 
+    
+
   </div>
+
+
+
+    </div>
+
+    
 
   <div class="spacer2"></div>
 </div>
