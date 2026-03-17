@@ -19,9 +19,9 @@
 
     
     <nav><h1 id="navTxt">Munchies</h1></nav>
-    <div id="oldalak">
-        <a href="../receptek/receptek.php"><div><button id="receptek">Receptek</button></div></a>
-        <a href="../menutervezo/menutervezo.php"><div><button id="menutervezo">Menütervező</button></div></a>
+    <div class="oldalak">
+        <a class="card" href="../receptek/receptek.php" id="receptek">Receptek</a>
+        <a class="card" href="../menutervezo/menutervezo.php" id="menutervezo">Menütervező</a>
     </div>
 
     <?php include("../footer/footer.html"); ?>
@@ -30,3 +30,5 @@
 </body>
 </html>
 
+<!-- <div><button id="receptek">Receptek</button></div> -->
+ <!-- <div><button id="menutervezo">Menütervező</button></div> -->
