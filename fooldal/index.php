@@ -21,7 +21,7 @@
     <nav><h1 id="navTxt">Munchies</h1></nav>
     <div id="oldalak">
         <a href="../receptek/receptek.php"><div><button id="receptek">Receptek</button></div></a>
-        <div><button id="menutervezo">Menütervező</button></div>
+        <a href="../menutervezo/menutervezo.php"><div><button id="menutervezo">Menütervező</button></div></a>
     </div>
 
     <?php include("../footer/footer.html"); ?>
