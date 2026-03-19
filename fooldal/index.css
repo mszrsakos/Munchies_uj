@@ -7,8 +7,10 @@ body{
     font-family: "Inter";
     font-style: italic;
     background-image: url("../imgs/kezdolapkep85opacity.jpg");
-    background-size: 100% 150%;
-    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: top;
+    justify-items: center;
+    align-items: center;
 }
 
 /*oldalak*/
@@ -16,7 +18,7 @@ body{
     font-family: "Inter";
     font-style: italic;
     font-weight: 700;
-    font-size: 100px;
+    font-size: 8vw;
     color: white;
     margin-left: 20px;
     text-align: center;
@@ -32,7 +34,7 @@ body{
         transform: translateY(0);
     }
 }
-#receptek{
+/* #receptek{
 
     font-family: "Inter";
     font-style: italic;
@@ -53,14 +55,63 @@ body{
     align-items: center ;
 
     
-}
+} */
+/* #receptek, #menutervezo{
+    font-family: "Inter";
+    font-style: italic;
+    font-weight: 700;
 
+    height: 500px;
+    width: 400px;
+
+    background-color: #E8F1F0;
+    text-align: center;
+    font-size: 50px;
+
+    border-radius: 25px;
+    border: 5px solid #6C9995;
+    text-decoration: none;
+    color: black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    margin: 0;       
+    float: none;     
+}
 #receptek:hover{
     background-color: #C1DCDC;
     cursor: pointer;
     font-weight: 800;
+} */
+.card{
+    height: 500px;
+    width: 400px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    background-color: #E8F1F0;
+    border-radius: 25px;
+    border: 5px solid #6C9995;
+
+    font-family: "Inter";
+    font-style: italic;
+    font-weight: 700;
+    font-size: 50px;
+
+    text-decoration: none;  /* removes link underline */
+    color: black;
+
+    transition: 0.2s;
 }
-#menutervezo{
+
+.card:hover{
+    background-color: #C1DCDC;
+    font-weight: 800;
+}
+/* #menutervezo{
     float: right;
     margin-right: 20%;
     font-family: "Inter";
@@ -76,7 +127,7 @@ body{
     border: 5px solid #6C9995;
     justify-content: center;
     align-items: center;
-}
+} */
 #menutervezo:hover{
     background-color: #C1DCDC;
     cursor: pointer;
@@ -84,11 +135,12 @@ body{
 }
 .oldalak{
     display: flex;
-    display: inline-block;
-    margin: 0 auto 0 auto;
-    margin-top: 50px;
-    justify-content: center;
+    justify-content: center; 
     align-items: center;
+    gap: 80px;
+    flex-wrap: wrap;
+    
+    
 
 }
 /*oldal vége*/
@@ -99,12 +151,13 @@ body{
 
 @media screen and (min-width: 800px) and (max-width: 1200px) {
     #navTxt{
-        font-size: 100px;
+        font-size: 90px;
     }
     #receptek, #menutervezo{
+        display: grid;
         width: 400px;
         height: 500px;
-        font-size: 60px;
+        font-size: 50px;
         margin: 2%;
         justify-content: center;
         align-items: center;
@@ -117,3 +170,51 @@ body{
         justify-content: center;
     }
 }
+@media screen and (min-width: 350px) and (max-width: 800px) {
+    #navTxt{
+        font-size: 90px;
+    }
+    #receptek, #menutervezo{
+        display: grid;
+        width: 45vw;
+        height: 50vh;
+        font-size: 30px;
+        margin: 2%;
+        justify-content: center;
+        align-items: center;
+        /* justify-content: space-between; */
+        
+    }
+    .oldalak{
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+}
+/* @media screen and (min-width: 1200px) and (max-width: 1500px) {
+    #navTxt{
+        font-size: 90px
+    }
+    #receptek, #menutervezo{
+        display: grid;
+        width: 400px;
+        height: 500px;
+        font-size: 50px;
+        margin: 2%;
+        justify-content: center;
+        align-items: center;
+        justify-content: space-between;
+        
+    }
+    #receptek{
+        margin-left: 20%;
+    }
+    #menutervezo{
+        margin-right: 20%;
+    }
+    .oldalak{
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+} */
