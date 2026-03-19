@@ -75,10 +75,10 @@ function h($s){ return htmlspecialchars((string)$s, ENT_QUOTES, "UTF-8"); }
         
         <!-- search bar -->
         <div class="container">
-        <form action="" method="get" class="search-bar" autocomplete="off">
-            <input type="text" name="q" value="<?= h($_GET["q"] ?? "") ?>" placeholder="Keresés receptre..." />
-            <button type="submit"><img src="../imgs/keresesbtn-removebg-preview.png"></button>
-        </form>
+            <form action="" method="get" class="search-bar" autocomplete="off">
+                <input type="text" name="q" value="<?= h($_GET["q"] ?? "") ?>" placeholder="Keresés receptre..." />
+                <button type="submit"><img src="../imgs/keresesbtn-removebg-preview.png"></button>
+            </form>
 
         </div>
 

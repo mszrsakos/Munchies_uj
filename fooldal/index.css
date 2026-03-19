@@ -155,8 +155,8 @@ body{
     }
     #receptek, #menutervezo{
         display: grid;
-        width: 400px;
-        height: 500px;
+        width: 45vw;
+        height: 55vh;
         font-size: 50px;
         margin: 2%;
         justify-content: center;
@@ -170,15 +170,36 @@ body{
         justify-content: center;
     }
 }
-@media screen and (min-width: 350px) and (max-width: 800px) {
+@media screen and (min-width: 600px) and (max-width: 800px) {
     #navTxt{
-        font-size: 90px;
+        font-size: 5em;
     }
-    #receptek, #menutervezo{
+    #receptek, #menutervezo.card{
         display: grid;
         width: 45vw;
-        height: 50vh;
-        font-size: 30px;
+        height:45vh;
+        font-size: 40px;
+        margin: 2%;
+        justify-content: center;
+        align-items: center;
+        /* justify-content: space-between; */
+        
+    }
+    .oldalak{
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+}
+@media screen and (min-width: 350px) and (max-width: 600px) {
+    #navTxt{
+        font-size: 3em;
+    }
+    #receptek, #menutervezo.card{
+        display: grid;
+        width: 60vw;
+        height: 35vh;
+        font-size: 1.7em;
         margin: 2%;
         justify-content: center;
         align-items: center;
