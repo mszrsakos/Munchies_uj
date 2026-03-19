@@ -14,6 +14,7 @@ footer{
   height: 80%;
   width: 100%;
   justify-content: space-evenly;
+  font-style: italic;
 }
 
 #footerAlso{

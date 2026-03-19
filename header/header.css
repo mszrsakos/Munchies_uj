@@ -59,3 +59,88 @@ a{
     color: white;
     text-decoration: none;
 }
+
+.dropbtn{
+    display: none;
+}
+
+#dropdown_content {
+    display: none; /* Alapértelmezés szerint rejtve */
+    position: absolute;
+    top: 100%;
+    right: 0;
+    background-color: #6C9995;
+    box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
+    z-index: 1;
+}
+
+#dropdown_content .nav_elem {
+    padding: 10px 20px;
+    text-align: left;
+}
+
+#dropdown_content .nav_elem a {
+    text-decoration: none;
+    color: white;
+    display: block;
+}
+
+#dropdown_content .nav_elem a:hover {
+    background-color: #8C8C8C;
+}
+
+@media only screen and (min-width: 1001px) {
+
+    .dropbtn {
+        display: none;
+    }
+
+    #jobb_oldal_nav {
+        display: flex !important;
+        position: static;
+        flex-direction: row;
+        gap: 30px;
+        gap: 10vw;
+    }
+}
+
+/* 1000px alatt dropdown menü */
+@media only screen and (max-width: 1000px) {
+
+    #jobb_oldal_nav {
+        display: none; /* alapból rejtve */
+        position: fixed;
+        top: 120px;
+        right: 0;
+        background-color: #6C9995;
+        width: 200px;
+        flex-direction: column;
+        padding: 10px 0;
+        height: min-content;
+        border: white solid 2px;
+        border-bottom-left-radius: 10px;
+        border-bottom-right-radius: 10px;
+        margin-right: 0;
+    }
+
+    .nav_elem{
+        font-size: 24px;
+    }
+    #jobb_oldal_nav.active {
+        display: flex; /* kattintásra megjelenik */
+    }
+
+    .dropbtn {
+        display: block;
+        padding: 10px 20px;
+        background-color: #6C9995;
+        border: none;
+        color: white;
+        font-size: 20px;
+        cursor: pointer;
+        height: 70%;
+    }
+    .dropbtn img{
+        height: 100%;
+    }
+}
