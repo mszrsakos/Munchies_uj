@@ -156,19 +156,23 @@ if ($loggedInUserId > 0) {
       <?php endif; ?>
 
       <div class="valami">
-        <table class="tapanyag_kaloria">
-          <tr>
-            <th>IDŐ</th>
-            <th>KÖLTSÉG</th>
-            <th style="border: 0px;">NEHÉZSÉG</th>
-          </tr>
-          <tr>
-            <td><?= h($time) ?></td>
-            <td><?= h($cost) ?></td>
-            <td style="border: 0px;"><?= h($difficulty) ?></td>
-          </tr>
-        </table>
-      </div>
+  <div class="info-box">
+    <div class="info-item">
+      <span>IDŐ</span>
+      <strong><?= h($time) ?></strong>
+    </div>
+
+    <div class="info-item">
+      <span>KÖLTSÉG</span>
+      <strong><?= h($cost) ?></strong>
+    </div>
+
+    <div class="info-item">
+      <span>NEHÉZSÉG</span>
+      <strong><?= h($difficulty) ?></strong>
+    </div>
+  </div>
+</div>
 
       
     <div id="adatok">
