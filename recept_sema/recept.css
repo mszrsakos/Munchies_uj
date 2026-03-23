@@ -134,6 +134,38 @@ body {
     font-size: 18px;
     cursor: pointer;
   }
+  .valami {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+  }
+  
+  .info-box {
+    display: flex;
+    gap: 20px;
+    background: white;
+    padding: 20px 30px;
+    border-radius: 20px;
+    box-shadow: 0 6px 20px rgba(0,0,0,0.1);
+    flex-wrap: wrap;
+  }
+  
+  .info-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-width: 100px;
+  }
+  
+  .info-item span {
+    font-size: 12px;
+    color: #888;
+  }
+  
+  .info-item strong {
+    font-size: 18px;
+    color: #6C9995;
+  }
   
   .counter button:hover {
     background: #6C9995;
@@ -209,7 +241,7 @@ body {
 
   /* kép középre */
   .kep {
-    max-width: 100%;
+    max-width: 70%;
     height: auto;
     display: block;
     margin: 0 auto;
@@ -236,5 +268,73 @@ body {
 
   .left, .right{
     flex: 1;
+  }
+}
+
+
+
+@media (max-width: 800px) and (min-width: 350px) {
+
+  /* fő layout */
+  .container {
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .teljes_oldal {
+    padding: 20px 10px;
+  }
+
+  /* cím + szív */
+  #title {
+    flex-direction: column;
+    gap: 10px;
+    text-align: center;
+  }
+
+  /* kép */
+  .kep {
+    max-width: 100%;
+    height: auto; /* FONTOS: ne legyen fix 600px */
+  }
+
+  /* táblázat */
+  .tapanyag_kaloria {
+    width: 100%;
+  }
+
+  /* EZ A LEGFONTOSABB */
+  #adatok {
+    flex-direction: column;
+    gap: 20px;
+    align-items: center;
+  }
+
+  .right,
+  .hozzavalok {
+    width: 85%;
+    max-width: 100%;
+  }
+
+  /* hozzávalók lista */
+  .hozzavalok li {
+    font-size: 14px;
+  }
+
+  /* counter */
+  .counter {
+    width: 70%;
+    justify-content: space-between;
+  }
+
+  /* szöveg */
+  .right li {
+    font-size: 14px;
+  }
+
+  /* cím */
+  .left h1 {
+    font-size: 22px;
+    text-align: center;
   }
 }
