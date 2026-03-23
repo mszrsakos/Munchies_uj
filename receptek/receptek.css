@@ -44,7 +44,7 @@ body{
   width: 80%;
   margin: auto;
   min-height: 30vh;
-  background-image: linear-gradient(#6C9995),(#6C9995),;
+  background-image: linear-gradient(#6C9995),(#6C9995);
   background-position: center;
   background-size: cover;
   display: flex;
@@ -186,13 +186,7 @@ body{
   background: none;
   cursor: pointer;
 }
-.img-wrapper{
-  position: relative;
-  overflow: hidden;
-  flex: 1; 
-  max-width: 33%; 
-  text-align: center; 
-}
+
 .img-wrapper>img{
   display: block;
   width: 100%;
@@ -250,8 +244,18 @@ body{
 .img-wrapper {
   flex: 1 1 calc(25% - 20px); 
   box-sizing: border-box; 
+  max-width: 33%;
   text-align: center;
+  position: relative;
+  overflow: hidden;
 }
+/* .img-wrapper{
+  position: relative;
+  overflow: hidden;
+  flex: 1; 
+  max-width: 33%; 
+  text-align: center; 
+} */
 /* receptek tartalom vege */
 
 
@@ -294,13 +298,17 @@ body{
     font-size: 1.5rem;
   }
   .ajanlat_tartalom{
-    width: 80%;
+    
     
     text-align: center;
     display: flex;
     flex-direction: row;
     grid-template-columns: repeat(3, 1fr);
-    gap: 20px;
+    
+  }
+  .search-bar input {
+    width: 80vw;
+    font-size: 1.5rem;
   }
 }
 
@@ -317,12 +325,15 @@ body{
   .receptTartalom{
     justify-content:center;
     align-items: center;
-    width: 100vw;
+    width: 90vw;
     margin: auto;
   }
-  .ajanlat_tartalom{
-    width: 90%;
 
+  .search-bar{
+    width: 80vw;
+  }
+  .ajanlat_tartalom{
+    width: 80%;
     text-align: center;
     display: flex;
     flex-direction: row;
@@ -332,10 +343,11 @@ body{
 }
 
 
-@media screen and (max-width: 600px) {
+@media screen and (min-width: 350px) and (max-width: 600px) {
+
   .img-wrapper {
     flex: 1 1 100%;
-    width: 100vw;
+    max-width: 100%;
   }
 
   .content.fade {
@@ -346,17 +358,28 @@ body{
     align-items: center;
     margin: auto;
     justify-content: center;
-    width: 100vh;
+    width: 90%;
   }
   .ajanlat_tartalom{
+    margin-right: 0px;
+    flex-direction: column ;
+    width: 90%;
     margin: auto;
-    width: 90vw;
   }
   .container{
     width: 90vw;
   }
   .search-bar input {
-    width: 90vw;
+    width: 90%;
+    margin: auto;
+    font-size: 5.5vw;
+  }  
+  .search-bar button {
+    width: 20%;
+    margin: auto;
+  }
+  .search-bar button img{
+    width: 13vw;
     margin: auto;
   }
 }
