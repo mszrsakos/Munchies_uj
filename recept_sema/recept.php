@@ -32,6 +32,7 @@ mysqli_stmt_execute($stmt);
 $recipe = mysqli_fetch_assoc(mysqli_stmt_get_result($stmt));
 mysqli_stmt_close($stmt);
 
+
 if (!$recipe) { http_response_code(404); die("Nincs ilyen recept."); }
 
 
@@ -45,6 +46,31 @@ while ($row = mysqli_fetch_assoc($res)) {
   $row["amount"] = $row["amount"] !== null ? (float)$row["amount"] : null;
   $ingredients[] = $row;
 }
+mysqli_stmt_close($stmt);
+// AJÁNLOTT RECEPTEK
+$recommended = [];
+
+$stmt = mysqli_prepare($conn, "
+  SELECT id, title 
+  FROM recipes 
+  WHERE id != ? 
+  ORDER BY RAND() 
+  LIMIT 10
+");
+
+if (!$stmt) {
+  die("Prepare hiba (ajanlo): " . mysqli_error($conn));
+}
+
+mysqli_stmt_bind_param($stmt, "i", $id);
+mysqli_stmt_execute($stmt);
+
+$res = mysqli_stmt_get_result($stmt);
+
+while ($row = mysqli_fetch_assoc($res)) {
+  $recommended[] = $row;
+}
+
 mysqli_stmt_close($stmt);
 
 
@@ -138,6 +164,8 @@ if ($loggedInUserId > 0) {
               <img src="<?= $liked ? '../imgs/red_heart.png' : '../imgs/clear_heart.png' ?>" width="50">
           </button>
       </form>
+
+      
       </div>
       
       <!-- Beküldő -->
@@ -151,9 +179,25 @@ if ($loggedInUserId > 0) {
       </p>
       
 
-      <?php if ($image): ?>
-        <img class="kep" src="<?= h($image) ?>" alt="<?= h($title) ?>">
-      <?php endif; ?>
+      <div class="kep-es-ajanlo">
+
+  <?php if ($image): ?>
+    <img class="kep" src="<?= h($image) ?>" alt="<?= h($title) ?>">
+  <?php endif; ?>
+
+  <div class="ajanlo">
+    <h3>Neked ajánljuk</h3>
+
+    <div class="ajanlo-lista">
+      <?php foreach ($recommended as $rec): ?>
+        <a href="recept.php?id=<?= (int)$rec["id"] ?>">
+          <?= h($rec["title"]) ?>
+        </a>
+      <?php endforeach; ?>
+    </div>
+  </div>
+
+</div>
 
       <div class="valami">
   <div class="info-box">

@@ -43,7 +43,9 @@ a{
 #icon{
     height: 100%;
 }
-
+#addBtn{
+    height: 70px;
+}
 
 a:hover{
     text-decoration: none;

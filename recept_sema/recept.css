@@ -338,3 +338,48 @@ body {
     text-align: center;
   }
 }
+
+.kep-es-ajanlo {
+  display: flex;
+  gap: 40px;
+  align-items: flex-start;
+}
+
+.kep {
+
+  max-width: 80%;
+  border-radius: 10px;
+}
+
+.ajanlo {
+  width: 300px;
+}
+
+.ajanlo h3 {
+  font-size: 20px;
+  margin-bottom: 15px;
+  border-bottom: 2px solid #eee;
+  padding-bottom: 5px;
+}
+
+.ajanlo-lista {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  color: #000000;
+  font-size: 100px;
+}
+
+.ajanlo-lista a {
+  background: #d3d3d3;
+  padding: 6px 10px;
+  border-radius: 6px;
+  font-size: 20px;
+  text-decoration: none;
+  color: #6C9995;
+  transition: 0.2s;
+}
+
+.ajanlo-lista a:hover {
+  background: #ddd;
+}
