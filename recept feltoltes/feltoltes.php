@@ -1,9 +1,20 @@
+<?php
+    session_start();
+
+    if (!isset($_SESSION["email"])) {
+        header("Location: ../bejelentkezes/bejelentkezes.php");
+        exit();
+    }
+    
+    require_once "../database.php";
+?>
+
 <!DOCTYPE html>
 <html lang="hu">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Feltoltes</title>
+    <title>Recept feltöltés</title>
     <link rel="stylesheet" href="feltoltes.css">
     <link rel="stylesheet" href="../header/header.css">
     <!-- <link rel="stylesheet" href="../footer/footer.css"> -->
@@ -20,7 +31,7 @@
 </div>
 
 <div class="kep_hozzaadas">
-    <h1 class="section-title">Recept képe</h1>
+    <h1 id="receptImg">Recept képe</h1>
 
     <div class="upload-area" id="uploadArea">
         <input type="file" id="imageInput" accept="image/*" hidden>
@@ -120,9 +131,11 @@
 <div class="container">
     <h2>Alapanyagok feltöltése</h2>
 
-    <input type="text" id="ingredientInput" placeholder="Írd be az alapanyagot">
-    <button onclick="addIngredient()">Hozzáadás</button>
-
+    <div id="addIngredient">
+        <input type="text" id="ingredientInput" placeholder="Írd be az alapanyagot">
+        <button id="addIngredientBtn" onclick="addIngredient()">Hozzáadás</button>
+    </div>
+    
     <h3>Alapanyagok:</h3>
     <ul id="ingredientList"></ul>
 </div>

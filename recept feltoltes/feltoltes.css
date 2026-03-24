@@ -2,7 +2,9 @@ html{
     background-color: #D2E4E3;
     color: white;
     font-family: "Inter";
-
+}
+body{
+    margin: 0px;
 }
 .cim{
     text-align: center;
@@ -13,15 +15,16 @@ html{
     padding-top: 10px;
 }
 
-.section-title {
-    width: 400px;
-    margin: auto;
+#receptImg {
+    justify-self: center;
     border-radius: 8px;
+    padding: 10px 40px;
     color: #6C9995;
     background-color: white;
     text-align: center;
     font-weight: 600;
     margin-bottom: 10px;
+    align-content: center;
 }
 
 .upload-area {
@@ -65,7 +68,7 @@ html{
 
 /* Kep hozzaad vege */
 .tartalom{
-    
+    justify-content: center;
     padding-left: 30px;
     display: flex;
     padding: 40px;
@@ -74,12 +77,11 @@ html{
 }
 /* uj recept kartya kezdete */
 .card {
-    margin-left: 300px;
     color: #6C9995;
     background:white;
     padding:30px;
     width:500px;
-    height: auto;
+    height: min-content;
     border-radius:16px;
     box-shadow:0 20px 40px rgba(0,0,0,.25);
     }
@@ -90,8 +92,8 @@ html{
     }
     
     .recipe-input {
-    width:100%;
-    padding:12px;
+    width: 60%;
+    padding: 12px;
     border-radius:10px;
     border:1px solid #ddd;
     margin-bottom:15px;
@@ -99,22 +101,25 @@ html{
     
     .tags {
     display:flex;
-    flex-wrap:wrap;
     gap:10px;
-    
+    flex-wrap: wrap;
     }
     
     .tag input {
     display:none;
     }
     
+    .tag{
+        margin: 10px 0;
+    }
+    
     .tag span {
-    padding:8px 14px;
+    padding:10px 14px;
     border-radius:999px;
     border:1px solid #ddd;
     cursor:pointer;
     transition:.2s;
-    font-size:14px;
+    font-size:16px;
     }
     
     .tag input:checked + span {
@@ -134,26 +139,35 @@ html{
 /* ALAPANYAGOK HOZZAADASA KEZDETE */
 .container {
     width: 500px;
-    height: 400px;
+    height: auto;
     background: #6C9995;
-    padding: 50px;
-    border-radius: 8px;
+    padding: 30px;
+    border-radius: 16px;
     color: white;
 }
 
-input {
-    width: 100%;
-    padding: 8px;
-    margin-bottom: 10px;
+#addIngredient{
+    display: flex;
+    gap: 10px;
+    padding: 10px 0px;
 }
 
-button {
-    width: 100%;
+input {
+    width: 80%;
+    padding: 8px;
+    border-radius: 6px;
+    border: 0px;
+}
+
+#addIngredientBtn {
+    width: 50%;
     padding: 8px;
     background: #4CAF50;
     color: white;
     border: none;
     cursor: pointer;
+    font-size: large;
+    border-radius: 6px;
 }
 
 button:hover {
@@ -179,11 +193,11 @@ li {
     padding: 10px;
 }
 .section-title {
-    height: 30px;
     font-weight: 600;
-    margin-bottom: 10px;
-    align-items: center;
+    justify-self: center;
     font-size: 20px;
+    font-size: x-large;
+    margin: 15px;
 }
 
 .step-box {
@@ -282,7 +296,6 @@ li {
 
 .field label {
     font-weight: 600;
-    margin-bottom: 5px;
 }
 
 .field input,
