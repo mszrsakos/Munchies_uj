@@ -17,7 +17,7 @@
     <title>Recept feltöltés</title>
     <link rel="stylesheet" href="feltoltes.css">
     <link rel="stylesheet" href="../header/header.css">
-    <!-- <link rel="stylesheet" href="../footer/footer.css"> -->
+    <link rel="stylesheet" href="../footer/footer.css">
     <link rel="icon" type="image/x-icon" href="../imgs/munchieslogo.png">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -53,7 +53,7 @@
 
 <input class="recipe-input" placeholder="Recept neve">
 
-<p>Kategória:</p>
+<h3>Kategória:</h3>
 
 <div class="tags">
 
@@ -185,12 +185,13 @@ function addStep() {
 </script>
 </div>
 
-<div class="hozzaad_gomb">
+<div id="submitArea">
     <button class="submit-button">Recept feltöltése</button>
-
 </div>
+
 <!-- Elkeszites lepesei vege  -->
 
+<?php include("../footer/footer.html");?>
 
 <script src="app.js"></script>
 </body>
