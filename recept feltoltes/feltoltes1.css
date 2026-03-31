@@ -23,7 +23,7 @@ body{
     background-color: white;
     text-align: center;
     font-weight: 600;
-    margin-bottom: 10px;
+    margin: 10px 0px 25px 0px;
     align-content: center;
 }
 
@@ -88,6 +88,7 @@ body{
     
     h2 {
     text-align:center;
+    margin-top: 0px;
     margin-bottom:20px;
     }
     
@@ -148,6 +149,14 @@ body{
 #addIngredient{
     display: flex;
     gap: 10px;
+}
+
+#measureInput{
+    
+}
+
+#quantityInput{
+    
 }
 
 input {
@@ -216,7 +225,7 @@ li {
     background: #e8ebff;
 }
 
-.step-box button {
+.step-box button, #addIngredient button {
     width: 50px;
     border: none;
     border-radius: 14px;
@@ -228,7 +237,7 @@ li {
     box-shadow: 0 5px 15px rgba(102,126,234,.4);
 }
 
-.step-box button:hover {
+.step-box button:hover, #addIngredient button:hover {
     transform: translateY(-2px);
 }
 
