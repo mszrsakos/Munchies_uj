@@ -217,3 +217,108 @@ input[name="profile_picture"]{
         width: 80vw;
     }
 }
+
+@media screen and (min-width:660px) and (max-width: 800px){
+    .szemelyes_adatok{
+        width: 100%;
+    }
+    .adatok{
+        width: 60%;
+        margin: auto;
+    }
+    .szemelyes_adatok > div:first-child {
+        margin: auto;
+    }
+    .adatok h1{
+        font-size: 40px;
+    }
+    .valami{
+        font-size: 16px;
+        /* flex-direction: column; */
+        align-items: center;
+        margin: auto;
+
+    }
+    .tartalomElemek{
+        margin: auto;
+        width: 80vw;
+    }
+    .button2 a{
+       width: 100%;
+        font-size: 2.5vw;
+        justify-content: center;
+        align-items: center;
+        
+    }
+    .button2 a{
+       
+        font-size: 2.5vw;
+        justify-content: center;
+        align-items: center;
+    }
+    input[name="profile_picture"]{
+        width: 80%;
+    }
+    .rolam_input{
+        width: 80vw;
+    }
+
+}
+
+@media screen and (min-width:350px) and (max-width:660px) {
+    .szemelyes_adatok {
+        width: 100%;
+        font-size: 5vw;
+        flex-direction: column; 
+        gap: 0;
+    }
+    .adatok {
+        width: 60%;
+        margin: auto;
+    }
+    .szemelyes_adatok > div:first-child {
+        margin: auto;
+    }
+    .adatok h1 {
+        font-size: 40px;
+        text-align: center;
+        margin: auto;
+    }
+    .profil_kep {
+        width: 200px; 
+        height: 200px;
+        border-radius: 50%; 
+        object-fit: cover; 
+        display: block;
+        margin: auto;
+    }
+    .valami {
+        font-size: 16px;
+        flex-direction: column;
+        align-items: center;
+        margin: auto;
+        gap: 0;
+    }
+    h2 {
+        font-size: 5vw;
+        text-align: center;
+    }
+    .tartalomElemek {
+        margin: auto;
+        width: 90vw;
+        flex-direction: column;
+        gap: 0;
+    }
+    .button2 a {
+        width: 100%;
+        font-size: 4vw;
+        justify-content: center;
+        align-items: center;
+    }
+    input[name="profile_picture"] {
+        width: 80%;
+    }
+    .rolam_input {
+        width: 80vw;
+    }
+}
