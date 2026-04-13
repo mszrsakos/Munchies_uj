@@ -92,7 +92,7 @@ footer{
   justify-self: center;
 }
 
-.hirlevel input {
+#feliratkozasInput {
   flex: 1;
   border: none;
   width: 70%;
@@ -101,11 +101,11 @@ footer{
   outline: none;
 }
 
-.hirlevel input::placeholder {
+#feliratkozasInput::placeholder {
   color: #9ca3af;
 }
 
-.hirlevel button {
+#feliratkozas {
   border: none;
   background: #D2E4E3;
   color: #000;
@@ -116,7 +116,7 @@ footer{
   transition: background 0.3s ease;
 }
 
-.hirlevel button:hover {
+#feliratkozas:hover {
   background: #8C8C8C;
 } 	
 #verticalLine {
@@ -134,10 +134,10 @@ footer{
   .hirlevel{
     width: 80%;
   }
-  .hirlevel input{
+  #feliratkozasInput{
     width: 50%;
   }
-  .hirlevel button{
+  #feliratkozas{
     width: 50%;
     padding: 0 11px;
   }

@@ -51,6 +51,13 @@ function handleImage(file) {
     reader.readAsDataURL(file);
 }
 
+document.getElementById("imageInput").addEventListener("change", function () {
+    const uploadArea = document.getElementById("uploadArea");
+    if (this.files && this.files.length > 0) {
+        uploadArea.style.display = "none"; // Rejtse el a feltöltési területet
+    }
+});
+
 document.querySelector(".submit-button").addEventListener("click", function(e) {
     const ingredients = [];
     document.querySelectorAll("#ingredientList li").forEach(li => {

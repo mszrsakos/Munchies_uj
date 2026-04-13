@@ -34,15 +34,19 @@ body{
     border-radius: 16px;
     padding: 30px;
     text-align: center;
-    background: #f9fafb;
+    background: #6C9995;
     cursor: pointer;
     transition: 0.3s;
     position: relative;
 }
 
 .upload-area:hover {
-    border-color: #667eea;
-    background: #eef1ff;
+    border-color: #6C9995;
+    background: white;
+}
+
+.upload-area:hover .upload-content p {
+    color: #6C9995;
 }
 
 .upload-icon {
@@ -52,8 +56,8 @@ body{
 
 .upload-content p {
     margin: 0;
-    color: #6b7280;
-    font-size: 14px;
+    color: white;
+    font-size: 16px;
 }
 
 .preview {
@@ -63,7 +67,13 @@ body{
     display: none;
 }
 
-
+h1 {
+    background-color: #6C9995;
+    padding: 10px 20px;
+    border-radius: 10px;
+    width: fit-content;
+    justify-self: center;
+}
 
 
 /* Kep hozzaad vege */
@@ -151,15 +161,15 @@ body{
     gap: 10px;
 }
 
-#measureInput{
+/* #measureInput{
     
 }
 
 #quantityInput{
     
-}
+} */
 
-input {
+.card input {
     width: 80%;
     padding: 12px;
     border-radius: 6px;
@@ -229,16 +239,21 @@ li {
     width: 50px;
     border: none;
     border-radius: 14px;
-    background: #667eea;
+    background: #6C9995;
     color: white;
     font-size: 20px;
     cursor: pointer;
     transition: 0.2s;
-    box-shadow: 0 5px 15px rgba(102,126,234,.4);
+    box-shadow: 0 5px 15px rgba(0,0,0,.1);
 }
 
 .step-box button:hover, #addIngredient button:hover {
     transform: translateY(-2px);
+}
+
+.step-container .step-box button{
+    background-color: white;
+    color: #6C9995;
 }
 
 .step-list {
@@ -279,12 +294,13 @@ li {
 
 .submit-button{
     border-radius: 8px;
-    font-size: 25px;
+    font-size: 30px;
     padding: 12px 40px;
     cursor: pointer;
-    background-color: #4CAF50;
+    background-color: #6C9995;
     color: white;
-    border: 1px solid black;
+    border: none;
+    font-weight: 500;
 }
 
 
@@ -312,4 +328,39 @@ li {
     border: 1px solid #ccc;
 }
 
+@media only screen and (max-width: 1000px) {
+    .tartalom {
+        flex-direction: column;
+        align-items: center;
+        padding: 20px;
+    }
 
+    .card, .container, .step-container {
+        max-width: 80%;
+    }
+
+    .upload-area {
+        width: 100%;
+        max-width: 500px;
+    }
+}
+
+@media only screen and (max-width: 630px) {
+    .card, .container, .step-container, .upload-area {
+        max-width: 80%;
+    }
+
+    .card{
+        padding: 15px;
+    }
+    h1{
+        font-size: 28px;
+    }
+    .step-box{
+        flex-direction: column;
+        align-items: center;
+    }
+    .step-box input{
+        width: 80%;
+    }
+}

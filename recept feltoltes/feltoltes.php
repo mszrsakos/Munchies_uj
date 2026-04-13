@@ -40,11 +40,13 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
         $fileName = uniqid() . "_" . $_FILES['image']['name'];
         $targetFile = $targetDir . $fileName;
 
-        if (move_uploaded_file($_FILES['image']['tmp_name'], "../uploads/" . $fileName)) {
+        if (move_uploaded_file($_FILES['image']['tmp_name'], $targetFile)) {
             $imagePath = $fileName;
         } else {
             $errors[] = "Kép feltöltési hiba!";
         }
+    } else {
+        $errors[] = "Kérlek, válassz egy képet a recepthez!";
     }
 
     if (empty($errors)) {
@@ -57,9 +59,13 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
         $recipe_id = $stmt->insert_id;
 
-        $stmtIng = $conn->prepare("INSERT INTO recipe_ingredients (recipe_id, name) VALUES (?, ?)");
+        $stmtIng = $conn->prepare("INSERT INTO recipe_ingredients (recipe_id, amount, unit, name) VALUES (?, ?, ?, ?)");
         foreach ($ingredients as $ing) {
-            $stmtIng->bind_param("is", $recipe_id, $ing);
+            $amount = $ing['amount'] ?? null;
+            $unit = $ing['unit'] ?? null;
+            $name = $ing['name'] ?? null;
+
+            $stmtIng->bind_param("isss", $recipe_id, $amount, $unit, $name);
             $stmtIng->execute();
         }
 
@@ -82,7 +88,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Recept feltöltés</title>
-    <link rel="stylesheet" href="feltoltes1.css">
+    <link rel="stylesheet" href="feltoltes.css">
     <link rel="stylesheet" href="../header/header.css">
     <link rel="stylesheet" href="../footer/footer.css">
     <link rel="icon" type="image/x-icon" href="../imgs/munchieslogo.png">
@@ -173,13 +179,13 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 </div>
 </div>
 
-<div class="container">
+<div class="card">
 <h2>Alapanyagok feltöltése</h2>
 
 <div class="step-box">
     <input type="text" id="quantityInput" placeholder="Mennyiség">
     <input type="text" id="measureInput" placeholder="Mértékegység">
-    <input type="text" id="ingredientInput" placeholder="Írd be az alapanyagot">
+    <input type="text" id="ingredientInput" placeholder="Alapanyag">
     <button type="button" onclick="addIngredient()">+</button>
 </div>
 
@@ -209,7 +215,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     <button type="submit" class="submit-button">Recept feltöltése</button>
 </div>
 
-<!-- <?php include("../footer/footer.html");?> -->
+<?php include("../footer/footer.html");?>
 
 </form>
 
@@ -233,14 +239,23 @@ document.querySelector(".submit-button").addEventListener("click", function() {
 });
 
 function addIngredient() {
-    const input = document.getElementById("ingredientInput");
+    const quantityInput = document.getElementById("quantityInput");
+    const measureInput = document.getElementById("measureInput");
+    const ingredientInput = document.getElementById("ingredientInput");
     const list = document.getElementById("ingredientList");
 
-    if (input.value.trim() !== "") {
+    if (quantityInput.value.trim() !== "" && ingredientInput.value.trim() !== "") {
         const li = document.createElement("li");
-        li.textContent = input.value;
+        li.textContent = `${quantityInput.value} ${measureInput.value} ${ingredientInput.value}`;
+        li.dataset.amount = quantityInput.value;
+        li.dataset.unit = measureInput.value;
+        li.dataset.name = ingredientInput.value;
         list.appendChild(li);
-        input.value = "";
+
+        // Clear inputs
+        quantityInput.value = "";
+        measureInput.value = "";
+        ingredientInput.value = "";
     }
 }
 
@@ -256,11 +271,14 @@ function addStep() {
     }
 }
 
-document.querySelector(".submit-button").addEventListener("click", function() {
-
+document.querySelector(".submit-button").addEventListener("click", function () {
     const ingredients = [];
     document.querySelectorAll("#ingredientList li").forEach(li => {
-        ingredients.push(li.textContent);
+        ingredients.push({
+            amount: li.dataset.amount,
+            unit: li.dataset.unit,
+            name: li.dataset.name
+        });
     });
 
     const steps = [];
