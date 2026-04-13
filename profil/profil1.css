@@ -47,6 +47,7 @@ height: 2.25rem;
     display: flex;
     align-items: center;
     gap: 50px;
+    color: #c5f3ef;
 }
 .profil_kep {
     width: 200px;
@@ -215,5 +216,174 @@ input[name="profile_picture"]{
     }
     .rolam_input{
         width: 80vw;
+    }
+}
+
+@media screen and (min-width:660px) and (max-width: 800px){
+    .szemelyes_adatok{
+        width: 100%;
+    }
+    .adatok{
+        width: 60%;
+        margin: auto;
+    }
+    .szemelyes_adatok > div:first-child {
+        margin: auto;
+    }
+    .adatok h1{
+        font-size: 40px;
+    }
+    .valami{
+        font-size: 16px;
+        /* flex-direction: column; */
+        align-items: center;
+        margin: auto;
+
+    }
+    .tartalomElemek{
+        margin: auto;
+        width: 80vw;
+    }
+    .button2 a{
+       width: 100%;
+        font-size: 2.5vw;
+        justify-content: center;
+        align-items: center;
+        
+    }
+    .button2 a{
+       
+        font-size: 2.5vw;
+        justify-content: center;
+        align-items: center;
+    }
+    input[name="profile_picture"]{
+        width: 80%;
+    }
+    .rolam_input{
+        width: 80vw;
+    }
+
+}
+
+@media screen and (min-width:540px) and (max-width:660px) {
+    .szemelyes_adatok {
+        width: 100%;
+        font-size: 5vw;
+        gap: 0;
+    }
+    .adatok {
+        width: 60%;
+        margin: auto;
+    }
+    .szemelyes_adatok > div:first-child {
+        margin: auto;
+    }
+    .adatok h1 {
+        font-size: 60px;
+        text-align: center;
+        margin: auto;
+        justify-content: center;
+    }
+    .profil_kep {
+        width: 200px; 
+        height: 200px;
+        border-radius: 50%; 
+        object-fit: cover; 
+        display: block;
+        margin: auto;
+    }
+    .valami {
+        font-size: 16px;
+        flex-direction: column;
+        align-items: center;
+        margin: auto;
+        gap: 0;
+    }
+    h2 {
+        font-size: 5vw;
+        text-align: center;
+    }
+    .tartalomElemek {
+        margin: auto;
+        width: 90vw;
+        flex-direction: column;
+        gap: 0;
+    }
+    .button2 a {
+        width: 100%;
+        font-size: 4vw;
+        justify-content: center;
+        align-items: center;
+    }
+    input[name="profile_picture"] {
+        width: 80%;
+    }
+    .rolam_input {
+        width: 80vw;
+    }
+}
+@media screen and (min-width: 350px) and (max-width: 540px) {
+    .szemelyes_adatok {
+        width: 100%;
+        font-size: 5vw;
+        gap: 0;
+    }
+    .adatok {
+        width: 60%;
+        margin: auto;
+    }
+    .szemelyes_adatok > div:first-child {
+        margin: auto;
+    }
+    .adatok h1 {
+        font-size: 40px;
+        text-align: center;
+        margin: auto;
+    }
+    .profil_kep {
+        width: 150px;
+        height: 150px; 
+        border-radius: 50%;
+        object-fit: cover; 
+        display: block;
+        margin: auto;
+    }
+    .valami {
+        
+        flex-direction: column;
+        align-items: center;
+        margin: auto;
+        gap: 10px;
+    }
+    h2 {
+        font-size: 5vw;
+        text-align: center;
+    }
+    .tartalomElemek {
+        margin: auto;
+        width: 90vw;
+        flex-direction: column;
+        gap: 10px;
+    }
+    .button2 a {
+        width: 100%;
+        font-size: 6vw;
+        justify-content: center;
+        align-items: center;
+    }
+    .button2{
+        width: 85vw;
+    }
+    input[name="profile_picture"] {
+        width: 90%;
+    }
+    .rolam_input {
+        width: 80vw;
+        font-size: 7vw;
+    }
+    .display_input{
+        width: 80vw;
+        font-size: 7vw;
     }
 }

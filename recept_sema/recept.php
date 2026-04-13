@@ -169,14 +169,16 @@ if ($loggedInUserId > 0) {
       </div>
       
       <!-- Beküldő -->
-      <p style="margin: 6px 0 14px 0; justify-content:center ;opacity: .8;">
-      <?php if ($profileLink): ?>
-        Beküldte: <a href="<?= h($profileLink) ?>"><strong><?= h($creatorLabel) ?></strong></a>
-      <?php else: ?>
-        Beküldte: <strong>ismeretlen</strong>
-      <?php endif; ?>
-      
-      </p>
+      <p style="margin: 10px 0 14px; text-align: center; opacity: 0.75; font-size: 0.9rem;">
+  <?php if ($profileLink): ?>
+    Beküldte: 
+    <a href="<?= h($profileLink) ?>" style="color: #2563eb; text-decoration: none; font-weight: 500;">
+      <?= h($creatorLabel) ?>
+    </a>
+  <?php else: ?>
+    Beküldte: <span style="font-weight: 500; color: #999;">ismeretlen</span>
+  <?php endif; ?>
+</p>
       
 
       <div class="kep-es-ajanlo">

@@ -269,6 +269,9 @@ body {
   .left, .right{
     flex: 1;
   }
+  .ajanlo{
+    width: 150px;
+  }
 }
 
 
@@ -332,10 +335,16 @@ body {
     font-size: 14px;
   }
 
+
   /* cím */
   .left h1 {
     font-size: 22px;
     text-align: center;
+  }
+}
+@media (max-width: 1300px) {
+  .ajanlo {
+    display: none;
   }
 }
 
@@ -352,7 +361,7 @@ body {
 }
 
 .ajanlo {
-  width: 300px;
+  width: 20%;
 }
 
 .ajanlo h3 {
