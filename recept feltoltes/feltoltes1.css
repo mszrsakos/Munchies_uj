@@ -2,7 +2,9 @@ html{
     background-color: #D2E4E3;
     color: white;
     font-family: "Inter";
-
+}
+body{
+    margin: 0px;
 }
 .cim{
     text-align: center;
@@ -13,15 +15,16 @@ html{
     padding-top: 10px;
 }
 
-.section-title {
-    width: 400px;
-    margin: auto;
+#receptImg {
+    justify-self: center;
     border-radius: 8px;
+    padding: 10px 40px;
     color: #6C9995;
     background-color: white;
     text-align: center;
     font-weight: 600;
-    margin-bottom: 10px;
+    margin: 10px 0px 25px 0px;
+    align-content: center;
 }
 
 .upload-area {
@@ -65,7 +68,7 @@ html{
 
 /* Kep hozzaad vege */
 .tartalom{
-    
+    justify-content: center;
     padding-left: 30px;
     display: flex;
     padding: 40px;
@@ -74,47 +77,49 @@ html{
 }
 /* uj recept kartya kezdete */
 .card {
-    margin-left: 300px;
     color: #6C9995;
     background:white;
     padding:30px;
     width:500px;
-    height: auto;
+    height: min-content;
     border-radius:16px;
     box-shadow:0 20px 40px rgba(0,0,0,.25);
     }
     
     h2 {
     text-align:center;
+    margin-top: 0px;
     margin-bottom:20px;
     }
     
     .recipe-input {
-    width:100%;
-    padding:12px;
+    width: 60%;
+    padding: 12px;
     border-radius:10px;
     border:1px solid #ddd;
-    margin-bottom:15px;
     }
     
     .tags {
     display:flex;
-    flex-wrap:wrap;
     gap:10px;
-    
+    flex-wrap: wrap;
     }
     
     .tag input {
     display:none;
     }
     
+    .tag{
+        margin: 10px 0;
+    }
+    
     .tag span {
-    padding:8px 14px;
+    padding:10px 14px;
     border-radius:999px;
     border:1px solid #ddd;
     cursor:pointer;
     transition:.2s;
-    font-size:14px;
+    font-size:16px;
     }
     
     .tag input:checked + span {
@@ -134,30 +139,43 @@ html{
 /* ALAPANYAGOK HOZZAADASA KEZDETE */
 .container {
     width: 500px;
-    height: 400px;
+    height: auto;
     background: #6C9995;
-    padding: 50px;
-    border-radius: 8px;
+    padding: 30px;
+    border-radius: 16px;
     color: white;
+}
+
+#addIngredient{
+    display: flex;
+    gap: 10px;
+}
+
+#measureInput{
+    
+}
+
+#quantityInput{
+    
 }
 
 input {
-    width: 100%;
-    padding: 8px;
-    margin-bottom: 10px;
+    width: 80%;
+    padding: 12px;
+    border-radius: 6px;
+    border: 1px solid #ccc;
+
 }
 
-button {
-    width: 100%;
+#addIngredientBtn {
+    width: 50%;
     padding: 8px;
     background: #4CAF50;
     color: white;
-    border: none;
+    border: 1px solid black;
     cursor: pointer;
-}
-
-button:hover {
-    background: #45a049;
+    font-size: large;
+    border-radius: 6px;
 }
 
 ul {
@@ -172,18 +190,18 @@ li {
 /* Elkeszites lepesei kezdete */
 .step-container{
     width: 900px;
-    height: 300px;
+    height: max-content;
     margin: auto;
     background-color: #6C9995;
-    border-radius: 8px;
+    border-radius: 16px;
     padding: 10px;
 }
 .section-title {
-    height: 30px;
     font-weight: 600;
-    margin-bottom: 10px;
-    align-items: center;
-    font-size: 20px;
+    justify-self: center;
+    font-size: x-large;
+    margin-top: 5px;
+    margin-bottom: 15px;
 }
 
 .step-box {
@@ -207,7 +225,7 @@ li {
     background: #e8ebff;
 }
 
-.step-box button {
+.step-box button, #addIngredient button {
     width: 50px;
     border: none;
     border-radius: 14px;
@@ -219,7 +237,7 @@ li {
     box-shadow: 0 5px 15px rgba(102,126,234,.4);
 }
 
-.step-box button:hover {
+.step-box button:hover, #addIngredient button:hover {
     transform: translateY(-2px);
 }
 
@@ -239,15 +257,6 @@ li {
 }
 /* Elkeszites lepesei vege */
 
-.hozzaad_gomb{
-    width: 350px;
-    margin: auto;
-    padding: 20px;
-    
-   
-    
-}
-
 .preview {
     max-width: 700px;
     display: block;
@@ -261,9 +270,21 @@ li {
     margin: 20px auto;
     border-radius: 10px;
 }
+
+#submitArea {
+    display: flex;
+    justify-content: center;
+    margin-top: 30px;
+}
+
 .submit-button{
     border-radius: 8px;
     font-size: 25px;
+    padding: 12px 40px;
+    cursor: pointer;
+    background-color: #4CAF50;
+    color: white;
+    border: 1px solid black;
 }
 
 
@@ -282,7 +303,6 @@ li {
 
 .field label {
     font-weight: 600;
-    margin-bottom: 5px;
 }
 
 .field input,

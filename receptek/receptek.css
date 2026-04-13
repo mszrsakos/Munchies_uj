@@ -82,6 +82,10 @@ body{
   width: 60px;
 
 }
+.search-bar button img:hover{
+  cursor: pointer;
+  width: 63px;
+}
 .search-bar button{
   border: 0;
   border-radius: 50%;
@@ -346,24 +350,30 @@ body{
 @media screen and (min-width: 350px) and (max-width: 600px) {
 
   .img-wrapper {
-    flex: 1 1 100%;
+    flex: 1 1 90%;
     max-width: 100%;
+    width: 90%;
+    margin:auto ;
   }
 
+  .ajanlat{
+    font-size: 2.4rem;
+  }
   .content.fade {
     font-size: 1.5rem;
+
   }
   .receptTartalom {
     flex-direction: column;
     align-items: center;
     margin: auto;
     justify-content: center;
-    width: 90%;
+    width: 80%;
   }
   .ajanlat_tartalom{
     margin-right: 0px;
     flex-direction: column ;
-    width: 90%;
+    
     margin: auto;
   }
   .container{
@@ -372,8 +382,14 @@ body{
   .search-bar input {
     width: 90%;
     margin: auto;
-    font-size: 5.5vw;
-  }  
+    font-size: 5vw;
+    
+  } 
+  .search-bar{
+    width: 70vw;
+    height: 15vw;
+    margin: auto;
+  } 
   .search-bar button {
     width: 20%;
     margin: auto;
@@ -381,5 +397,11 @@ body{
   .search-bar button img{
     width: 13vw;
     margin: auto;
+    cursor: pointer;
+  }
+  .search-bar button img:hover{
+    width: 13.5vw;
+    margin: auto;
+    cursor: pointer;
   }
 }

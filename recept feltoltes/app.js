@@ -32,14 +32,10 @@ function handleImage(file) {
     const reader = new FileReader();
 
     reader.onload = function(e) {
-        // Régi kép törlése, ha van
+
         const oldImg = document.getElementById("previewImage");
         if (oldImg) oldImg.remove();
 
-        // Upload-area eltüntetése
-        uploadArea.style.display = "none";
-
-        // Új kép létrehozása
         const img = document.createElement("img");
         img.src = e.target.result;
         img.id = "previewImage";
@@ -48,13 +44,34 @@ function handleImage(file) {
         img.style.margin = "20px auto";
         img.style.borderRadius = "10px";
 
-        // Beszúrás a section-title és uploadArea közé
-        const sectionTitle = document.querySelector(".section-title");
-        sectionTitle.parentNode.insertBefore(img, uploadArea);
+        // EZ A FIX
+        uploadArea.parentNode.insertBefore(img, uploadArea);
     };
 
     reader.readAsDataURL(file);
 }
 
+document.querySelector(".submit-button").addEventListener("click", function(e) {
+    const ingredients = [];
+    document.querySelectorAll("#ingredientList li").forEach(li => {
+        ingredients.push(li.textContent);
+    });
+
+    const steps = [];
+    document.querySelectorAll("#stepList li").forEach(li => {
+        steps.push(li.textContent);
+    });
+
+    document.getElementById("ingredientsHidden").value = JSON.stringify(ingredients);
+    document.getElementById("stepsHidden").value = JSON.stringify(steps);
+});
+
+document.querySelectorAll("input").forEach(input => {
+    input.addEventListener("keypress", function(e) {
+        if (e.key === "Enter") {
+            e.preventDefault();
+        }
+    });
+});
 
 console.log(prepTime, cost, difficulty);
