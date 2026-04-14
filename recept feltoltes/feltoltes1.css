@@ -273,14 +273,14 @@ li {
 /* Elkeszites lepesei vege */
 
 .preview {
-    max-width: 700px;
+    max-width: 500px;
     display: block;
     margin: 20px auto;
     border-radius: 10px;
 }
 
 #previewImage {
-    max-width: 700px;
+    max-width: 500px;
     display: block;
     margin: 20px auto;
     border-radius: 10px;

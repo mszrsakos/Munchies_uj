@@ -31,7 +31,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     $imagePath = null;
 
     if (isset($_FILES["image"]) && $_FILES["image"]["error"] === 0) {
-        $targetDir = "../uploads/";
+        $targetDir = "../imgs/";
 
         if (!is_dir($targetDir)) {
             mkdir($targetDir, 0777, true);
@@ -88,7 +88,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Recept feltöltés</title>
-    <link rel="stylesheet" href="feltoltes.css">
+    <link rel="stylesheet" href="feltoltes1.css">
     <link rel="stylesheet" href="../header/header.css">
     <link rel="stylesheet" href="../footer/footer.css">
     <link rel="icon" type="image/x-icon" href="../imgs/munchieslogo.png">
