@@ -123,19 +123,22 @@ label[type="email"], label[type="password"], label[type="username"]{
   
     .button1 {
       padding: 10px 16px;
-      font-size: 0.95rem;
+      
     }
   }
 
 
   @media (max-width: 800px) and (min-width: 350px) {
 
-    .username{
-        width: 50%;
-    }
-    .main-content{
+    
+    #main {
+        
         width: auto;
+
+        padding: 0 10px;
+   
     }
+
      h1 {
       font-size: 1.2rem;
     }

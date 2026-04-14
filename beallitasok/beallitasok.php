@@ -131,8 +131,8 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     <?php include("../header/header.html");?>
         <div><h1>Személyes adatok módosítása</h1></div>
 
-    <main id="main-content">
-        <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"])?>" method="post">
+    <main id="main">
+        <form id="form" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"])?>" method="post">
             <label for="username">Új felhasználónév</label> <br>
             <input type="username" id="username" name="username"> <br>
 
