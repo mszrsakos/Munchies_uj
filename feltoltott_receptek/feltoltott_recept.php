@@ -2,10 +2,11 @@
 session_start();
 require_once "../database.php";
 
-// $userId = (int)($_GET["id"] ?? 0);
-// if ($userId <= 0) {
-//     die("Érvénytelen felhasználói azonosító.");
-// }
+$userId = (int)($_GET["id"] ?? ($_SESSION["user_id"] ?? 0));
+
+if ($userId <= 0) {
+    die("Érvénytelen felhasználói azonosító.");
+}
 
 
 $sql = "SELECT username, email, profile_image_url, display, about_me FROM users WHERE id = ?";
