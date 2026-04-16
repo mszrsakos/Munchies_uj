@@ -215,9 +215,10 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     <button type="submit" class="submit-button">Recept feltöltése</button>
 </div>
 
+</form>
 <?php include("../footer/footer.html");?>
 
-</form>
+
 
 <script src="app.js"></script>
 
@@ -238,6 +239,10 @@ document.querySelector(".submit-button").addEventListener("click", function() {
     document.getElementById("stepsHidden").value = JSON.stringify(steps);
 });
 
+
+
+
+
 function addIngredient() {
     const quantityInput = document.getElementById("quantityInput");
     const measureInput = document.getElementById("measureInput");
@@ -250,6 +255,17 @@ function addIngredient() {
         li.dataset.amount = quantityInput.value;
         li.dataset.unit = measureInput.value;
         li.dataset.name = ingredientInput.value;
+
+        let deleteBtn = document.createElement("button");
+        deleteBtn.classList.add("deleteBtn");
+        deleteBtn.textContent = "✖";
+
+        deleteBtn.addEventListener("click", function() {
+            li.remove();
+        });
+
+        li.appendChild(deleteBtn);
+
         list.appendChild(li);
 
         // Clear inputs

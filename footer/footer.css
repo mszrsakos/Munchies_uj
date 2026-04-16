@@ -126,6 +126,10 @@ footer{
   align-self: center;
 }
 
+#footerAlso p{
+  margin: 0;
+  align-content: center;
+}
 
 @media only screen and (min-width: 820px) and (max-width: 1000px){
   #imgsRow{
@@ -192,4 +196,10 @@ footer{
 }
 
 @media only screen and (max-width: 500px){
+  #feliratkozas{
+    padding: 0 10px;
+  }
+  #footerAlso p{
+    font-size: 12px;
+  }
 }
