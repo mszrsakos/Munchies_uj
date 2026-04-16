@@ -44,10 +44,16 @@ $profileLink = $isOwnProfile
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="feltoltott_recept.css">
+    <link rel="stylesheet" href="../footer/footer.css">
+    <link rel="stylesheet" href="../header/header.css">
+    <link rel="icon" type="image/x-icon" href="../imgs/munchieslogo.png">
     <title>Document</title>
 </head>
 <body>
+<?php include("../header/header.html"); ?>
 <div class="receptek">
+        
             <h2>Feltöltött receptek</h2>
 
             <?php if (mysqli_num_rows($userRecipes) > 0): ?>
@@ -65,5 +71,7 @@ $profileLink = $isOwnProfile
                 <p id="nincsRecept">A felhasználónak még nincs feltöltött receptje.</p>
             <?php endif; ?>
         </div>
+
+        <?php include("../footer/footer.html"); ?>
 </body>
 </html>
