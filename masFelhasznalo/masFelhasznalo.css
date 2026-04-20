@@ -50,10 +50,19 @@ body {
     width: 50%;
     margin: auto;
     margin-top: 5%;
+      border: #000000 solid 1.5px;
+      border-radius: 5px 5px 0px 0px;
 }
 #masProfilEmail, #masProfilRolam {
     margin: auto;
     margin-top: 0;
+    width: 50%;
+    text-align: center;
+    font-size: 2.5em;
+    color: #dddddd;
+    background-color: #3f7772;
+    border: #000000 solid 1.5px;
+    border-radius: 0px 0px 5px 5px;
 }
 
 
@@ -63,10 +72,11 @@ body {
     width: 80%;
     background-color: rgba(196, 196, 196, 0.8);
     border-radius: 10px;
+    border: #555 solid 5px;
     padding: 20px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
     
-    display: table;
+
     
 }
 .receptek h2 {
@@ -75,7 +85,7 @@ body {
     width: 50%;
     margin: auto;
     margin-top: 2%;
-    
+    border-radius: 15px;
     font-size: 2em;
     margin-bottom: 20px;
     background-color: #6C9995;
@@ -104,7 +114,7 @@ body {
     flex: 1; 
     max-width: 33%; 
     text-align: center; 
-    margin: 1px;
+    margin: 1px solid;
     width: 70%;
     float: left;
     border: #000000 solid 1.5px;
@@ -179,3 +189,117 @@ body {
     transition: opacity 500ms ease-in-out;
   }
 
+  @media screen and (max-width: 830px) {
+    .profil_kep img {
+        width: 250px;
+        height: 250px;
+    }
+    #masProfilEmail, #masProfilRolam {
+        font-size: 1.5em;
+        width: 80vw;
+    }
+    .profil_kep p {
+        font-size: 1.2em;
+        width: 80vw;
+    }
+    .receptek {
+        width: 95%;
+        padding: 10px;
+    }
+    .img-wrapper > img {
+        height: 200px;
+    }
+    .img-wrapper > .content {
+        font-size: 1rem;
+    }
+    .img-wrapper > .content.fade {
+      font-size: 1rem; 
+  }
+    .receptek{
+      width: 80vw;
+    }
+    .kepLink .content {
+      font-size: 4vw;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .profil_kep img {
+        width: 200px;
+        height: 200px;
+    }
+    .profil_kep p {
+        font-size: 1em;
+        width: 90%;
+    }
+    .receptek h2 {
+        font-size: 1.2em;
+    }
+    .img-wrapper > img {
+        height: 150px;
+    }
+    .img-wrapper > .content {
+        font-size: 0.9rem;
+    }
+}
+@media screen and (max-width:620px) {
+    .profil_kep img {
+        width: 200px;
+        height: 200px;
+    }
+    .profil_kep p {
+        font-size: 1em;
+        width: 80vw;
+    }
+    .receptek h2 {
+        font-size: 1.2em;
+    }
+    .img-wrapper > img {
+        height: 300px;
+    }
+    
+    .kepLink .content {
+      font-size: 1.5rem;
+    }
+    .receptek{
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    
+}
+
+@media screen and (max-width: 350px) {
+    .profil_kep img {
+        width: 150px;
+        height: 150px;
+    }
+    .profil_kep p {
+        font-size: 0.9em;
+        width: 80vw;
+    }
+    .receptek h2 {
+        font-size: 1rem;
+    }
+    .img-wrapper > img {
+        height: 400px;
+    }
+    .img-wrapper > .content {
+        font-size: 0.8rem;
+    }
+    .masikFelhasznaloTartalom {
+        width: 50vw;
+    }
+    #masProfilEmail, #masProfilRolam {
+      font-size: 1.5em;
+      width: 80vw;
+  }
+  .kepLink .content.fade {
+    font-size: 1.5em;
+  }
+  .receptek{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+}
