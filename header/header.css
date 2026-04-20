@@ -68,7 +68,7 @@ a{
 
 #dropdown_content {
     display: none; /* Alapértelmezés szerint rejtve */
-    position: absolute;
+    position: relative;
     top: 100%;
     right: 0;
     background-color: #6C9995;
@@ -111,7 +111,7 @@ a{
 
     #jobb_oldal_nav {
         display: none; /* alapból rejtve */
-        position: fixed;
+        position: absolute;
         top: 120px;
         right: 0;
         background-color: #6C9995;

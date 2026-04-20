@@ -31,7 +31,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     $imagePath = null;
 
     if (isset($_FILES["image"]) && $_FILES["image"]["error"] === 0) {
-        $targetDir = "../uploads/";
+        $targetDir = "../imgs/";
 
         if (!is_dir($targetDir)) {
             mkdir($targetDir, 0777, true);
@@ -88,7 +88,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Recept feltöltés</title>
-    <link rel="stylesheet" href="feltoltes.css">
+    <link rel="stylesheet" href="feltoltes1.css">
     <link rel="stylesheet" href="../header/header.css">
     <link rel="stylesheet" href="../footer/footer.css">
     <link rel="icon" type="image/x-icon" href="../imgs/munchieslogo.png">
@@ -215,9 +215,10 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     <button type="submit" class="submit-button">Recept feltöltése</button>
 </div>
 
+</form>
 <?php include("../footer/footer.html");?>
 
-</form>
+
 
 <script src="app.js"></script>
 
@@ -238,6 +239,10 @@ document.querySelector(".submit-button").addEventListener("click", function() {
     document.getElementById("stepsHidden").value = JSON.stringify(steps);
 });
 
+
+
+
+
 function addIngredient() {
     const quantityInput = document.getElementById("quantityInput");
     const measureInput = document.getElementById("measureInput");
@@ -250,6 +255,17 @@ function addIngredient() {
         li.dataset.amount = quantityInput.value;
         li.dataset.unit = measureInput.value;
         li.dataset.name = ingredientInput.value;
+
+        let deleteBtn = document.createElement("button");
+        deleteBtn.classList.add("deleteBtn");
+        deleteBtn.textContent = "✖";
+
+        deleteBtn.addEventListener("click", function() {
+            li.remove();
+        });
+
+        li.appendChild(deleteBtn);
+
         list.appendChild(li);
 
         // Clear inputs

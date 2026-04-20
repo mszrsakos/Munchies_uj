@@ -28,7 +28,7 @@ body{
 }
 
 .upload-area {
-    margin: auto;
+    justify-self: center;
     width: 700px;
     border: 2px dashed #d1d5db;
     border-radius: 16px;
@@ -195,6 +195,17 @@ ul {
 li {
     margin: 5px 0;
 }
+
+.deleteBtn{
+    width: 30px;
+    height: fit-content;
+    background-color: indianred;
+    color: white;
+    justify-self: right;
+    font-size: 16px;
+    align-self: center;
+}
+
 /* ALAPANYAGOK HOZZAADASA VEGE */
 
 /* Elkeszites lepesei kezdete */
@@ -273,14 +284,14 @@ li {
 /* Elkeszites lepesei vege */
 
 .preview {
-    max-width: 700px;
+    max-width: 500px;
     display: block;
     margin: 20px auto;
     border-radius: 10px;
 }
 
 #previewImage {
-    max-width: 700px;
+    max-width: 500px;
     display: block;
     margin: 20px auto;
     border-radius: 10px;
@@ -362,5 +373,8 @@ li {
     }
     .step-box input{
         width: 80%;
+    }
+    .upload-area{
+        padding: 20px;
     }
 }

@@ -1,0 +1,128 @@
+/* Alapbeállítások */
+body {
+    font-family: 'Open Sans', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #D2E4E3;
+    color: #333;
+}
+
+
+.receptek {
+    max-width: 1200px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+
+.receptek h2 {
+    font-size: 2rem;
+    text-align: center;
+    margin-bottom: 20px;
+    color: #444;
+}
+
+
+.img-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 15px;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    overflow: hidden;
+    background-color: #fdfdfd;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.img-wrapper:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+}
+
+
+.img-wrapper img.kep {
+    width: 100%;
+    height: 200px;
+    object-fit: cover; 
+}
+
+
+.img-wrapper .content {
+    padding: 10px;
+    text-align: center;
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: #ffffff;
+    background-color: #6C9995;
+    width: 100%; 
+    box-sizing: border-box;
+    border-radius: 0 0 10px 10px;
+}
+
+.img-wrapper .content.fade {
+    opacity: 0.9;
+    transition: opacity 0.3s ease;
+}
+
+.img-wrapper:hover .content.fade {
+    opacity: 1;
+}
+
+
+#nincsRecept {
+    text-align: center;
+    font-size: 1.2rem;
+    color: #888;
+    margin-top: 20px;
+}
+
+
+@media screen and (max-width: 768px) {
+    .receptek {
+        padding: 10px;
+    }
+
+    .img-wrapper {
+        margin: 10px;
+    }
+
+    .img-wrapper img.kep {
+        height: 150px;
+    }
+
+    .img-wrapper .content {
+        font-size: 1rem;
+    }
+}
+
+@media screen and (max-width: 570px) {
+    .receptek h2 {
+        font-size: 1.5rem;
+    }
+
+    .img-wrapper img.kep {
+        height: 120px; 
+    }
+
+    .img-wrapper .content {
+        font-size: 0.9rem;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .receptek h2 {
+        font-size: 1.2rem;
+    }
+
+    .img-wrapper img.kep {
+        height: 100px; 
+    }
+
+    .img-wrapper .content {
+        font-size: 0.8rem;
+    }
+}
