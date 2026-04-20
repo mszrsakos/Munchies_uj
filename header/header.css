@@ -9,10 +9,10 @@ nav{
 }
 
 #bal_oldal_nav{
-    margin-left: 2%;
     height: 90%;
     text-align: center;
     font-size: 20px;
+    width: 120px;
 }
 
 #jobb_oldal_nav{
@@ -21,6 +21,7 @@ nav{
     display: flex;
     align-items: center;
     margin-right: 1%;
+    z-index: 10;
 }
 
 #main_logo{
@@ -130,6 +131,7 @@ a{
     }
     #jobb_oldal_nav.active {
         display: flex; /* kattintásra megjelenik */
+        z-index: 999; 
     }
 
     .dropbtn {

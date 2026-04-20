@@ -193,17 +193,19 @@ ul {
 }
 
 li {
-    margin: 5px 0;
+    margin: 10px 0;
+    font-size: 20px;
 }
 
 .deleteBtn{
     width: 30px;
-    height: fit-content;
     background-color: indianred;
     color: white;
-    justify-self: right;
+    float: right;
     font-size: 16px;
-    align-self: center;
+    cursor: pointer;
+    border-radius: 5px;
+    border: none;
 }
 
 /* ALAPANYAGOK HOZZAADASA VEGE */
@@ -279,7 +281,7 @@ li {
     border-radius: 14px;
     margin-bottom: 10px;
     box-shadow: 0 5px 15px rgba(0,0,0,.05);
-    font-size: 14px;
+    font-size: 20px;
 }
 /* Elkeszites lepesei vege */
 

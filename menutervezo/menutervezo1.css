@@ -31,7 +31,7 @@ main{
 
 .grid-table > div {
     width: auto;
-    height: 200px;
+    height: 12rem;
     padding: 10px;
     border-right: 1px solid #ccc;
     border-bottom: 1px solid #ccc;
@@ -314,3 +314,22 @@ main{
     filter: brightness(0.85);
 }
 /* remove btn vege */
+
+@media only screen and (max-width: 1400px) {
+  .grid-table > div{
+        height: 150px;
+  }  
+  .grid-header{
+    
+  }
+}
+
+@media only screen and (max-width: 1000px) {
+    .grid-table > div{
+        height: 100px;
+        font-size: large;
+    }  
+    .grid-header{
+
+    }
+  }

@@ -88,7 +88,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Recept feltöltés</title>
-    <link rel="stylesheet" href="feltoltes1.css">
+    <link rel="stylesheet" href="feltoltes.css">
     <link rel="stylesheet" href="../header/header.css">
     <link rel="stylesheet" href="../footer/footer.css">
     <link rel="icon" type="image/x-icon" href="../imgs/munchieslogo.png">
@@ -282,6 +282,15 @@ function addStep() {
     if (input.value.trim() !== "") {
         const li = document.createElement("li");
         li.textContent = input.value;
+        let deleteBtn = document.createElement("button");
+        deleteBtn.classList.add("deleteBtn");
+        deleteBtn.textContent = "✖";
+
+        deleteBtn.addEventListener("click", function() {
+            li.remove();
+        });
+
+        li.appendChild(deleteBtn);
         list.appendChild(li);
         input.value = "";
     }
