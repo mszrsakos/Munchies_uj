@@ -24,17 +24,17 @@ h1{
     align-items: center;
 }
 .button1{
-    margin: 30px auto 0;
-    background-color: #6C9995;
-    border: none;
-    font-family: 'Times New Roman', Times, serif;
-    font-size: 30px;
-    height: 60px;
-    width: 500px;
-    color: white;
-    cursor: pointer;
-    transition: all 0.3s ease;
-    border-radius: 40px;
+  margin: 30px auto 0;
+  background-color: #6C9995;
+  border: none;
+  font-family: 'Times New Roman', Times, serif;
+  font-size: 30px;
+  height: 60px;
+  width: 500px;
+  color: white;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  border-radius: 40px;
     
         
       
@@ -79,7 +79,9 @@ label{
 }
 
 input[type="email"], input[type="password"], input[type="username"]{
-    width: 500px;
+  width: 80%; /* Alapértelmezett szélesség */
+    max-width: 500px; /* Maximális szélesség nagyobb képernyőkhöz */
+    min-width: 200px; /* Minimális szélesség kisebb képernyőkhöz */
     height: 30px;
     margin-bottom: 20px;
     border-radius: 10px;
@@ -138,8 +140,18 @@ label[type="email"], label[type="password"], label[type="username"]{
         padding: 0 10px;
    
     }
+    #form{
+
+        width: 80%;
+    }
 
      h1 {
       font-size: 1.2rem;
+    }
+    #label{
+      width: 30px;
+    }
+    .button1{
+      width: 80%;    
     }
   }
