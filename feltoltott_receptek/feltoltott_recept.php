@@ -71,7 +71,7 @@ $profileLink = $isOwnProfile
                 <p id="nincsRecept">A felhasználónak még nincs feltöltött receptje.</p>
             <?php endif; ?>
         </div>
-
-        <?php include("../footer/footer.html"); ?>
+        <footer><?php include("../footer/footer.html"); ?></footer>
+        
 </body>
 </html>
