@@ -1,18 +1,22 @@
 /* Alapbeállítások */
-body {
-    font-family: 'Open Sans', sans-serif;
+html, body {
+    background-color: #D2E4E3;
     margin: 0;
     padding: 0;
-    background-color: #D2E4E3;
-    color: #333;
+    display: flex;
+    flex-direction: column;
 }
 
 
+
+
+
+
 .receptek {
-    max-width: 1200px;
+    max-width: 80vw;
     margin: 20px auto;
     padding: 20px;
-    background-color: #ffffff;
+    background-color: #9bc5c2;
     border-radius: 10px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
@@ -22,7 +26,7 @@ body {
     font-size: 2rem;
     text-align: center;
     margin-bottom: 20px;
-    color: #444;
+    color: white;
 }
 
 
@@ -34,6 +38,10 @@ body {
     border: 1px solid #ddd;
     border-radius: 10px;
     overflow: hidden;
+    width: 40vw;
+
+    justify-content: center;
+    margin: auto;
     background-color: #fdfdfd;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
@@ -46,7 +54,6 @@ body {
 
 .img-wrapper img.kep {
     width: 100%;
-    height: 200px;
     object-fit: cover; 
 }
 
@@ -87,11 +94,12 @@ body {
     }
 
     .img-wrapper {
-        margin: 10px;
+        width: 60vw;
+        
     }
-
     .img-wrapper img.kep {
-        height: 150px;
+        width: 60vw;
+        height: 20vh;
     }
 
     .img-wrapper .content {
@@ -111,6 +119,14 @@ body {
     .img-wrapper .content {
         font-size: 0.9rem;
     }
+    .img-wrapper {
+        width: 60vw;
+        
+    }
+    .img-wrapper img.kep {
+        width: 60vw;
+        height: 20vh;
+    }
 }
 
 @media screen and (max-width: 480px) {
@@ -120,9 +136,18 @@ body {
 
     .img-wrapper img.kep {
         height: 100px; 
+        
     }
 
     .img-wrapper .content {
         font-size: 0.8rem;
+    }
+    .img-wrapper {
+        width: 60vw;
+        
+    }
+    .img-wrapper img.kep {
+        width: 60vw;
+        height: 20vh;
     }
 }
