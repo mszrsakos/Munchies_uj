@@ -17,6 +17,13 @@ h1{
     margin: auto;
     margin-top: 5%;
 }
+.container {
+  width: 100%; /* Ez a szülő konténer */
+  padding: 20px; /* Ez hozzáadódik a szélességhez */
+}
+* {
+  box-sizing: border-box;
+}
 
 .tartalom{
     display: flex;
@@ -60,6 +67,7 @@ body{
 
 
 main{
+  padding: 0px;
     display: flex;
     width: 100%;
     height: 600px;
@@ -72,7 +80,7 @@ form{
 }
 
 label{
-    padding: 10px 30px;
+    padding: 5px 30px;
     background: #6C9995;
     border-radius: 10px;
     font-size: 30px;
@@ -82,7 +90,7 @@ input[type="email"], input[type="password"], input[type="username"]{
   width: 80%; /* Alapértelmezett szélesség */
     max-width: 500px; /* Maximális szélesség nagyobb képernyőkhöz */
     min-width: 200px; /* Minimális szélesség kisebb képernyőkhöz */
-    height: 30px;
+    height: 50px;
     margin-bottom: 20px;
     border-radius: 10px;
     border: 1px solid #ccc;
@@ -105,9 +113,7 @@ label[type="email"], label[type="password"], label[type="username"]{
 
 @media (max-width: 1400px) and (min-width: 800px) {
     main {
-      max-width: 900px;
-      margin: 0 auto;
-      padding: 0 20px;
+      
     }
   
     form {
@@ -140,16 +146,13 @@ label[type="email"], label[type="password"], label[type="username"]{
         padding: 0 10px;
    
     }
-    #form{
 
-        width: 80%;
-    }
 
      h1 {
       font-size: 1.2rem;
     }
-    #label{
-      width: 30px;
+    label[type="email"], label[type="password"], label[type="username"]{
+      width: 20px;
     }
     .button1{
       width: 80%;    
