@@ -92,7 +92,7 @@
                 <br>
 
                 <div class="valami">
-                <a href=""><h2>Kedvencek</h2></a>
+                <a href="../kedvencek/kedvencek.php"><h2>Kedvencek</h2></a>
                 <a href="../feltoltott_receptek/feltoltott_recept.php"><h2>Feltöltött receptjeim</h2></a>
                 </div>
 

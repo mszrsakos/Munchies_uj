@@ -20,7 +20,7 @@ $stmt->close();
 // if (!$user) {
 //     die("A felhasználó nem található.");
 // }
-/* ===== Felhasználó receptjei ===== */
+
 $stmt = mysqli_prepare($conn, "
     SELECT id, title, image_url
     FROM recipes
@@ -48,7 +48,7 @@ $profileLink = $isOwnProfile
     <link rel="stylesheet" href="../footer/footer.css">
     <link rel="stylesheet" href="../header/header.css">
     <link rel="icon" type="image/x-icon" href="../imgs/munchieslogo.png">
-    <title>Document</title>
+    <title>Feltöltött receptek</title>
 </head>
 <body>
 <?php include("../header/header.html"); ?>
