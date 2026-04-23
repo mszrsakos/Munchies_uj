@@ -133,15 +133,15 @@ if (isset($_GET["ajax"]) && $_GET["ajax"] === "1") {
 <div class="table-wrapper">
     <div class="grid-table">
 
-    <div></div>
+    <div id="sarokText">Menütervező</div>
 
     <?php foreach ($meals as $meal): ?>
-        <div class="grid-header"><?= h($meal) ?></div>
+        <div class="grid-header" style="border-bottom: 2px solid black"><?= h($meal) ?></div>
     <?php endforeach; ?>
 
     <?php foreach ($days as $day): ?>
 
-        <div class="grid-header"><?= h($day) ?></div>
+        <div class="grid-header" style="border-right: 2px solid black"><?= h($day) ?></div>
 
         <?php foreach ($meals as $meal): ?>
             <div class="cell" data-day="<?= h($day) ?>" data-meal="<?= h($meal) ?>">

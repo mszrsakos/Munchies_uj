@@ -4,6 +4,11 @@ body{
     font-family: "Inter", sans-serif;
     font-style: italic;
     display: block;
+    /* overflow-x: hidden; */
+}
+
+* {
+    box-sizing: border-box;
 }
 
 
@@ -13,19 +18,30 @@ main{
 }
 
 .table-wrapper {
+    width: calc(100% - 30px); /* levonod a margin-t */
+    margin: 20px ;
+    max-width: 80%;
     overflow-x: auto;
+    overflow-y: hidden;
+    padding: 0px;
+    border-radius: 20px;
+    border: 2px solid black;
+    cursor: grab;
+    justify-self: center;
+}
+
+.table-wrapper:active {
+    cursor: grabbing;
 }
 
 .grid-table{
     display: grid;
     grid-template-columns: repeat(5, 1fr);
     grid-auto-rows: minmax(50px, auto);
-    border: 2px solid black;
     font-family: Arial, sans-serif;
     font-weight: bold;
     color: black;
-    margin: 20px;
-    border-radius: 20px;
+    margin: 0px;
     min-width: 1000px; /* fontos */
 }
 
@@ -46,14 +62,39 @@ main{
     text-align: center;
     align-content: center;
     font-size: x-large;
+    background-clip: padding-box;
+}
+
+#sarokText{
+    color: white;
+    font-weight: bold;
+    border-bottom: 2px solid black;
+    border-right: 2px solid black;
+    font-size: xx-large;
 }
 
 .grid-table > div:nth-child(5n+1) {
     position: sticky;
     left: 0;
-    background-color: #91b4b1; /* vagy ugyanaz mint header */
     z-index: 2;
+    background-color: #91b4b1;
 }
+
+.grid-table > div:nth-child(-n+5) {
+    position: sticky;
+    top: 0;
+    z-index: 3;
+    background-color: #91b4b1;
+}
+
+.grid-table > div:nth-child(1) {
+    position: sticky;
+    top: 0;
+    left: 0;
+    z-index: 4; /* legfelül legyen */
+    background-color: #91b4b1;
+}
+
 
 .grid-table > div > button {
     width: 100%;
@@ -338,6 +379,9 @@ main{
     .grid-table {
         grid-template-columns: 200px repeat(4, 200px);
         min-width: 1000px;
+    }
+    #sarokText{
+        font-size: x-large;
     }
 }
 
