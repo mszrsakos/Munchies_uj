@@ -12,6 +12,10 @@ main{
     align-content: center;
 }
 
+.table-wrapper {
+    overflow-x: auto;
+}
+
 .grid-table{
     display: grid;
     grid-template-columns: repeat(5, 1fr);
@@ -22,22 +26,33 @@ main{
     color: black;
     margin: 20px;
     border-radius: 20px;
+    min-width: 1000px; /* fontos */
 }
 
 .grid-header {
     background-color: #91b4b1;
     color: white;
+    position: sticky;
+    top: 0;
+    z-index: 3;
 }
 
 .grid-table > div {
     width: auto;
-    height: 12rem;
+    height: 180px;
     padding: 10px;
     border-right: 1px solid #ccc;
     border-bottom: 1px solid #ccc;
     text-align: center;
     align-content: center;
-    font-size: xx-large;
+    font-size: x-large;
+}
+
+.grid-table > div:nth-child(5n+1) {
+    position: sticky;
+    left: 0;
+    background-color: #91b4b1; /* vagy ugyanaz mint header */
+    z-index: 2;
 }
 
 .grid-table > div > button {
@@ -315,21 +330,14 @@ main{
 }
 /* remove btn vege */
 
-@media only screen and (max-width: 1400px) {
-  .grid-table > div{
-        height: 150px;
-  }  
-  .grid-header{
-    
-  }
+@media only screen and (max-width: 1000px) {
+    .table-wrapper {
+        overflow-x: auto;
+    }
+
+    .grid-table {
+        grid-template-columns: 200px repeat(4, 200px);
+        min-width: 1000px;
+    }
 }
 
-@media only screen and (max-width: 1000px) {
-    .grid-table > div{
-        height: 100px;
-        font-size: large;
-    }  
-    .grid-header{
-
-    }
-  }

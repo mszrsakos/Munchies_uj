@@ -130,6 +130,7 @@ if (isset($_GET["ajax"]) && $_GET["ajax"] === "1") {
 <?php include("../header/header.html");?>
 
 <main>
+<div class="table-wrapper">
     <div class="grid-table">
 
     <div></div>
@@ -171,6 +172,7 @@ if (isset($_GET["ajax"]) && $_GET["ajax"] === "1") {
 
     <?php endforeach; ?>
 
+</div>
 </div>
 </main>
 
