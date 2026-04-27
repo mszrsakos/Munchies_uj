@@ -1,3 +1,6 @@
+* {
+  box-sizing: border-box;
+}
 html {
     background-color: #D2E4E3;
     color: white;
@@ -44,7 +47,7 @@ body {
 .profil_kep p {
     text-align: center;
     margin-top: 10px;
-    font-size: 3.6em;
+    font-size: 2.6em;
     color: white;
     background-color: #6C9995;
     width: 50%;
@@ -54,7 +57,7 @@ body {
       border-radius: 5px 5px 0px 0px;
 }
 #masProfilEmail, #masProfilRolam {
-    margin: auto;
+  justify-self: center;
     margin-top: 0;
     width: 50%;
     text-align: center;
@@ -83,7 +86,7 @@ body {
     text-align: center;
     color: white;
     width: 50%;
-    margin: auto;
+
     margin-top: 2%;
     border-radius: 15px;
     font-size: 2em;
@@ -112,11 +115,12 @@ body {
     position: relative;
     overflow: hidden;
     flex: 1; 
-    max-width: 33%; 
+
     text-align: center; 
     margin: 1px solid;
-    width: 70%;
-    float: left;
+    width: 100%;
+    max-width: 100%;
+    float: none;
     border: #000000 solid 1.5px;
 
   }
@@ -141,7 +145,7 @@ body {
   }
   .img-wrapper>img,
   .img-wrapper>.content{
-    transition: transform 200mx ease-in-out;
+    transition: transform 200ms ease-in-out;
     color: white;
   }
   .img-wrapper:hover .content {
@@ -223,25 +227,7 @@ body {
     }
 }
 
-@media screen and (max-width: 480px) {
-    .profil_kep img {
-        width: 200px;
-        height: 200px;
-    }
-    .profil_kep p {
-        font-size: 1em;
-        width: 90%;
-    }
-    .receptek h2 {
-        font-size: 1.2em;
-    }
-    .img-wrapper > img {
-        height: 150px;
-    }
-    .img-wrapper > .content {
-        font-size: 0.9rem;
-    }
-}
+
 @media screen and (max-width:620px) {
     .profil_kep img {
         width: 200px;
@@ -268,15 +254,39 @@ body {
     }
     
 }
-
+@media screen and (max-width: 480px) {
+  .profil_kep img {
+      width: 200px;
+      height: 200px;
+  }
+  .profil_kep p {
+      font-size: 1em;
+      width: 90%;
+  }
+  .receptek h2 {
+      font-size: 1.2em;
+  }
+  .img-wrapper > img {
+      height: 150px;
+  }
+  .img-wrapper > .content {
+      font-size: 0.9rem;
+  }
+}
 @media screen and (max-width: 350px) {
     .profil_kep img {
         width: 150px;
         height: 150px;
     }
+    .profil_kep{
+      width: 100%;
+    }
     .profil_kep p {
         font-size: 0.9em;
-        width: 80vw;
+        width: 70vw;
+        margin: 0px;
+        word-wrap: break-word;
+        overflow-wrap: break-word;
     }
     .receptek h2 {
         font-size: 1rem;
@@ -288,7 +298,7 @@ body {
         font-size: 0.8rem;
     }
     .masikFelhasznaloTartalom {
-        width: 50vw;
+      width: 90%;
     }
     #masProfilEmail, #masProfilRolam {
       font-size: 1.5em;
