@@ -66,6 +66,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["bejelentkezes"])) {
 
     <?php include("../header/header.html"); ?>
 
+    <img src="../imgs/zoldLogo.png" id="loginLogo">
+
     <main>
         <form id="loginForm" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="POST">
 

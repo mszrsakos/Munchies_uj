@@ -1,7 +1,7 @@
 body{
     margin: 0;
     padding: 0;
-    box-sizing: border-box;
+    
     font-family: 'Inter', sans-serif;
     background-color: #D2E4E3;
     color: white;
@@ -14,7 +14,7 @@ h1{
     padding: 10px 20px;
     border-radius: 10px;
     width: fit-content;
-    margin: auto;
+    justify-self: center;
     margin-top: 5%;
 }
 .container {
@@ -56,7 +56,6 @@ h1{
 }
 body{
     margin: 0;
-    display: grid;
     grid-template-rows: auto 1fr auto;
     font-family: "Inter";
     background-image: url("../imgs/receptek_bg.jpg");
@@ -72,6 +71,7 @@ main{
     width: 100%;
     height: 600px;
     justify-content: center;
+    justify-self: center;
     align-items: center;
 }
 
@@ -86,7 +86,7 @@ label{
     font-size: 30px;
 }
 
-input[type="email"], input[type="password"], input[type="username"]{
+main input[type="email"], input[type="password"], input[type="username"]{
   width: 80%; /* Alapértelmezett szélesség */
     max-width: 500px; /* Maximális szélesség nagyobb képernyőkhöz */
     min-width: 200px; /* Minimális szélesség kisebb képernyőkhöz */
@@ -108,14 +108,7 @@ label[type="email"], label[type="password"], label[type="username"]{
 }
 
 
-
-
-
 @media (max-width: 1400px) and (min-width: 800px) {
-    main {
-      
-    }
-  
     form {
       transform: scale(0.95);
     }
@@ -141,7 +134,7 @@ label[type="email"], label[type="password"], label[type="username"]{
     
     #main {
         
-        width: auto;
+        width: 90%;
 
         padding: 0 10px;
    

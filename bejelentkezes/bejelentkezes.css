@@ -1,34 +1,54 @@
 body{
     margin: 0;
-    display: grid;
-    grid-template-rows: auto 1fr auto;
     font-family: "Inter";
     background-image: url("../imgs/receptek_bg.jpg");
     background-size: cover;
     background-repeat: no-repeat;
+    background-color: #D2E4E3;
     color: white;
 }
 
 
 main{
-    display: flex;
-    width: 100%;
-    height: 600px;
+    justify-self: center;
+    width: 500px;
+    height: fit-content;
     justify-content: center;
     align-items: center;
+    align-self: center;
+    padding: 15px;
 }
 
 form{
     text-align: center;
 }
-.bejelentkezes{
+
+h1{
+    background-color: #6C9995;
+    padding: 10px 20px;
+    border-radius: 10px;
+    width: fit-content;
+    justify-self: center;
+    margin: 40px 15px 60px 15px;
+    text-align: center;
+}
+
+#loginLogo{
+    width: 200px;
+    height: auto;
+    display: block;
+    margin: 20px 0px 30px 0px;
+    justify-self: center;
+}
+
+main button[type="submit"]{
     margin: 30px auto 0;
     background-color: #6C9995;
     border: none;
     font-family: 'Times New Roman', Times, serif;
     font-size: 30px;
     height: 60px;
-    width: 500px;
+    width: 90%;
     color: white;
     cursor: pointer;
     transition: all 0.3s ease;
@@ -50,7 +70,7 @@ label{
 }
 
 #email, #password, input[type="username"]{
-    width: 500px;
+    width: 90%;
     height: 30px;
     margin-bottom: 20px;
     border-radius: 10px;
@@ -71,4 +91,13 @@ main a:visited{
     font-size: 14px;
     margin: 0;
     padding: 0;
+}
+
+@media only screen and (max-width: 640px){
+    main{
+        width: 300px;
+    }
+    label{
+        padding: 10px 20px;
+    }
 }

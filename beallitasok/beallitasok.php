@@ -120,7 +120,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     <title>Beállítások</title>
     <link rel="stylesheet" href="../header/header.css">
     <link rel="stylesheet" href="../footer/footer.css">
-    <link rel="stylesheet" href="beallitasok.css">
+    <link rel="stylesheet" href="../bejelentkezes/bejelentkezes.css">
     <link rel="icon" type="image/x-icon" href="../imgs/munchieslogo.png">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -129,7 +129,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 <body>
     
     <?php include("../header/header.html");?>
-        <div><h1>Személyes adatok módosítása</h1></div>
+        <h1>Személyes adatok módosítása</h1>
 
     <main id="main">
         <form id="form" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"])?>" method="post">
