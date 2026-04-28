@@ -75,6 +75,8 @@
 
     <?php include("../header/header.html"); ?>
 
+    <h1>Új fiók létrehozása</h1>
+
     <main>
         <form id="registerForm" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"])?>" method="post">
             <label for="username">Felhasználónév</label> <br>
