@@ -131,6 +131,15 @@ if (isset($_GET["ajax"]) && $_GET["ajax"] === "1") {
 
 <main>
 <div class="table-wrapper">
+
+    <div class="meal-tabs">
+        <?php foreach ($meals as $meal): ?>
+            <button class="meal-tab" data-meal="<?= h($meal) ?>">
+                <?= h($meal) ?>
+            </button>
+        <?php endforeach; ?>
+    </div>
+
     <div class="grid-table">
 
     <div id="sarokText">Menütervező</div>
@@ -144,7 +153,10 @@ if (isset($_GET["ajax"]) && $_GET["ajax"] === "1") {
         <div class="grid-header" style="border-right: 2px solid black"><?= h($day) ?></div>
 
         <?php foreach ($meals as $meal): ?>
-            <div class="cell" data-day="<?= h($day) ?>" data-meal="<?= h($meal) ?>">
+            <div class="cell"
+                data-day="<?= h($day) ?>"
+                data-meal="<?= h($meal) ?>"
+                data-col="<?= array_search($meal, $meals) ?>">
 
                 <?php if (isset($menu[$day][$meal])): ?>
                     <div class="menu-img-wrapper"

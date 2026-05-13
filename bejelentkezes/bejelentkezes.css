@@ -93,11 +93,4 @@ main a:visited{
     padding: 0;
 }
 
-@media only screen and (max-width: 640px){
-    main{
-        width: 300px;
-    }
-    label{
-        padding: 10px 20px;
-    }
-}
+

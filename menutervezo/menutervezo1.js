@@ -177,3 +177,31 @@ wrapper.addEventListener('mousemove', (e) => {
     const walk = (x - startX) * 1.5;
     wrapper.scrollLeft = scrollLeft - walk;
 });
+
+// etkezes kivalasztas
+
+document.addEventListener("DOMContentLoaded", () => {
+
+    let currentCol = 0;
+
+    function updateTable() {
+        document.querySelectorAll(".cell").forEach(cell => {
+
+            if (parseInt(cell.dataset.col) === currentCol) {
+                cell.style.visibility = "visible";
+            } else {
+                cell.style.visibility = "hidden";
+            }
+
+        });
+    }
+
+    document.querySelectorAll(".meal-tab").forEach((btn, index) => {
+        btn.addEventListener("click", () => {
+            currentCol = index;
+            updateTable();
+        });
+    });
+
+    updateTable();
+});
