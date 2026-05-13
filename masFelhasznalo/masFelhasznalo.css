@@ -305,10 +305,16 @@ body {
         width: 80vw;
     }
     .kepLink .content.fade {
-        font-size: 1.5em;
+        font-size: 1.2em;
+        width: 80vw;
+        height: 40vh;
     }
     .receptek {
       grid-template-columns: 1fr;
-      width: 80vw;
+      width: 90vw;
+  }
+  .kep{
+    width: 100%;
+    height: auto;
   }
 }

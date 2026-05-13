@@ -74,7 +74,7 @@
 <body>
 
     <?php include("../header/header.html"); ?>
-
+    <img src="../imgs/zoldLogo.png" id="loginLogo">
     <main>
         <form id="registerForm" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"])?>" method="post">
             <label for="username">Felhasználónév</label> <br>
