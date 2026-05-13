@@ -178,30 +178,38 @@ wrapper.addEventListener('mousemove', (e) => {
     wrapper.scrollLeft = scrollLeft - walk;
 });
 
-// etkezes kivalasztas
-
 document.addEventListener("DOMContentLoaded", () => {
 
-    let currentCol = 0;
+    const mealSelect = document.getElementById("mealSelect");
 
-    function updateTable() {
+    function updateMobileTable() {
+
+        // desktop
+        if (window.innerWidth > 700) {
+    
+            document.querySelectorAll(".cell").forEach(cell => {
+                cell.classList.remove("hidden-mobile");
+            });
+    
+            return;
+        }
+    
+        const currentCol = parseInt(mealSelect.value);
+    
         document.querySelectorAll(".cell").forEach(cell => {
-
+    
             if (parseInt(cell.dataset.col) === currentCol) {
-                cell.style.visibility = "visible";
+                cell.classList.remove("hidden-mobile");
             } else {
-                cell.style.visibility = "hidden";
+                cell.classList.add("hidden-mobile");
             }
-
+    
         });
     }
 
-    document.querySelectorAll(".meal-tab").forEach((btn, index) => {
-        btn.addEventListener("click", () => {
-            currentCol = index;
-            updateTable();
-        });
-    });
+    mealSelect.addEventListener("change", updateMobileTable);
 
-    updateTable();
+    window.addEventListener("resize", updateMobileTable);
+
+    updateMobileTable();
 });
