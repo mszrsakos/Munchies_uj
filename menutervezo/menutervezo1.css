@@ -291,7 +291,7 @@ main{
 }
 .img-wrapper>img,
 .img-wrapper>.content{
-    transition: transform 200mx ease-in-out;
+    transition: transform 200ms ease-in-out;
     color: white;
 }
 .img-wrapper:hover .content {
@@ -371,11 +371,22 @@ main{
 }
 /* remove btn vege */
 
-@media only screen and (max-width: 1000px) {
-    .table-wrapper {
-        overflow-x: auto;
-    }
+.meal-selector {
+    display: none;
+    margin: 15px;
+}
 
+#mealSelect {
+    width: 100%;
+    padding: 12px;
+    border-radius: 12px;
+    border: 2px solid black;
+    background: white;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+@media only screen and (max-width: 1000px) {
     .grid-table {
         grid-template-columns: 200px repeat(4, 200px);
         min-width: 1000px;
@@ -383,10 +394,6 @@ main{
     #sarokText{
         font-size: x-large;
     }
-}
-
-.meal-tabs {
-    display: none;
 }
 
 
@@ -398,20 +405,72 @@ main{
         padding: 10px 20px;
     }
 
-    .table-wrapper {
-        width: 90%;
-        justify-self: center;
+    .meal-selector {
+        display: block;
     }
-
+    
     .grid-table {
-        grid-template-columns: repeat(5, 1fr); /* maradjon! */
+        grid-template-columns: 1fr 1fr;
+        min-width: unset;
+    }
+    
+    .grid-table > div:nth-child(5n+1),
+    .grid-table > div:nth-child(-n+5),
+    .grid-table > div:nth-child(1) {
+        position: static;
+        left: auto;
+        top: auto;
+        z-index: auto;
     }
 
-
-    .meal-tabs {
+    /* felső meal headerek eltűnnek */
+    .grid-table > div:nth-child(-n+5) {
+        display: none !important;
+    }
+    
+    /* sarok cella */
+    #sarokText{
+        display: none !important;
+    }
+    
+    /* napok oszlop */
+    .grid-header {
+        background-color: #91b4b1;
+        color: white;
         display: flex;
-        overflow-x: auto;
-        gap: 10px;
-        margin-bottom: 10px;
+        justify-content: center;
+        align-items: center;
+        border-right: 2px solid black;
+        font-size: x-large;
+        font-weight: bold;
+    }
+
+    #sarokText {
+        display: flex !important;
+        justify-content: center;
+        align-items: center;
+        background-color: #91b4b1;
+        color: white;
+        font-size: x-large;
+        font-weight: bold;
+    }
+    
+    .cell {
+        background-color: #D2E4E3 !important;
+    }
+
+    /* elrejtett mobil cella */
+    .cell.hidden-mobile {
+        display: none;
+    }
+    
+    .table-wrapper {
+        overflow-x: hidden;
+        max-width: 95%;
+    }
+    
+    /* kisebb cellák */
+    .grid-table > div {
+        height: 140px;
     }
 }

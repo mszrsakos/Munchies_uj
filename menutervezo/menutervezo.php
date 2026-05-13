@@ -132,12 +132,14 @@ if (isset($_GET["ajax"]) && $_GET["ajax"] === "1") {
 <main>
 <div class="table-wrapper">
 
-    <div class="meal-tabs">
-        <?php foreach ($meals as $meal): ?>
-            <button class="meal-tab" data-meal="<?= h($meal) ?>">
-                <?= h($meal) ?>
-            </button>
-        <?php endforeach; ?>
+    <div class="meal-selector">
+        <select id="mealSelect">
+            <?php foreach ($meals as $index => $meal): ?>
+                <option value="<?= $index ?>">
+                    <?= h($meal) ?>
+                </option>
+            <?php endforeach; ?>
+        </select>
     </div>
 
     <div class="grid-table">
