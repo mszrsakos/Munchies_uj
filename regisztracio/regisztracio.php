@@ -74,7 +74,7 @@
 <body>
 
     <?php include("../header/header.html"); ?>
-
+    <img src="../imgs/zoldLogo.png" id="loginLogo">
     <h1>Új fiók létrehozása</h1>
 
     <main>

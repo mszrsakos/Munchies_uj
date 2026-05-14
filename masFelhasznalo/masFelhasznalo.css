@@ -56,17 +56,17 @@ body {
     border-radius: 0px 0px 5px 5px;
 }
 .receptek {
-  margin: 50px auto;
-  width: 90%;
+    margin: 50px auto;
+    width: 90%;
 
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-  gap: 20px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(420px, 1fr));
+    gap: 20px;
 
-  background-color: rgba(196, 196, 196, 0.8);
-  border-radius: 10px;
-  border: #555 solid 5px;
-  padding: 20px;
+    background-color: rgba(196, 196, 196, 0.8);
+    border-radius: 10px;
+    border: #555 solid 5px;
+    padding: 20px;
 
 }
 .receptek h2 {
@@ -96,28 +96,28 @@ body {
 .img-wrapper {
     position: relative;
     overflow: hidden;
-    flex: 1;
-    text-align: center;
-    margin: 1px solid;
-    width: 100%;
-    max-width: 100%;
-    float: none;
+    width: 40vw;
     border: #000000 solid 1.5px;
+    border-radius: 10px;
+    text-align: center;
 }
 .img-wrapper > img {
-  width: 100%;
-  height: 250px;
-  object-fit: cover;
+    width: 100%;
+    height: 320px;
+    object-fit: cover;
+
+    display: block;
 }
 .img-wrapper > .content {
     position: absolute;
     inset: 0;
     font-size: 2rem;
     padding: 1rem;
-    background-color: #6C9995;
+    background-color: rgba(108, 153, 149, 0.7);
     display: flex;
     justify-content: center;
     align-items: center;
+    text-align: center;
 }
 .img-wrapper > img,
 .img-wrapper > .content {
@@ -147,18 +147,17 @@ body {
     color: inherit;
 }
 .kepLink > img {
-    display: block;
-    width: 50vw;
-    aspect-ratio: 1/1;
+    width:40vw;
+    height: auto;
     object-fit: cover;
-    object-position: center;
-    height: 30vw;
+    display: block;
+    margin: auto;
 }
 .kepLink .content {
     position: absolute;
     inset: 0;
     font-size: 2rem;
-    padding: 1rem;
+
     background-color: rgba(108, 153, 149, 0.7);
     display: flex;
     justify-content: center;
@@ -180,14 +179,15 @@ body {
       width: 80vw;
   }
   .receptek {
-      width: 50vw;
-      padding: 10px;
+        width: 85vw;
+        grid-template-columns: 1fr;
+        padding: 15px;
   }
   .img-wrapper > img {
-      height: 200px;
+      height: 300px;
   }
   .img-wrapper > .content {
-      font-size: 1rem;
+      font-size: 1.3rem;
   }
   .img-wrapper > .content.fade {
       font-size: 1rem;
@@ -197,7 +197,7 @@ body {
       font-size: 4vw;
   }
 }
-@media screen and (max-width: 830px) {
+/* @media screen and (max-width: 830px) {
     .profil_kep img {
         width: 250px;
         height: 250px;
@@ -227,33 +227,39 @@ body {
     .kepLink .content {
         font-size: 4vw;
     }
-}
+} */
 @media screen and (max-width: 620px) {
-    .profil_kep img {
-        width: 200px;
-        height: 200px;
-    }
-    .profil_kep p {
-        font-size: 1em;
-        width: 80vw;
-    }
-    .receptek h2 {
-        font-size: 1.2em;
-    }
-    .img-wrapper > img {
-        height: 300px;
-    }
-    .kepLink .content {
-        font-size: 1.5rem;
-    }
+
     .receptek {
-        display: flex;
-        width: 50vw;
-        flex-direction: column;
-        align-items: center;
+        width: 95vw;
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 15px;
+        padding: 10px;
+    }
+
+    .img-wrapper {
+        width: 100%;
+    }
+
+    .kepLink > img,
+    .img-wrapper > img {
+        width: 100%;
+        height: 250px;
+        object-fit: cover;
+    }
+
+    .kepLink .content,
+    .img-wrapper > .content {
+        font-size: 1rem;
+        padding: 10px;
     }
 }
 @media screen and (max-width: 480px) {
+    .receptek {
+        width: 80vw;
+
+    }
     .profil_kep img {
         width: 200px;
         height: 200px;
@@ -263,13 +269,13 @@ body {
         width: 80vw;
     }
     .receptek h2 {
-        font-size: 1.2em;
+        font-size: 1.1rem;
     }
     .img-wrapper > img {
-        height: 150px;
+        height: 220px;
     }
     .img-wrapper > .content {
-        font-size: 0.9rem;
+        font-size: 1.4rem;
     }
 }
 @media screen and (max-width: 349px) {
@@ -278,7 +284,8 @@ body {
         height: 150px;
     }
     .profil_kep {
-        width: 100%;
+        width: 98vw;
+        padding: 8px;
     }
     .profil_kep p {
         font-size: 0.9em;
@@ -291,8 +298,7 @@ body {
         font-size: 1rem;
     }
     .img-wrapper > img {
-        height: 200px;
-        width: 90%;
+        height: 220px;
     }
     .img-wrapper > .content {
         font-size: 0.8rem;
@@ -310,8 +316,9 @@ body {
         height: 40vh;
     }
     .receptek {
-      grid-template-columns: 1fr;
-      width: 90vw;
+        width: 100vw;
+        border-width: 3px;
+        padding: 5px;
   }
   .kep{
     width: 100%;
