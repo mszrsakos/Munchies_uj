@@ -28,9 +28,14 @@ main{
     border: 2px solid black;
     cursor: grab;
     justify-self: center;
+
+    user-select: none;
+    -webkit-user-select: none;
 }
 
-.table-wrapper:active {
+
+
+.table-wrapper.dragging {
     cursor: grabbing;
 }
 
@@ -371,12 +376,12 @@ main{
 }
 /* remove btn vege */
 
-.meal-selector {
+.day-selector {
     display: none;
     margin: 15px;
 }
 
-#mealSelect {
+#daySelect {
     width: 100%;
     padding: 12px;
     border-radius: 12px;
@@ -384,6 +389,14 @@ main{
     background: white;
     font-size: 18px;
     font-weight: bold;
+}
+
+.desktop-grid {
+    display: grid;
+}
+
+.mobile-grid {
+    display: none;
 }
 
 @media only screen and (max-width: 1000px) {
@@ -398,54 +411,37 @@ main{
 
 
 @media only screen and (max-width: 700px){
-    main{
-        width: 100%;
-    }
-    label{
-        padding: 10px 20px;
+
+    /* =========================
+       LAYOUT RESET
+    ========================= */
+
+    .desktop-grid {
+        display: none;
     }
 
-    .meal-selector {
-        display: block;
-    }
-    
-    .grid-table {
-        grid-template-columns: 1fr 1fr;
+    .mobile-grid {
+        display: grid;
+        grid-template-columns: 140px 1fr;
+        width: 100%;
         min-width: unset;
     }
-    
-    .grid-table > div:nth-child(5n+1),
-    .grid-table > div:nth-child(-n+5),
-    .grid-table > div:nth-child(1) {
-        position: static;
-        left: auto;
-        top: auto;
-        z-index: auto;
+
+    main {
+        width: 100%;
     }
 
-    /* felső meal headerek eltűnnek */
-    .grid-table > div:nth-child(-n+5) {
-        display: none !important;
+    .table-wrapper {
+        overflow-x: hidden;
+        max-width: 95%;
     }
-    
-    /* sarok cella */
-    #sarokText{
-        display: none !important;
-    }
-    
-    /* napok oszlop */
-    .grid-header {
-        background-color: #91b4b1;
-        color: white;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        border-right: 2px solid black;
-        font-size: x-large;
-        font-weight: bold;
-    }
+
+    /* =========================
+       HEADER / SARKO CELL
+    ========================= */
 
     #sarokText {
+        grid-column: 1 / span 2;
         display: flex !important;
         justify-content: center;
         align-items: center;
@@ -453,24 +449,106 @@ main{
         color: white;
         font-size: x-large;
         font-weight: bold;
-    }
-    
-    .cell {
-        background-color: #D2E4E3 !important;
+        border-bottom: 2px solid black;
     }
 
-    /* elrejtett mobil cella */
-    .cell.hidden-mobile {
-        display: none;
+    /* =========================
+       ÉTKEZÉS FEJLEC (BAL OSZLOP)
+    ========================= */
+
+    .mobile-grid .grid-header {
+        background-color: #91b4b1;
+        color: white;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border-right: 2px solid black;
+        border-bottom: 2px solid black;
+        font-size: 18px;
+        font-weight: bold;
+        height: 120px;
     }
-    
-    .table-wrapper {
-        overflow-x: hidden;
-        max-width: 95%;
+
+    /* =========================
+       JOBB OLDAL (RECEPTEK)
+    ========================= */
+
+    .mobile-meal-cell {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+        padding: 10px;
+        align-items: flex-start;
+        background-color: #D2E4E3;
+        border-bottom: 2px solid #ccc;
     }
-    
-    /* kisebb cellák */
+
+    /* recept kártyák mobilon */
+    .mobile-meal-cell .menu-img-wrapper {
+        width: 100%;
+        height: 120px;
+        position: relative;
+    }
+
+    .menu-img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        border-radius: 6px;
+    }
+
+    /* =========================
+       REMOVE BTN (MOBILON IS)
+    ========================= */
+
+    .remove-btn {
+        display: block;
+    }
+
+    /* =========================
+       CELLÁK ALAP RESET
+    ========================= */
+
     .grid-table > div {
-        height: 140px;
+        height: auto;
+        padding: 8px;
+        font-size: 14px;
+    }
+
+    /* =========================
+       DROP DOWN
+    ========================= */
+
+    .day-selector {
+        display: block;
+        margin: 15px;
+    }
+
+    #daySelect {
+        width: 100%;
+        padding: 12px;
+        border-radius: 12px;
+        border: 2px solid black;
+        background: white;
+        font-size: 16px;
+        font-weight: bold;
+    }
+
+    /* =========================
+       OVERLAY
+    ========================= */
+
+    #etelValasztas {
+        width: 95vw;
+        height: 85vh;
+    }
+
+    #etelValasztasBottom {
+        height: 75%;
+        gap: 10px;
+    }
+
+    .img-wrapper {
+        max-width: 45%;
     }
 }

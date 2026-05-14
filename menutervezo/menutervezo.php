@@ -12,7 +12,6 @@ $days = ["Hétfő", "Kedd", "Szerda", "Csütörtök", "Péntek", "Szombat", "Vas
 $meals = ["Reggeli", "Ebéd", "Vacsora", "Egyéb"];
 
 if (!isset($_SESSION["user_id"])) {
-    // fallback if you only stored email before
     $stmt = $conn->prepare("SELECT id FROM users WHERE email = ?");
     $stmt->bind_param("s", $_SESSION["email"]);
     $stmt->execute();
@@ -24,15 +23,18 @@ if (!isset($_SESSION["user_id"])) {
 
 $user_id = (int)$_SESSION["user_id"];
 
+function h($s) {
+    return htmlspecialchars((string)$s, ENT_QUOTES, "UTF-8");
+}
+
+/* =====================
+   MENU LOAD
+===================== */
+
 $menu = [];
 
 $stmt = $conn->prepare("
-    SELECT 
-        mp.day,
-        mp.meal,
-        r.id AS recipe_id,
-        r.title,
-        r.image_url
+    SELECT mp.day, mp.meal, r.id AS recipe_id, r.title, r.image_url
     FROM menu_plan mp
     JOIN recipes r ON r.id = mp.recipe_id
     WHERE mp.user_id = ?
@@ -45,39 +47,36 @@ $result = $stmt->get_result();
 while ($row = $result->fetch_assoc()) {
     $menu[$row["day"]][$row["meal"]] = $row;
 }
-
 $stmt->close();
 
 /* =====================
-   SEARCH LOGIC
+   SEARCH
 ===================== */
 
 $q = trim($_GET["q"] ?? "");
 
 if ($q !== "") {
-    $stmt = mysqli_prepare(
-        $conn,
-        "SELECT id, title, image_url 
-         FROM recipes 
-         WHERE title LIKE ? 
-         ORDER BY created_at DESC"
-    );
+    $stmt = $conn->prepare("
+        SELECT id, title, image_url 
+        FROM recipes 
+        WHERE title LIKE ? 
+        ORDER BY created_at DESC
+    ");
     $like = "%".$q."%";
-    mysqli_stmt_bind_param($stmt, "s", $like);
-    mysqli_stmt_execute($stmt);
-    $result = mysqli_stmt_get_result($stmt);
+    $stmt->bind_param("s", $like);
+    $stmt->execute();
+    $result = $stmt->get_result();
 } else {
-    $result = mysqli_query(
-        $conn,
-        "SELECT id, title, image_url 
-         FROM recipes 
-         ORDER BY created_at DESC"
-    );
+    $result = $conn->query("
+        SELECT id, title, image_url 
+        FROM recipes 
+        ORDER BY created_at DESC
+    ");
 }
 
-function h($s) {
-    return htmlspecialchars((string)$s, ENT_QUOTES, "UTF-8");
-}
+/* =====================
+   SAVED
+===================== */
 
 $saved = [];
 $stmt = $conn->prepare("
@@ -95,8 +94,9 @@ while ($row = $res->fetch_assoc()) {
 $stmt->close();
 
 /* =====================
-   AJAX RESPONSE ONLY
+   AJAX
 ===================== */
+
 if (isset($_GET["ajax"]) && $_GET["ajax"] === "1") {
     while ($row = mysqli_fetch_assoc($result)) {
         ?>
@@ -122,85 +122,114 @@ if (isset($_GET["ajax"]) && $_GET["ajax"] === "1") {
     <link rel="stylesheet" href="../footer/footer.css">
     <link rel="stylesheet" href="menutervezo1.css">
     <link rel="stylesheet" href="../header/header.css">
-    <link rel="icon" type="image/x-icon" href="../imgs/munchieslogo.png">
 </head>
 
 <body>
 
-<?php include("../header/header.html");?>
+<?php include("../header/header.html"); ?>
 
 <main>
+
 <div class="table-wrapper">
 
-    <div class="meal-selector">
-        <select id="mealSelect">
-            <?php foreach ($meals as $index => $meal): ?>
-                <option value="<?= $index ?>">
-                    <?= h($meal) ?>
-                </option>
+        <div class="day-selector"> 
+            <select id="daySelect"> 
+                <?php foreach ($days as $index => $day): ?> 
+                    <option value="<?= h($day) ?>"> <?= h($day) ?> 
+                </option> 
+                <?php endforeach; ?> 
+            </select> 
+        </div>
+    <!-- =====================
+         DESKTOP GRID (DAY × MEAL)
+    ====================== -->
+    <div class="grid-table desktop-grid">
+
+        <div id="sarokText">Menütervező</div>
+
+        <?php foreach ($meals as $meal): ?>
+            <div class="grid-header"><?= h($meal) ?></div>
+        <?php endforeach; ?>
+
+        <?php foreach ($days as $day): ?>
+
+            <div class="grid-header"><?= h($day) ?></div>
+
+            <?php foreach ($meals as $meal): ?>
+                <div class="cell"
+                    data-day="<?= h($day) ?>"
+                    data-meal="<?= h($meal) ?>">
+
+                    <?php if (isset($menu[$day][$meal])): ?>
+                        <div class="menu-img-wrapper">
+                            <img
+                                src="../imgs/<?= h($menu[$day][$meal]["image_url"]) ?>"
+                                class="menu-img"
+                                alt="<?= h($menu[$day][$meal]["title"]) ?>"
+                            >
+                            <button class="remove-btn">✕</button>
+                        </div>
+                    <?php else: ?>
+                        <button class="add-btn add-recipe">+</button>
+                    <?php endif; ?>
+
+                </div>
             <?php endforeach; ?>
-        </select>
+
+        <?php endforeach; ?>
+
     </div>
 
-    <div class="grid-table">
+    <!-- =====================
+         MOBILE GRID (MEAL × DAY)
+    ====================== -->
+    <div class="grid-table mobile-grid">
 
     <div id="sarokText">Menütervező</div>
 
     <?php foreach ($meals as $meal): ?>
-        <div class="grid-header" style="border-bottom: 2px solid black"><?= h($meal) ?></div>
-    <?php endforeach; ?>
 
-    <?php foreach ($days as $day): ?>
+        <div class="grid-header"><?= h($meal) ?></div>
 
-        <div class="grid-header" style="border-right: 2px solid black"><?= h($day) ?></div>
+        <div class="cell mobile-row" data-meal="<?= h($meal) ?>">
 
-        <?php foreach ($meals as $meal): ?>
-            <div class="cell"
-                data-day="<?= h($day) ?>"
-                data-meal="<?= h($meal) ?>"
-                data-col="<?= array_search($meal, $meals) ?>">
+            <?php foreach ($days as $day): ?>
+                
+                <div class="day-slot" data-day="<?= h($day) ?>">
 
-                <?php if (isset($menu[$day][$meal])): ?>
-                    <div class="menu-img-wrapper"
-                        data-day="<?= h($day) ?>"
-                        data-meal="<?= h($meal) ?>">
+                    <?php if (isset($menu[$day][$meal])): ?>
+                        <div class="menu-img-wrapper" data-day="<?= h($day) ?>" data-meal="<?= h($meal) ?>">
+                            <img src="../imgs/<?= h($menu[$day][$meal]["image_url"]) ?>" class="menu-img">
+                            <button class="remove-btn">✕</button>
+                        </div>
+                    <?php endif; ?>
 
-                        <img
-                            src="../imgs/<?= h($menu[$day][$meal]["image_url"]) ?>"
-                            class="menu-img"
-                            alt="<?= h($menu[$day][$meal]["title"]) ?>"
-                        >
+                </div>
 
-                        <button class="remove-btn" title="Eltávolítás">✕</button>
-                    </div>
-                <?php else: ?>
-                    <button
-                        class="add-btn add-recipe"
-                        data-day="<?= h($day) ?>"
-                        data-meal="<?= h($meal) ?>"
-                    >+</button>
-                <?php endif; ?>
+            <?php endforeach; ?>
 
-            </div>
-        <?php endforeach; ?>
+        </div>
 
     <?php endforeach; ?>
 
 </div>
+
 </div>
+
 </main>
 
+<!-- =====================
+     OVERLAY (marad ugyanaz)
+===================== -->
 <div id="etelOverlay">
     <div id="etelValasztas">
+
         <div id="etelValasztasTop">
             <p id="valasztottEtkezesText"></p>
 
             <div class="searchbarDiv">
                 <form id="searchForm" class="search-bar" autocomplete="off">
-                    <input type="text"
-                        id="searchInput"
-                        name="q"
-                        placeholder="Keresés receptre..." />
+                    <input type="text" id="searchInput" name="q" placeholder="Keresés receptre..." />
                     <button type="submit">
                         <img src="../imgs/keresesbtn-removebg-preview.png">
                     </button>
@@ -218,10 +247,11 @@ if (isset($_GET["ajax"]) && $_GET["ajax"] === "1") {
                 </div>
             <?php endwhile; ?>
         </div>
+
     </div>
 </div>
 
-<?php include("../footer/footer.html");?>
+<?php include("../footer/footer.html"); ?>
 
 <script src="menutervezo1.js"></script>
 </body>

@@ -41,6 +41,9 @@ gridTable.addEventListener("click", async (e) => {
 
 
 gridTable.addEventListener("click", (e) => {
+
+    if (isDragging) return;
+
     console.log("GRID CLICK", e.target);
 
     const btn = e.target.closest(".add-btn");
@@ -150,64 +153,79 @@ overlay.addEventListener("click", (e) => {
     }
 });
 
-const wrapper = document.querySelector('.table-wrapper');
+const wrapper = document.querySelector(".table-wrapper");
 
 let isDown = false;
+let isDragging = false;
 let startX;
 let scrollLeft;
 
-wrapper.addEventListener('mousedown', (e) => {
+wrapper.addEventListener("mousedown", (e) => {
+
     isDown = true;
+    isDragging = false;
+
+    wrapper.classList.add("dragging");
+
     startX = e.pageX - wrapper.offsetLeft;
     scrollLeft = wrapper.scrollLeft;
 });
 
-wrapper.addEventListener('mouseleave', () => {
+wrapper.addEventListener("mouseleave", () => {
+
     isDown = false;
+
+    wrapper.classList.remove("dragging");
 });
 
-wrapper.addEventListener('mouseup', () => {
+wrapper.addEventListener("mouseup", () => {
+
     isDown = false;
+
+    wrapper.classList.remove("dragging");
+
+    setTimeout(() => {
+        isDragging = false;
+    }, 0);
 });
 
-wrapper.addEventListener('mousemove', (e) => {
+wrapper.addEventListener("mousemove", (e) => {
+
     if (!isDown) return;
+
     e.preventDefault();
+
     const x = e.pageX - wrapper.offsetLeft;
-    const walk = (x - startX) * 1.5;
+    const walk = x - startX;
+
+    if (Math.abs(walk) > 5) {
+        isDragging = true;
+    }
+
     wrapper.scrollLeft = scrollLeft - walk;
 });
 
 document.addEventListener("DOMContentLoaded", () => {
 
-    const mealSelect = document.getElementById("mealSelect");
+    const daySelect = document.getElementById("daySelect");
 
     function updateMobileTable() {
-
-        // desktop
-        if (window.innerWidth > 700) {
+        if (window.innerWidth > 700) return;
     
-            document.querySelectorAll(".cell").forEach(cell => {
-                cell.classList.remove("hidden-mobile");
-            });
+        const selectedDay = daySelect.value;
     
-            return;
-        }
+        document.querySelectorAll(".day-slot").forEach(slot => {
     
-        const currentCol = parseInt(mealSelect.value);
-    
-        document.querySelectorAll(".cell").forEach(cell => {
-    
-            if (parseInt(cell.dataset.col) === currentCol) {
-                cell.classList.remove("hidden-mobile");
+            if (slot.dataset.day === selectedDay) {
+                slot.style.display = "block";
             } else {
-                cell.classList.add("hidden-mobile");
+                slot.style.display = "none";
             }
     
         });
     }
 
-    mealSelect.addEventListener("change", updateMobileTable);
+    daySelect.addEventListener("change", updateMobileTable);
 
     window.addEventListener("resize", updateMobileTable);
 
