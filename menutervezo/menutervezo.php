@@ -161,16 +161,29 @@ if (isset($_GET["ajax"]) && $_GET["ajax"] === "1") {
                     data-meal="<?= h($meal) ?>">
 
                     <?php if (isset($menu[$day][$meal])): ?>
-                        <div class="menu-img-wrapper">
+                        <div class="menu-img-wrapper"
+                            data-day="<?= h($day) ?>"
+                            data-meal="<?= h($meal) ?>">
+
                             <img
                                 src="../imgs/<?= h($menu[$day][$meal]["image_url"]) ?>"
                                 class="menu-img"
                                 alt="<?= h($menu[$day][$meal]["title"]) ?>"
                             >
+
                             <button class="remove-btn">✕</button>
+
+                            <a class="open-recipe-btn"
+                            href="../recept_sema/recept.php?id=<?= (int)$menu[$day][$meal]["recipe_id"] ?>">
+                                ↗
+                            </a>
                         </div>
                     <?php else: ?>
-                        <button class="add-btn add-recipe">+</button>
+                        <button class="add-btn add-recipe"
+                                data-day="<?= h($day) ?>"
+                                data-meal="<?= h($meal) ?>">
+                            +
+                        </button>
                     <?php endif; ?>
 
                 </div>
@@ -180,37 +193,67 @@ if (isset($_GET["ajax"]) && $_GET["ajax"] === "1") {
 
     </div>
 
+
     <!-- =====================
-         MOBILE GRID (MEAL × DAY)
-    ====================== -->
+        MOBILE GRID
+    ===================== -->
     <div class="grid-table mobile-grid">
 
-    <div id="sarokText">Menütervező</div>
+        <div id="sarokText">Menütervező</div>
 
-    <?php foreach ($meals as $meal): ?>
+        <?php foreach ($meals as $meal): ?>
 
-        <div class="grid-header"><?= h($meal) ?></div>
+            <div class="grid-header"><?= h($meal) ?></div>
 
-        <div class="cell mobile-row" data-meal="<?= h($meal) ?>">
+            <div class="cell mobile-row">
 
-            <?php foreach ($days as $day): ?>
-                
-                <div class="day-slot" data-day="<?= h($day) ?>">
+                <?php foreach ($days as $day): ?>
 
-                    <?php if (isset($menu[$day][$meal])): ?>
-                        <div class="menu-img-wrapper" data-day="<?= h($day) ?>" data-meal="<?= h($meal) ?>">
-                            <img src="../imgs/<?= h($menu[$day][$meal]["image_url"]) ?>" class="menu-img">
-                            <button class="remove-btn">✕</button>
-                        </div>
-                    <?php endif; ?>
+                    <div class="day-slot cell"
+                        data-day="<?= h($day) ?>"
+                        data-meal="<?= h($meal) ?>">
 
-                </div>
+                        <?php if (isset($menu[$day][$meal])): ?>
 
-            <?php endforeach; ?>
+                            <div class="menu-img-wrapper"
+                                data-day="<?= h($day) ?>"
+                                data-meal="<?= h($meal) ?>">
 
-        </div>
+                                <img
+                                    src="../imgs/<?= h($menu[$day][$meal]["image_url"]) ?>"
+                                    class="menu-img"
+                                    alt="<?= h($menu[$day][$meal]["title"]) ?>"
+                                >
 
-    <?php endforeach; ?>
+                                <button class="remove-btn">✕</button>
+
+                                <a class="open-recipe-btn"
+                                href="../recept_sema/recept.php?id=<?= (int)$menu[$day][$meal]["recipe_id"] ?>">
+                                    ↗
+                                </a>
+                            </div>
+
+                        <?php else: ?>
+
+                            <button class="add-btn add-recipe"
+                                    data-day="<?= h($day) ?>"
+                                    data-meal="<?= h($meal) ?>">
+                                +
+                            </button>
+
+                        <?php endif; ?>
+
+                    </div>
+
+                <?php endforeach; ?>
+
+            </div>
+
+        <?php endforeach; ?>
+
+    </div>
+
+
 
 </div>
 

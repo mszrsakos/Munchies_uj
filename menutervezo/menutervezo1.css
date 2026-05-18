@@ -89,7 +89,7 @@ main{
     position: sticky;
     top: 0;
     z-index: 3;
-    background-color: #91b4b1;
+
 }
 
 .grid-table > div:nth-child(1) {
@@ -170,7 +170,6 @@ main{
     height: 50px;
     font-family: "Inter";
     width: 100%;
-    max-width: 80%;
     display: flex;
     background: #6C9995;
     align-items: center;
@@ -185,6 +184,7 @@ main{
     outline: none;
     font-size: 25px;
     color: white;
+    min-width: 0;
 }
 ::placeholder
 {
@@ -196,10 +196,8 @@ main{
 }
 .search-bar button{
     border: 0;
-    border-radius: 50%;
-    width: 60px;
-    height: 60px;
     background: #6C9995;
+    margin-left: auto;
 }
 
 /* searchbar vége */
@@ -271,10 +269,9 @@ main{
 .img-wrapper{
     position: relative;
     overflow: hidden;
-    flex: 1; 
-    max-width: 20%; 
+    max-width: none; 
     text-align: center; 
-    height: min-content;
+    flex: 1 1 clamp(140px, 25%, 220px);
 }
 .img-wrapper>img{
     display: block;
@@ -332,6 +329,36 @@ main{
     opacity: 0.85;
 }
 
+.open-recipe-btn {
+    position: absolute;
+    bottom: 6px;
+    right: 6px;
+
+    width: 26px;
+    height: 26px;
+    border-radius: 50%;
+
+    background: rgba(0,0,0,0.7);
+    color: white;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    text-decoration: none;
+    font-size: 14px;
+
+    opacity: 0;
+    transition: 0.2s;
+}
+
+.menu-img-wrapper:hover .open-recipe-btn {
+    opacity: 1;
+}
+
+.open-recipe-btn:hover {
+    background: #6C9995;
+}
 
 /* remove btn */
 .menu-img-wrapper {
@@ -422,9 +449,10 @@ main{
 
     .mobile-grid {
         display: grid;
-        grid-template-columns: 140px 1fr;
+        grid-template-columns: 1fr 1fr;
         width: 100%;
         min-width: unset;
+        cursor: default;
     }
 
     main {
@@ -447,9 +475,11 @@ main{
         align-items: center;
         background-color: #91b4b1;
         color: white;
-        font-size: x-large;
+        font-size: xx-large;
         font-weight: bold;
         border-bottom: 2px solid black;
+        border-top: 2px solid black;
+        border-right: 0px;
     }
 
     /* =========================
@@ -462,11 +492,9 @@ main{
         display: flex;
         justify-content: center;
         align-items: center;
-        border-right: 2px solid black;
-        border-bottom: 2px solid black;
-        font-size: 18px;
+        font-size: xx-large;
         font-weight: bold;
-        height: 120px;
+        height: 140px;
     }
 
     /* =========================
@@ -486,13 +514,13 @@ main{
     /* recept kártyák mobilon */
     .mobile-meal-cell .menu-img-wrapper {
         width: 100%;
-        height: 120px;
+        height: auto;
         position: relative;
     }
 
     .menu-img {
         width: 100%;
-        height: 100%;
+        height: 120px;
         object-fit: cover;
         border-radius: 6px;
     }
@@ -513,6 +541,9 @@ main{
         height: auto;
         padding: 8px;
         font-size: 14px;
+        border-right: 1px solid #ccc;
+        border-bottom: 1px solid #ccc;
+
     }
 
     /* =========================
@@ -522,6 +553,16 @@ main{
     .day-selector {
         display: block;
         margin: 15px;
+    }
+
+    .add-btn{
+        width: 100%;
+        height: 100%;
+        padding: 0px;
+        border: none;
+        background-color: transparent;
+        font-size: x-large;
+        cursor: pointer;
     }
 
     #daySelect {
@@ -543,12 +584,36 @@ main{
         height: 85vh;
     }
 
+    #etelValasztasTop {
+        flex-direction: column;
+        height: auto;
+        gap: 10px;
+        padding: 10px;
+    }
+
+    #valasztottEtkezesText {
+        width: 100%;
+        height: 100px;
+        border: 2px solid black;
+        border-radius: 12px;
+        text-align: center;
+    }
+
+    .searchbarDiv {
+        width: 100%;
+    }
+
+    .search-bar {
+        max-width: 100%;
+    }
+
+
     #etelValasztasBottom {
         height: 75%;
         gap: 10px;
     }
 
     .img-wrapper {
-        max-width: 45%;
+        flex: 1 1 calc(50% - 10px);
     }
 }
