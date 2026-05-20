@@ -60,7 +60,7 @@ body {
     width: 90%;
 
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(420px, 1fr));
+    grid-template-columns: repeat(2, 1fr);
     gap: 20px;
 
     background-color: rgba(196, 196, 196, 0.8);
@@ -101,6 +101,7 @@ body {
     border: #000000 solid 1.5px;
     border-radius: 10px;
     text-align: center;
+    height: auto;
 }
 .img-wrapper > img {
     width: 100%;
@@ -183,6 +184,7 @@ body {
         width: 85vw;
         grid-template-columns: 1fr;
         padding: 15px;
+        justify-items: center;
   }
   .img-wrapper > img {
       height: 300px;
