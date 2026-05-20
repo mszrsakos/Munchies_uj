@@ -44,7 +44,7 @@ $profileLink = $isOwnProfile
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="feltoltott_recept.css">
+    <link rel="stylesheet" href="feltoltott_recept1.css">
     <link rel="stylesheet" href="../footer/footer.css">
     <link rel="stylesheet" href="../header/header.css">
     <link rel="icon" type="image/x-icon" href="../imgs/munchieslogo.png">
@@ -62,7 +62,7 @@ $profileLink = $isOwnProfile
                         <div class="img-wrapper">
                             <a class="kepLink" href="../recept_sema/recept.php?id=<?= (int)$row["id"] ?>">
                                 <img class="kep" src="../imgs/<?= htmlspecialchars($row["image_url"]) ?>" alt="">
-                                <div class="content fade"><?= htmlspecialchars($row["title"]) ?></div>
+                                <div class="content fade"><p><?= htmlspecialchars($row["title"]) ?></p></div>
                             </a>
                         </div>
                     <?php endwhile; ?>
