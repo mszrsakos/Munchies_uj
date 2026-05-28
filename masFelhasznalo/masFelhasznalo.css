@@ -97,6 +97,7 @@ body {
     position: relative;
     overflow: hidden;
     width: 40vw;
+    
     border: #000000 solid 1.5px;
     border-radius: 10px;
     text-align: center;
