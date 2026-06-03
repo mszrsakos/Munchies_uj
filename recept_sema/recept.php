@@ -89,7 +89,6 @@ function h($s){ return htmlspecialchars((string)$s, ENT_QUOTES, "UTF-8"); }
 
 
 $title = $recipe["title"] ?? "Recept";
-
 $imageFile = trim((string)($recipe["image_url"] ?? ""));
 $image = $imageFile !== "" ? "../imgs/" . ltrim($imageFile, "/") : "";
 
