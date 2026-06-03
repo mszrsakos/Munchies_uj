@@ -11,6 +11,7 @@ require_once "../database.php";
 $errors = [];
 $success = "";
 
+// Csak POST kérés esetén dolgozzuk fel az adatokat
 if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
     $title = trim($_POST["title"] ?? "");
@@ -21,6 +22,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     $ingredients = json_decode($_POST["ingredients"] ?? "[]", true);
     $steps = json_decode($_POST["steps"] ?? "[]", true);
 
+    // Validáció
     if (empty($title)) $errors[] = "Hiányzik a recept neve!";
     if (empty($time)) $errors[] = "Add meg az időt!";
     if (empty($cost)) $errors[] = "Válassz költséget!";
@@ -30,6 +32,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
     $imagePath = null;
 
+    // Kép feltöltés ellenőrzése
     if (isset($_FILES["image"]) && $_FILES["image"]["error"] === 0) {
         $targetDir = "../imgs/";
 
@@ -49,6 +52,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
         $errors[] = "Kérlek, válassz egy képet a recepthez!";
     }
 
+    // Ha nincs hiba, mentés az adatbázisba
     if (empty($errors)) {
 
         $user_id = $_SESSION["user_id"];
@@ -105,7 +109,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
 <div class="cim">
     <h1>Saját recept feltöltése</h1>
-
+    <h4 style="color: #6C9995;"><u>Az összes mező kitöltése szükséges</u></h4>
     <?php
     if (!empty($errors)) {
         foreach ($errors as $e) {

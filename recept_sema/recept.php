@@ -164,10 +164,18 @@ if ($loggedInUserId > 0) {
               <img src="<?= $liked ? '../imgs/red_heart.png' : '../imgs/clear_heart.png' ?>" width="50">
           </button>
       </form>
-
+      
       
       </div>
-      
+      <?php if ($loggedInUserId > 0 && $loggedInUserId === (int)$recipe["created_by"]): ?>
+      <form method="POST" action="torles.php" onsubmit="return confirm('Biztosan törölni szeretnéd ezt a receptet?');">
+          <input type="hidden" name="recipe_id" value="<?= $id ?>">
+          <button type="submit"
+                  style="background:#dc2626;color:white;border:none;padding:10px 15px;border-radius:8px;cursor:pointer; font-size: 1.2rem; display: block; margin: 0 auto;">
+              Recept törlése
+          </button>
+      </form>
+      <?php endif; ?>
       <!-- Beküldő -->
       <p style="margin: 10px 0 14px; text-align: center; opacity: 0.75; font-size: 0.9rem;">
   <?php if ($profileLink): ?>
